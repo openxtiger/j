@@ -1,0 +1,310 @@
+{
+    "project": {
+        "name": "The J API",
+        "description": "The J API: a library for Javascript",
+        "version": "5.0.0",
+        "url": "http://example.com/"
+    },
+    "files": {
+        "j5/src/core/oop.js": {
+            "name": "j5/src/core/oop.js",
+            "modules": {},
+            "classes": {
+                "J": 1,
+                ".": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/unit/Observable.js": {
+            "name": "j5/src/j/unit/Observable.js",
+            "modules": {},
+            "classes": {
+                "j.unit.Observable": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "J": {
+            "name": "J",
+            "shortname": "J",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/core/oop.js",
+            "line": 14,
+            "description": "The J global namespace object. This is the constructor for all J instances.",
+            "is_constructor": 1,
+            "global": "",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "* Zero or more optional selector objects",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "context",
+                    "description": "* Zero or more optional context objects",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "* when zero param return J.prototype"
+            }
+        },
+        ".": {
+            "name": ".",
+            "shortname": ".",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/core/oop.js",
+            "line": 445
+        },
+        "j.unit.Observable": {
+            "name": "j.unit.Observable",
+            "shortname": "j.unit.Observable",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/unit/Observable.js",
+            "line": 7
+        }
+    },
+    "classitems": [
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 1,
+            "description": "The J module contains the components required for building the J seed file.\nopp for the library.",
+            "mainName": "j",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 110,
+            "itemtype": "method",
+            "name": "extend",
+            "static": 1,
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 114,
+            "itemtype": "method",
+            "name": "extend",
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 122,
+            "itemtype": "method",
+            "name": "mixin",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": ""
+                },
+                {
+                    "name": "c",
+                    "description": ""
+                }
+            ],
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 136,
+            "itemtype": "method",
+            "name": "mixinIf",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": ""
+                },
+                {
+                    "name": "c",
+                    "description": ""
+                }
+            ],
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 152,
+            "itemtype": "method",
+            "name": "override",
+            "static": 1,
+            "params": [
+                {
+                    "name": "origclass",
+                    "description": ""
+                },
+                {
+                    "name": "overrides",
+                    "description": ""
+                }
+            ],
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 164,
+            "itemtype": "method",
+            "name": "merge",
+            "static": 1,
+            "params": [
+                {
+                    "name": "first",
+                    "description": ""
+                },
+                {
+                    "name": "second",
+                    "description": ""
+                }
+            ],
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 190,
+            "itemtype": "method",
+            "name": "get",
+            "static": 1,
+            "params": [
+                {
+                    "name": "el",
+                    "description": ""
+                }
+            ],
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 213,
+            "itemtype": "method",
+            "name": "dom",
+            "static": 1,
+            "params": [
+                {
+                    "name": "el",
+                    "description": ""
+                }
+            ],
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 232,
+            "itemtype": "method",
+            "name": "isFunction",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": ""
+                }
+            ],
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 367,
+            "itemtype": "property",
+            "name": "length",
+            "type": "Integer",
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 371,
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": ""
+                }
+            ],
+            "class": "J"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 450,
+            "itemtype": "method",
+            "name": "jpackage",
+            "global": "",
+            "params": [
+                {
+                    "name": "p1",
+                    "description": "package name",
+                    "type": "String"
+                },
+                {
+                    "name": "p2..p-1",
+                    "description": "imports",
+                    "type": "String|Object"
+                },
+                {
+                    "name": "p-1",
+                    "description": "package body",
+                    "type": "Function"
+                }
+            ],
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 623,
+            "description": "p1:String ==>class name\np2,String ==>same package;Object\np3,function ==>",
+            "class": "."
+        },
+        {
+            "file": "j5/src/j/unit/Observable.js",
+            "line": 1,
+            "description": "package j.unit",
+            "class": "j.unit.Observable"
+        },
+        {
+            "file": "j5/src/j/unit/Observable.js",
+            "line": 12,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": ""
+                }
+            ],
+            "class": "j.unit.Observable"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\np1:String ==>class name\np2,String ==>same package;Object\np3,function ==>",
+            "line": " j5/src/core/oop.js:623"
+        },
+        {
+            "message": "Missing item type\npackage j.unit",
+            "line": " j5/src/j/unit/Observable.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/unit/Observable.js:12"
+        }
+    ]
+}
