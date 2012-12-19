@@ -3,6 +3,7 @@ YUI.add("yuidoc-meta", function(Y) {
     "classes": [
         ".",
         "J",
+        "Observer",
         "j.unit.Observable"
     ],
     "modules": [],

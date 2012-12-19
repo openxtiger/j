@@ -10,6 +10,7 @@ var __gclasses__ = {};
 var __iclasses__ = {};
 var __imports__ = [];
 var __importcs__ = {};
+var __statics__ = {};
 
 /**
  * The J global namespace object. This is the constructor for all J instances.
@@ -334,7 +335,32 @@ var J = (function() {
             });
             return __gclasses__[c] = o[d[d.length - 1]];
         },
+        importstatic:function(c, code, args) {
+            if (J.isFunction(code)) {
+                code._jstatic = c._jstatic = c;
+                code.call(c, c);
+                delete code._jstatic;
+                delete c._jstatic;
+            } else {
+                J.mixin(c, code);
+            }
+            if (args && args.length > 0) {
+                for (i = 0,l = args.length; i < l; i++) {
+                    J.mixinIf(c, J.importclass(args[i]));
+                }
+            }
+        },
+
         importclass:function(c) {
+            if (__statics__[c]) {
+                var ip;
+                __gclasses__[c] = ip = J.namespace(c);
+                ip.shortname = __statics__[c][0];
+                ip.classname = c;
+                J.importstatic(ip, __statics__[c][1], __statics__[c][2]);
+                delete __statics__[c];
+                return ip;
+            }
             if (__gclasses__[c]) return __gclasses__[c];
             if (__iclasses__[c]) return __iclasses__[c];
             if (__importcs__[c]) return __importcs__[c];
@@ -443,17 +469,29 @@ var J = (function() {
 })();
 
 /**
- *
+ * The global namespace methods,Used to simulate the Java keyword.
  * @class .
  */
 
+
 /**
+ * Simulation of java package
  * @method jpackage
- * @global
- * @param {String} p1  package name
- * @param {String|Object} p2..p-1  imports
- * @param {Function} p-1 package body
- */
+ * @param {String} name package's name
+ * @param {String|Object|Class} [imports]* import class or objects
+ *
+ *      For example:
+ *      "foo.Foo;foo.*"
+ *      "foo.Foo","foo.*"
+ *      foo.Foo
+ *
+ * @param {function} func(imports)  package body.
+ *
+ **   imports:According to the incoming imports sequence to make variables
+ *
+ *
+ *@global
+ **/
 function jpackage() {
     var l = arguments.length,i = 0;
     if (l == 0) return;
@@ -496,7 +534,10 @@ function jpackage() {
     __iclasses__ = {};
 
 }
-
+/**
+ * @method jimport
+ * @global
+ */
 function jimport() {
     var args = [],vs,ip;
     __imports__ = [];
@@ -525,9 +566,13 @@ function jimport() {
             args.push(v);
         }
     });
+    if (args.length == 1) return args[0];
     return args;
 }
-
+/**
+ * @method jextends
+ * @global
+ */
 function jextends() {
 
     var oc = Object.prototype.constructor;
@@ -561,10 +606,24 @@ function jextends() {
     };
 
     var sbp,spp = JClass.prototype = sp.prototype;
-
     if (J.isFunction(coverrides)) {
         coverrides.$Define = true;
-        coverrides = coverrides.apply(this, [spp].concat(mixins));
+
+        var c = coverrides.apply(this, [spp].concat(mixins));
+        if (c) {
+            coverrides = c;
+        } else {
+
+            if (spp._jpublic) {
+                coverrides = spp._jpublic;
+                delete spp._jpublic;
+            }
+            if (!coverrides) coverrides = {};
+            if (spp._jstatic) {
+                coverrides.jstatic = spp._jstatic;
+                delete spp._jstatic;
+            }
+        }
     }
 
     if (l == 2) {
@@ -574,13 +633,12 @@ function jextends() {
     }
 
     sbp = sb.prototype = new JClass();
-    sbp.constructor = sb;
-    sbp.superclass = sb.superclass = spp;
+    sbp.constructor = sbp.jstatic = sb;
+    sbp.superclass = sbp.jsuper = sb.superclass = sb.jsuper = spp;
 
     if (spp.constructor == oc) {
         spp.constructor = sp;
     }
-
     if (coverrides.jstatic) {
         J.mixin(sb, coverrides.jstatic);
         delete coverrides.jstatic;
@@ -596,8 +654,56 @@ function jextends() {
 
     return sb;
 }
+/**
+ * @method jprivate
+ * @global
+ */
+function jprivate(origclass, overrides) {
+    J.mixin(origclass, overrides);
+}
+/**
+ * @method jpublic
+ * @global
+ */
+function jpublic(origclass, overrides) {
+    if (!origclass._jpublic) {
+        origclass._jpublic = overrides;
+        return;
+    }
+    J.mixin(origclass._jpublic, overrides);
+}
+/**
+ * @method jprotected
+ * @global
+ */
+function jprotected(origclass, overrides) {
+    if (!origclass._jpublic) {
+        origclass._jpublic = overrides;
+        return;
+    }
+    J.mixin(origclass._jpublic, overrides);
+}
+/**
+ * @method jstatic
+ * @global
+ */
+function jstatic(origclass, overrides) {
+    var l = arguments.length;
+    if (l == 1) {
+        J.mixin(jstatic.caller._jstatic, origclass);
+        return
+    }
+    if (!origclass._jstatic) {
+        origclass._jstatic = overrides;
+        return;
+    }
+    J.mixin(origclass._jstatic, overrides);
+}
 
-
+/**
+ * @method joverride
+ * @global
+ */
 function joverride(origclass, overrides) {
     if (J.isString(origclass)) {
         origclass = jclass(origclass);
@@ -620,10 +726,10 @@ function joverride(origclass, overrides) {
 
 }
 
+
 /**
- * p1:String ==>class name
- * p2,String ==>same package;Object
- * p3,function ==>
+ * @method jclass
+ * @global
  */
 function jclass() {
     var l = arguments.length,i = 0;
@@ -688,7 +794,10 @@ function jclass() {
 
     return cls;
 }
-
+/**
+ * @method jnew
+ * @global
+ */
 function jnew() {
     var l = arguments.length,i = 0;
     if (l == 0) return {};
@@ -725,10 +834,14 @@ function jnew() {
 
     return new constructor();
 }
-
-
+/**
+ * @method j
+ * @global
+ */
 String.prototype.j = function() {
     var def, code;
+    var hextends = false,hasclass = false,istatic = false;
+
     def = this.toString();
 
     if (arguments.length == 1) {
@@ -738,32 +851,66 @@ String.prototype.j = function() {
         def = def.join(' ');
     }
     var defs = def.replace(/\s{1,}/g, ' ').split(/\s/);
+    if (defs[0] == "static" && defs[1] == "class") {
+        defs.shift();
+        istatic = true;
+    }
     var l = defs.length;
     if (l % 2 != 0) {
         throw new Error("[j] def error");
     }
     var args = [];
+
     for (var i = 0; i < l; i += 2) {
         switch (defs[i]) {
             case "package":
-                return jpackage.call(this, defs[i + 1], code);
+                args = J.toArray(arguments);
+                args.unshift(defs[i + 1]);
+                return jpackage.apply(this, args);
             case "import":
                 return jimport.call(this, defs[i + 1]);
-            case "class":
+            case "static":
+                istatic = true;
                 args[0] = defs[i + 1];
                 break;
+            case "class":
+                args[0] = defs[i + 1];
+                hasclass = true;
+                break;
             case "extends":
+                hextends = true;
                 args[1] = defs[i + 1];
                 break;
             case "implements":
                 args = args.concat(defs[i + 1].replace(/\s/).split(","));
                 break;
+
         }
     }
+    if (istatic && hasclass) {
+        var name = args[0];
+        if (args.length > 1) args.shift();
+        __statics__[__npackage__ + "." + name] = [name,code,args];
+        return;
+    }
+    if (istatic) {
+        var c = __cpackage__[args[0]] = {};
+        c.shortname = args[0];
+        c.classname = __npackage__ ? __npackage__ + "." + args[0] : args[0];
+        __gclasses__[c.classname] = c;
+        if (args.length > 1) args.shift();
+        J.importstatic(c, code, args);
+        return c;
+    }
+    if (!hasclass) {
+        args.unshift("");
+    }
+    if (!hextends && args.length > 1) {
+        args.splice(1, 0, Object);
+    }
     args.push(code);
-
     return jclass.apply(this, args);
-};
+}
 
 function jsupercall(cls, method, args) {
     var sp = J.isString(cls) ? jsupercall.caller && jsupercall.caller.$Define ? J.importclass(cls) : J.nameclass(cls) : cls;

@@ -24,6 +24,15 @@
             },
             "fors": {},
             "namespaces": {}
+        },
+        "j5/src/j/unit/Observer.js": {
+            "name": "j5/src/j/unit/Observer.js",
+            "modules": {},
+            "classes": {
+                "Observer": 1
+            },
+            "fors": {},
+            "namespaces": {}
         }
     },
     "modules": {},
@@ -37,7 +46,7 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "j5/src/core/oop.js",
-            "line": 14,
+            "line": 15,
             "description": "The J global namespace object. This is the constructor for all J instances.",
             "is_constructor": 1,
             "global": "",
@@ -68,7 +77,8 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "j5/src/core/oop.js",
-            "line": 445
+            "line": 471,
+            "description": "The global namespace methods,Used to simulate the Java keyword."
         },
         "j.unit.Observable": {
             "name": "j.unit.Observable",
@@ -80,6 +90,18 @@
             "extension_for": [],
             "file": "j5/src/j/unit/Observable.js",
             "line": 7
+        },
+        "Observer": {
+            "name": "Observer",
+            "shortname": "Observer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/unit/Observer.js",
+            "line": 7,
+            "static": 1
         }
     },
     "classitems": [
@@ -95,7 +117,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 110,
+            "line": 111,
             "itemtype": "method",
             "name": "extend",
             "static": 1,
@@ -103,14 +125,14 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 114,
+            "line": 115,
             "itemtype": "method",
             "name": "extend",
             "class": "J"
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 122,
+            "line": 123,
             "itemtype": "method",
             "name": "mixin",
             "static": 1,
@@ -128,7 +150,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 136,
+            "line": 137,
             "itemtype": "method",
             "name": "mixinIf",
             "static": 1,
@@ -146,7 +168,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 152,
+            "line": 153,
             "itemtype": "method",
             "name": "override",
             "static": 1,
@@ -164,7 +186,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 164,
+            "line": 165,
             "itemtype": "method",
             "name": "merge",
             "static": 1,
@@ -182,7 +204,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 190,
+            "line": 191,
             "itemtype": "method",
             "name": "get",
             "static": 1,
@@ -196,7 +218,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 213,
+            "line": 214,
             "itemtype": "method",
             "name": "dom",
             "static": 1,
@@ -210,7 +232,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 232,
+            "line": 233,
             "itemtype": "method",
             "name": "isFunction",
             "static": 1,
@@ -224,7 +246,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 367,
+            "line": 393,
             "itemtype": "property",
             "name": "length",
             "type": "Integer",
@@ -232,7 +254,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 371,
+            "line": 397,
             "itemtype": "method",
             "name": "create",
             "params": [
@@ -245,33 +267,110 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 450,
+            "line": 477,
+            "description": "Simulation of java package",
             "itemtype": "method",
             "name": "jpackage",
-            "global": "",
             "params": [
                 {
-                    "name": "p1",
-                    "description": "package name",
+                    "name": "name",
+                    "description": "package's name",
                     "type": "String"
                 },
                 {
-                    "name": "p2..p-1",
-                    "description": "imports",
-                    "type": "String|Object"
+                    "name": "imports",
+                    "description": "import class or objects\n\n     For example:\n     \"foo.Foo;foo.*\"\n     \"foo.Foo\",\"foo.*\"\n     foo.Foo",
+                    "type": "String|Object|Class",
+                    "optional": true,
+                    "multiple": true
                 },
                 {
-                    "name": "p-1",
-                    "description": "package body",
+                    "name": "func(imports)",
+                    "description": "package body.\n\n*   imports:According to the incoming imports sequence to make variables",
                     "type": "Function"
                 }
             ],
+            "global": "",
             "class": "."
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 623,
-            "description": "p1:String ==>class name\np2,String ==>same package;Object\np3,function ==>",
+            "line": 537,
+            "itemtype": "method",
+            "name": "jimport",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 572,
+            "itemtype": "method",
+            "name": "jextends",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 657,
+            "itemtype": "method",
+            "name": "jprivate",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 664,
+            "itemtype": "method",
+            "name": "jpublic",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 675,
+            "itemtype": "method",
+            "name": "jprotected",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 686,
+            "itemtype": "method",
+            "name": "jstatic",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 703,
+            "itemtype": "method",
+            "name": "joverride",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 730,
+            "itemtype": "method",
+            "name": "jclass",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 797,
+            "itemtype": "method",
+            "name": "jnew",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 837,
+            "itemtype": "method",
+            "name": "j",
+            "global": "",
             "class": "."
         },
         {
@@ -291,12 +390,18 @@
                 }
             ],
             "class": "j.unit.Observable"
+        },
+        {
+            "file": "j5/src/j/unit/Observer.js",
+            "line": 1,
+            "pakcage": "j.unit",
+            "class": "Observer"
         }
     ],
     "warnings": [
         {
-            "message": "Missing item type\np1:String ==>class name\np2,String ==>same package;Object\np3,function ==>",
-            "line": " j5/src/core/oop.js:623"
+            "message": "unknown tag: pakcage",
+            "line": " j5/src/j/unit/Observer.js:1"
         },
         {
             "message": "Missing item type\npackage j.unit",
@@ -305,6 +410,10 @@
         {
             "message": "Missing item type",
             "line": " j5/src/j/unit/Observable.js:12"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/unit/Observer.js:1"
         }
     ]
 }

@@ -52,31 +52,37 @@ var jui = {};
      */
     'class Container extends Component implements Observable'
         .j(function(jsuper, ob) {
-        return {
-            jstatic:{
-                a:1
-            },
+        var i = 0;
+        jstatic(jsuper, {
+            a:1
+        });
+
+        jpublic(jsuper, {
+            _i:0,
             constructor:function() {
                 var jthis = this;
                 jsuper.constructor.call(this);
                 ob.constructor.call(this);
-                console.dir(jthis.constructor.a);
+                console.log("public static a=" + jthis.constructor.a++);
+                console.log("public static jstatic.a=" + jthis.jstatic.a++);
+                console.log("private static i=" + i++);
+                console.log("private  i=" + this._i++);
             }
+        });
 
 
-        }
     });
 });
 
 
 var x = jnew("jui.Container");
-console.dir(x);
+//console.dir(x);
 x = jnew("jui.Container", 1);
-console.dir(x);
+//console.dir(x);
 x.show();
 
-var b = J.get("a").dom();
-console.dir(J.get(b) == J.get(b));
+/*var b = J.get("a").dom();
+ console.dir(J.get(b) == J.get(b));*/
 
 J('#a').on("click", function() {
     J(this).toggleClass("c");
