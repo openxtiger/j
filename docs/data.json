@@ -6,30 +6,68 @@
         "url": "http://example.com/"
     },
     "files": {
+        "j5/src/core/j.js": {
+            "name": "j5/src/core/j.js",
+            "modules": {},
+            "classes": {
+                "Jclass": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "j5/src/core/oop.js": {
             "name": "j5/src/core/oop.js",
             "modules": {},
             "classes": {
-                "J": 1,
                 ".": 1
             },
             "fors": {},
             "namespaces": {}
         },
-        "j5/src/j/unit/Observable.js": {
-            "name": "j5/src/j/unit/Observable.js",
+        "j5/src/j/jui/Component.js": {
+            "name": "j5/src/j/jui/Component.js",
             "modules": {},
             "classes": {
-                "j.unit.Observable": 1
+                "jui.Component": 1
             },
             "fors": {},
             "namespaces": {}
         },
-        "j5/src/j/unit/Observer.js": {
-            "name": "j5/src/j/unit/Observer.js",
+        "j5/src/j/junit/MixedCollection.js": {
+            "name": "j5/src/j/junit/MixedCollection.js",
             "modules": {},
             "classes": {
-                "Observer": 1
+                "junit.MixedCollection": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/junit/Observable.js": {
+            "name": "j5/src/j/junit/Observable.js",
+            "modules": {},
+            "classes": {
+                "junit.Observable": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/junit/Observer.js": {
+            "name": "j5/src/j/junit/Observer.js",
+            "modules": {},
+            "classes": {
+                "junit.Observer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/junit/Template.js": {
+            "name": "j5/src/j/junit/Template.js",
+            "modules": {},
+            "classes": {
+                "junit.BaseTemplate": 1,
+                "junit.STemplate": 1,
+                "junit.Template": 1,
+                "junit.JTemplate": 1
             },
             "fors": {},
             "namespaces": {}
@@ -37,36 +75,37 @@
     },
     "modules": {},
     "classes": {
-        "J": {
-            "name": "J",
-            "shortname": "J",
+        "Jclass": {
+            "name": "Jclass",
+            "shortname": "Jclass",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "j5/src/core/oop.js",
-            "line": 15,
-            "description": "The J global namespace object. This is the constructor for all J instances.",
-            "is_constructor": 1,
-            "global": "",
+            "file": "j5/src/core/j.js",
+            "line": 76,
+            "description": "Jclass 私有构造函数，只能由$函数调用 @see $",
+            "access": "private",
+            "tagname": "",
             "params": [
                 {
                     "name": "selector",
-                    "description": "* Zero or more optional selector objects",
-                    "type": "Object",
+                    "description": "\n * 空值时，将返回一个空的对象 　\n * 为dom时，返回此dom的Jclass对象\n * 为字符串时，返回通过 querySelectorAll 的dom数组\n * 其他的将合并到新的对象上",
+                    "type": "HTMLElement|String|Object",
                     "optional": true
                 },
                 {
                     "name": "context",
-                    "description": "* Zero or more optional context objects",
-                    "type": "Object",
+                    "description": "",
                     "optional": true
                 }
             ],
             "return": {
-                "description": "* when zero param return J.prototype"
-            }
+                "description": "返回元素为０或多个Jclass对象数组",
+                "type": "*"
+            },
+            "is_constructor": 1
         },
         ".": {
             "name": ".",
@@ -77,116 +116,183 @@
             "plugin_for": [],
             "extension_for": [],
             "file": "j5/src/core/oop.js",
-            "line": 471,
+            "line": 97,
             "description": "The global namespace methods,Used to simulate the Java keyword."
         },
-        "j.unit.Observable": {
-            "name": "j.unit.Observable",
-            "shortname": "j.unit.Observable",
+        "jui.Component": {
+            "name": "jui.Component",
+            "shortname": "jui.Component",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "j5/src/j/unit/Observable.js",
-            "line": 7
+            "file": "j5/src/j/jui/Component.js",
+            "line": 6,
+            "extends": "junit.Observable"
         },
-        "Observer": {
-            "name": "Observer",
-            "shortname": "Observer",
+        "junit.MixedCollection": {
+            "name": "junit.MixedCollection",
+            "shortname": "junit.MixedCollection",
             "classitems": [],
             "plugins": [],
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "j5/src/j/unit/Observer.js",
-            "line": 7,
+            "file": "j5/src/j/junit/MixedCollection.js",
+            "line": 6,
+            "implements": "junit.Observable"
+        },
+        "junit.Observable": {
+            "name": "junit.Observable",
+            "shortname": "junit.Observable",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Observable.js",
+            "line": 6
+        },
+        "junit.Observer": {
+            "name": "junit.Observer",
+            "shortname": "junit.Observer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Observer.js",
+            "line": 6,
             "static": 1
+        },
+        "junit.BaseTemplate": {
+            "name": "junit.BaseTemplate",
+            "shortname": "junit.BaseTemplate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Template.js",
+            "line": 6
+        },
+        "junit.STemplate": {
+            "name": "junit.STemplate",
+            "shortname": "junit.STemplate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Template.js",
+            "line": 47
+        },
+        "junit.Template": {
+            "name": "junit.Template",
+            "shortname": "junit.Template",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Template.js",
+            "line": 120
+        },
+        "junit.JTemplate": {
+            "name": "junit.JTemplate",
+            "shortname": "junit.JTemplate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Template.js",
+            "line": 305
         }
     },
     "classitems": [
         {
-            "file": "j5/src/core/oop.js",
-            "line": 1,
-            "description": "The J module contains the components required for building the J seed file.\nopp for the library.",
-            "mainName": "j",
-            "tag": "main",
-            "itemtype": "main",
-            "_main": true,
-            "class": "J"
+            "file": "j5/src/core/j.js",
+            "line": 107,
+            "itemtype": "method",
+            "name": "$",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "\n * $() 空值时，返回 Jclass.prototype　\n * $({$:\"class\"}) 对象含有$属性时，返回 selector类的对象　\n * $(\"@name\")为字符串，且以@　开头属性时，返回 jcomponent 对象　\n * $(function(){}) 为函数时，文档加载完成后，回调此函数\n * 其他参考 @see Jclass",
+                    "type": "HTMLElement|String|Object|Jclass",
+                    "optional": true
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Jclass.prototype或返回元素为０或多个Jclass对象数组",
+                "type": "*"
+            },
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 111,
+            "file": "j5/src/core/j.js",
+            "line": 146,
+            "description": "$.extend() 对一个对象的扩展",
             "itemtype": "method",
             "name": "extend",
             "static": 1,
-            "class": "J"
+            "params": [
+                {
+                    "name": "1..n",
+                    "description": "\n * 只有一个参数时，是对$进行自身扩展\n * 其它依次将所有参数扩展到第一个参数上",
+                    "type": "Object..",
+                    "optional": true
+                }
+            ],
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 115,
+            "file": "j5/src/core/j.js",
+            "line": 155,
+            "description": "$().extend() 对一个对象的prototype扩展",
             "itemtype": "method",
             "name": "extend",
-            "class": "J"
+            "params": [
+                {
+                    "name": "1..n",
+                    "description": "\n * 只有一个参数时，是对$.prototype进行自身扩展\n * 其它依次将所有参数扩展到第一个参数的prototype上",
+                    "type": "Object..",
+                    "optional": true
+                }
+            ],
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 123,
+            "file": "j5/src/core/j.js",
+            "line": 198,
+            "description": "有条件的扩展对象",
             "itemtype": "method",
-            "name": "mixin",
+            "name": "extendIf",
             "static": 1,
             "params": [
                 {
                     "name": "o",
-                    "description": ""
+                    "description": "被扩展的对象",
+                    "type": "Object"
                 },
                 {
                     "name": "c",
-                    "description": ""
+                    "description": "扩展的对象，且对象中的属性值不为undefind时才扩展进入o对象",
+                    "type": "Object"
                 }
             ],
-            "class": "J"
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 137,
-            "itemtype": "method",
-            "name": "mixinIf",
-            "static": 1,
-            "params": [
-                {
-                    "name": "o",
-                    "description": ""
-                },
-                {
-                    "name": "c",
-                    "description": ""
-                }
-            ],
-            "class": "J"
-        },
-        {
-            "file": "j5/src/core/oop.js",
-            "line": 153,
-            "itemtype": "method",
-            "name": "override",
-            "static": 1,
-            "params": [
-                {
-                    "name": "origclass",
-                    "description": ""
-                },
-                {
-                    "name": "overrides",
-                    "description": ""
-                }
-            ],
-            "class": "J"
-        },
-        {
-            "file": "j5/src/core/oop.js",
-            "line": 165,
+            "file": "j5/src/core/j.js",
+            "line": 215,
             "itemtype": "method",
             "name": "merge",
             "static": 1,
@@ -200,11 +306,11 @@
                     "description": ""
                 }
             ],
-            "class": "J"
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 191,
+            "file": "j5/src/core/j.js",
+            "line": 290,
             "itemtype": "method",
             "name": "get",
             "static": 1,
@@ -214,11 +320,11 @@
                     "description": ""
                 }
             ],
-            "class": "J"
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 214,
+            "file": "j5/src/core/j.js",
+            "line": 313,
             "itemtype": "method",
             "name": "dom",
             "static": 1,
@@ -228,11 +334,11 @@
                     "description": ""
                 }
             ],
-            "class": "J"
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 233,
+            "file": "j5/src/core/j.js",
+            "line": 332,
             "itemtype": "method",
             "name": "isFunction",
             "static": 1,
@@ -242,19 +348,19 @@
                     "description": ""
                 }
             ],
-            "class": "J"
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 393,
+            "file": "j5/src/core/j.js",
+            "line": 462,
             "itemtype": "property",
             "name": "length",
             "type": "Integer",
-            "class": "J"
+            "class": "Jclass"
         },
         {
-            "file": "j5/src/core/oop.js",
-            "line": 397,
+            "file": "j5/src/core/j.js",
+            "line": 466,
             "itemtype": "method",
             "name": "create",
             "params": [
@@ -263,11 +369,21 @@
                     "description": ""
                 }
             ],
-            "class": "J"
+            "class": "Jclass"
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 477,
+            "line": 78,
+            "description": "The $ module contains the components required for building the $ seed file.\nopp for the library.",
+            "mainName": "j",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 103,
             "description": "Simulation of java package",
             "itemtype": "method",
             "name": "jpackage",
@@ -295,7 +411,15 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 537,
+            "line": 122,
+            "itemtype": "method",
+            "name": "jpackage",
+            "global": "",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 170,
             "itemtype": "method",
             "name": "jimport",
             "global": "",
@@ -303,7 +427,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 572,
+            "line": 207,
             "itemtype": "method",
             "name": "jextends",
             "global": "",
@@ -311,7 +435,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 657,
+            "line": 294,
             "itemtype": "method",
             "name": "jprivate",
             "global": "",
@@ -319,7 +443,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 664,
+            "line": 303,
             "itemtype": "method",
             "name": "jpublic",
             "global": "",
@@ -327,7 +451,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 675,
+            "line": 316,
             "itemtype": "method",
             "name": "jprotected",
             "global": "",
@@ -335,7 +459,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 686,
+            "line": 329,
             "itemtype": "method",
             "name": "jstatic",
             "global": "",
@@ -343,7 +467,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 703,
+            "line": 347,
             "itemtype": "method",
             "name": "joverride",
             "global": "",
@@ -351,7 +475,13 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 730,
+            "line": 374,
+            "description": "p1:String ==>class name\np2,String ==>same package;Object\np3,function ==>",
+            "class": "."
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 379,
             "itemtype": "method",
             "name": "jclass",
             "global": "",
@@ -359,7 +489,7 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 797,
+            "line": 448,
             "itemtype": "method",
             "name": "jnew",
             "global": "",
@@ -367,21 +497,49 @@
         },
         {
             "file": "j5/src/core/oop.js",
-            "line": 837,
+            "line": 495,
             "itemtype": "method",
             "name": "j",
             "global": "",
             "class": "."
         },
         {
-            "file": "j5/src/j/unit/Observable.js",
+            "file": "j5/src/j/jui/Component.js",
             "line": 1,
-            "description": "package j.unit",
-            "class": "j.unit.Observable"
+            "pakcage": "jui",
+            "class": "jui.Component"
         },
         {
-            "file": "j5/src/j/unit/Observable.js",
-            "line": 12,
+            "file": "j5/src/j/junit/MixedCollection.js",
+            "line": 1,
+            "description": "package junit",
+            "class": "junit.MixedCollection"
+        },
+        {
+            "file": "j5/src/j/junit/MixedCollection.js",
+            "line": 58,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "allowFunctions",
+                    "description": ""
+                },
+                {
+                    "name": "keyFn",
+                    "description": ""
+                }
+            ],
+            "class": "junit.MixedCollection"
+        },
+        {
+            "file": "j5/src/j/junit/Observable.js",
+            "line": 1,
+            "description": "package junit",
+            "class": "junit.Observable"
+        },
+        {
+            "file": "j5/src/j/junit/Observable.js",
+            "line": 10,
             "is_constructor": 1,
             "params": [
                 {
@@ -389,31 +547,77 @@
                     "description": ""
                 }
             ],
-            "class": "j.unit.Observable"
+            "class": "junit.Observable"
         },
         {
-            "file": "j5/src/j/unit/Observer.js",
+            "file": "j5/src/j/junit/Observer.js",
             "line": 1,
-            "pakcage": "j.unit",
-            "class": "Observer"
+            "pakcage": "junit",
+            "class": "junit.Observer"
+        },
+        {
+            "file": "j5/src/j/junit/Template.js",
+            "line": 1,
+            "pakcage": "junit",
+            "class": "junit.BaseTemplate"
         }
     ],
     "warnings": [
         {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:76"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:107"
+        },
+        {
             "message": "unknown tag: pakcage",
-            "line": " j5/src/j/unit/Observer.js:1"
+            "line": " j5/src/j/jui/Component.js:1"
         },
         {
-            "message": "Missing item type\npackage j.unit",
-            "line": " j5/src/j/unit/Observable.js:1"
+            "message": "unknown tag: implements",
+            "line": " j5/src/j/junit/MixedCollection.js:6"
+        },
+        {
+            "message": "unknown tag: pakcage",
+            "line": " j5/src/j/junit/Observer.js:1"
+        },
+        {
+            "message": "unknown tag: pakcage",
+            "line": " j5/src/j/junit/Template.js:1"
+        },
+        {
+            "message": "Missing item type\np1:String ==>class name\np2,String ==>same package;Object\np3,function ==>",
+            "line": " j5/src/core/oop.js:374"
         },
         {
             "message": "Missing item type",
-            "line": " j5/src/j/unit/Observable.js:12"
+            "line": " j5/src/j/jui/Component.js:1"
+        },
+        {
+            "message": "Missing item type\npackage junit",
+            "line": " j5/src/j/junit/MixedCollection.js:1"
         },
         {
             "message": "Missing item type",
-            "line": " j5/src/j/unit/Observer.js:1"
+            "line": " j5/src/j/junit/MixedCollection.js:58"
+        },
+        {
+            "message": "Missing item type\npackage junit",
+            "line": " j5/src/j/junit/Observable.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/junit/Observable.js:10"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/junit/Observer.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/junit/Template.js:1"
         }
     ]
 }

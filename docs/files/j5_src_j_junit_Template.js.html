@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>j5/src/j/junit/Template.js - The J API</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title="The J API"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 5.0.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/..html">.</a></li>
+            
+                <li><a href="../classes/Jclass.html">Jclass</a></li>
+            
+                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+            
+                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+            
+                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+            
+                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+            
+                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+            
+                <li><a href="../classes/junit.Observer.html">junit.Observer</a></li>
+            
+                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+            
+                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: j5/src/j/junit/Template.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * @pakcage junit
+ */
+&#x27;package junit&#x27;.j(function () {
+
+    /**
+     * @class junit.BaseTemplate
+     */
+    &#x27;class BaseTemplate&#x27;.j({
+        constructor: function (html, args) {
+            var me = this;
+            $.extend(me, args);
+            me.html = html;
+            if (me.compiled) {
+                me.compile();
+            }
+        },
+
+        insertFirst: function (el, values) {
+            return this.doInsert(&#x27;afterBegin&#x27;, el, values);
+        },
+
+        insertBefore: function (el, values) {
+            return this.doInsert(&#x27;beforeBegin&#x27;, el, values);
+        },
+
+        insertAfter: function (el, values) {
+            return this.doInsert(&#x27;afterEnd&#x27;, el, values);
+        },
+
+        append: function (el, values) {
+            return this.doInsert(&#x27;beforeEnd&#x27;, el, values);
+        },
+
+        doInsert: function (where, el, values) {
+            el = $.dom(el);
+            return $.insertHtml(where, el, this.apply(values));
+        },
+
+        overwrite: function (el, values, returnElement) {
+            el = $.dom(el);
+            el.innerHTML = this.apply(values);
+            return returnElement ? $.get(el.firstChild) : el.firstChild;
+        }
+    });
+
+    /**
+     * @class junit.STemplate
+     */
+    &#x27;class STemplate extends BaseTemplate&#x27;.j(function (jsuper) {
+        var re = /\{([\w\-]+)(?:\:([\w\.]*)(?:\((.*?)?\))?)?\}/g,
+            compileARe = /\\/g,
+            compileBRe = /(\r\n|\n)/g,
+            compileCRe = /&#x27;/g;
+        //
+        jpublic(jsuper, {
+            apply: function (values) {
+                var me = this;
+                if (me.compiled) {
+                    return me.compiled.call(this, values);
+                }
+                function fn(m, name, format, args) {
+                    if (format) {
+                        if (args) {
+                            args = [values[name]].concat(Function.prototype.constructor.apply(Function.prototype,
+                                &#x27;return [&#x27; + args + &#x27;];&#x27;)());
+                        } else {
+                            args = [values[name]];
+                        }
+                        if (format.substr(0, 1) == &quot;$&quot;) {
+                            return $[format.substr(1)].apply($, args);
+                        } else {
+                            return me[format].apply(me, args);
+                        }
+                    }
+                    else {
+                        return values[name] !== undefined ? values[name] : &quot;&quot;;
+                    }
+                }
+
+                return me.html.replace(re, fn);
+            },
+            set: function (html, compile) {
+                var me = this;
+                me.html = html;
+                me.compiled = null;
+                return compile ? me.compile() : me;
+            },
+            compile: function () {
+                var me = this,
+                    body, bodyReturn;
+
+                function fn(m, name, format, args) {
+                    if (format) {
+                        args = args ? &#x27;,&#x27; + args : &quot;&quot;;
+                        if (format.substr(0, 1) == &quot;$&quot;) {
+                            format = &quot;$.&quot; + format.substr(1) + &#x27;(&#x27;;
+                        } else {
+                            format = &#x27;this.&#x27; + format + &#x27;(&#x27;;
+                        }
+                    }
+                    else {
+                        args = &#x27;&#x27;;
+                        format = &quot;(values[&#x27;&quot; + name + &quot;&#x27;] == undefined ? &#x27;&#x27; : &quot;;
+                    }
+                    return &quot;&#x27;,&quot; + format + &quot;values[&#x27;&quot; + name + &quot;&#x27;]&quot; + args + &quot;) ,&#x27;&quot;;
+                }
+
+                bodyReturn = me.html.replace(compileARe, &#x27;\\\\&#x27;).replace(compileBRe, &#x27;\\n&#x27;).
+                    replace(compileCRe, &quot;\\&#x27;&quot;).replace(re, fn);
+                body = &quot;this.compiled = function(values){ return [&#x27;&quot; + bodyReturn + &quot;&#x27;];};&quot;;
+                eval(body);
+                return me;
+            }
+        });
+
+
+    });
+
+    /**
+     * @class junit.Template
+     */
+    &#x27;class Template extends BaseTemplate&#x27;.j(function (jsuper) {
+        var codeRe = /\{\[((?:\\\]|.|\n)*?)\]\}/g,
+            evalRe = /&lt;%((?:\\\]|.|\n)*?)%&gt;/g,
+            re = /\{([\w\.#\$\-]+)(?::([\w\.]*)(?:\((.*?)?\))?)?(\s?[\+\-\*\\]\s?[\d\.\+\-\*\\\(\)]+)?\}/g;
+
+        function applySubTemplate(id, values, parent, xindex, xcount) {
+            var me = this,
+                len,
+                t = me.tpls[id],
+                vs,
+                buf = [];
+
+
+            var compiled = t.compiled;
+            if ((t.test &amp;&amp; !t.test.call(me, values, parent, xindex, xcount)) ||
+                (t.exec &amp;&amp; t.exec.call(me, values, parent, xindex, xcount))) {
+                if (!t.ecompiled) return &#x27;&#x27;;
+                compiled = t.ecompiled;
+            }
+
+            vs = t.target ? t.target.call(me, values, parent) : values;
+            parent = t.target ? values : parent;
+            len = vs.length;
+
+            if (t.target &amp;&amp; $.isArray(vs)) {
+                $.each(vs, function (v, i) {
+                    buf[buf.length] = compiled.call(me, v, parent, i + 1, len);
+                });
+                return buf.join(&#x27;&#x27;);
+            }
+            return compiled.call(me, vs, parent, xindex, xcount);
+        }
+
+        function compileTpl(tpl) {
+            var body;
+
+            function fn(m, name, format, args, math) {
+                if (name.substr(0, 4) == &#x27;xtpl&#x27;) {
+                    return &quot;&#x27;,applySubTemplate.call(this, &quot; + name.substr(4) + &quot;, values, parent, xindex, xcount),&#x27;&quot;;
+                }
+                var v;
+                if (name === &#x27;.&#x27;) {
+                    v = &#x27;values&#x27;;
+                } else if (name === &#x27;#&#x27;) {
+                    v = &#x27;xindex&#x27;;
+                } else if (name === &#x27;$&#x27;) {
+                    v = &#x27;xcount&#x27;;
+                } else if (name.substr(0, 2) == &quot;..&quot;) {
+                    v = &#x27;parent&#x27; + name.substr(1);
+                }
+                else if (name.indexOf(&#x27;.&#x27;) != -1) {
+                    v = &quot;values.&quot; + name;
+                } else {
+                    v = &quot;values[&#x27;&quot; + name + &quot;&#x27;]&quot;;
+                }
+                if (math) {
+                    v = &#x27;(&#x27; + v + math + &#x27;)&#x27;;
+                }
+                if (format) {
+                    args = args ? &#x27;,&#x27; + args : &quot;&quot;;
+                    if (format.substr(0, 1) == &quot;$&quot;) {
+                        format = &quot;$[&#x27;&quot; + format.substr(1) + &quot;&#x27;](&quot;;
+                    } else {
+                        format = &quot;this[&#x27;&quot; + format + &quot;&#x27;](&quot;;
+                    }
+                } else {
+                    args = &#x27;&#x27;;
+                    format = &quot;(&quot; + v + &quot; === undefined ? &#x27;&#x27; : &quot;;
+                }
+                return &quot;&#x27;,&quot; + format + v + args + &quot;),&#x27;&quot;;
+            }
+
+            function codeFn(m, code) {
+                return &quot;&#x27;,(&quot; + code.replace(/\\&#x27;/g, &quot;&#x27;&quot;) + &quot;),&#x27;&quot;;
+            }
+
+            function evalFn(m, code) {
+                return &quot;&#x27;,&#x27;&quot; + code.replace(/\\&#x27;/g, &quot;&#x27;&quot;) + &quot;&#x27;,&#x27;&quot;;
+            }
+
+            var sbody = tpl.body.split(&quot;&lt;else&gt;&quot;);
+
+            body = [&quot;tpl.compiled = function(values, parent, xindex, xcount){ return [&#x27;&quot;];
+            body.push(sbody[0].replace(/(\r\n|\n)/g, &#x27;\\n&#x27;).replace(/&#x27;/g, &quot;\\&#x27;&quot;)
+                .replace(re, fn).replace(codeRe, codeFn));
+            body.push(&quot;&#x27;].join(&#x27;&#x27;);};&quot;);
+            body = body.join(&#x27;&#x27;);
+            eval(body);
+            if (sbody.length &gt; 1) {
+                body = [&quot;tpl.ecompiled = function(values, parent, xindex, xcount){ return [&#x27;&quot;];
+                body.push(sbody[1].replace(/(\r\n|\n)/g, &#x27;\\n&#x27;).replace(/&#x27;/g, &quot;\\&#x27;&quot;)
+                    .replace(re, fn).replace(codeRe, codeFn));
+                body.push(&quot;&#x27;].join(&#x27;&#x27;);};&quot;);
+                body = body.join(&#x27;&#x27;);
+
+                eval(body);
+            }
+            return this;
+        }
+
+        //
+        jpublic(jsuper, {
+            constructor: function () {
+                this.jsuper();
+
+                var me = this;
+                var s = me.html,
+                    re = /&lt;tpl\b[^&gt;]*&gt;((?:(?=([^&lt;]+))\2|&lt;(?!tpl\b[^&gt;]*&gt;))*?)&lt;\/tpl&gt;/,
+                    nameRe = /^&lt;tpl\b[^&gt;]*?for=[&#x27;&quot;](.*?)[&#x27;&quot;]/,
+                    ifRe = /^&lt;tpl\b[^&gt;]*?if=[&#x27;&quot;](.*?)[&#x27;&quot;]/,
+                    execRe = /^&lt;tpl\b[^&gt;]*?exec=[&#x27;&quot;](.*?)[&#x27;&quot;]/,
+                    m,
+                    id = 0,
+                    tpls = [],
+                    VALUES = &#x27;values&#x27;,
+                    PARENT = &#x27;parent&#x27;,
+                    XINDEX = &#x27;xindex&#x27;,
+                    XCOUNT = &#x27;xcount&#x27;,
+                    RETURN = &#x27;return &#x27;,
+                    WITHVALUES = &#x27;with(values){ &#x27;;
+
+                s = [&#x27;&lt;tpl&gt;&#x27;, s, &#x27;&lt;/tpl&gt;&#x27;].join(&#x27;&#x27;);
+
+                while ((m = s.match(re))) {
+                    var m2 = m[0].match(nameRe),
+                        m3 = m[0].match(ifRe),
+                        m4 = m[0].match(execRe),
+                        exp = null,
+                        fn = null,
+                        exec = null,
+                        name = m2 &amp;&amp; m2[1] ? m2[1] : &#x27;&#x27;;
+                    if (m3) {
+                        exp = m3 &amp;&amp; m3[1] ? m3[1] : null;
+                        if (exp) {
+                            fn = new Function(VALUES, PARENT, XINDEX, XCOUNT, WITHVALUES + RETURN + ($.htmlDecode(exp)) + &#x27;; }&#x27;);
+                        }
+                    }
+                    if (m4) {
+                        exp = m4 &amp;&amp; m4[1] ? m4[1] : null;
+                        if (exp) {
+                            exec = new Function(VALUES, PARENT, XINDEX, XCOUNT, WITHVALUES + ($.htmlDecode(exp)) + &#x27;; }&#x27;);
+                        }
+                    }
+                    if (name) {
+                        switch (name) {
+                            case &#x27;.&#x27;:
+                                name = new Function(VALUES, PARENT, WITHVALUES + RETURN + VALUES + &#x27;; }&#x27;);
+                                break;
+                            case &#x27;..&#x27;:
+                                name = new Function(VALUES, PARENT, WITHVALUES + RETURN + PARENT + &#x27;; }&#x27;);
+                                break;
+                            default:
+                                name = new Function(VALUES, PARENT, WITHVALUES + RETURN + name + &#x27;; }&#x27;);
+                        }
+                    }
+                    tpls.push({
+                        id: id,
+                        target: name,
+                        exec: exec,
+                        test: fn,
+                        body: m[1] || &#x27;&#x27;
+                    });
+                    s = s.replace(m[0], &#x27;{xtpl&#x27; + id + &#x27;}&#x27;);
+                    ++id;
+                }
+                $.each(tpls, function (t) {
+                    compileTpl.call(me, t);
+                });
+
+                me.master = tpls[tpls.length - 1];
+                me.tpls = tpls;
+            },
+            apply: function (values) {
+                return this.master.compiled.call(this, values, {}, 1, 1);
+            },
+
+            compile: function () {
+                return this;
+            }
+        });
+    });
+
+    /**
+     * @class junit.JTemplate
+     */
+    &#x27;class JTemplate extends BaseTemplate&#x27;.j(function (jsuper) {
+        var _cache = {};
+
+        var KEYWORDS =
+            &#x27;break,case,catch,continue,debugger,default,delete,do,else,false&#x27;
+                + &#x27;,finally,for,function,if,in,instanceof,new,null,return,switch,this&#x27;
+                + &#x27;,throw,true,try,typeof,var,void,while,with&#x27;
+
+                + &#x27;,abstract,boolean,byte,char,class,const,double,enum,export,extends&#x27;
+                + &#x27;,final,float,goto,implements,import,int,interface,long,native&#x27;
+                + &#x27;,package,private,protected,public,short,static,super,synchronized&#x27;
+                + &#x27;,throws,transient,volatile&#x27;
+
+                + &#x27;,arguments,let,yield&#x27;
+
+                + &#x27;,undefined&#x27;;
+        // reg , // ,
+        var REMOVE_RE = /\/\*(?:.|\n)*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|&#x27;[^&#x27;]*&#x27;|&quot;[^&quot;]*&quot;|[$\w]+(?:\.[\w]+)+|_[$\w]+/g;
+        var SPLIT_RE = /[^\w$]+/g;
+        var KEYWORDS_RE = new RegExp([&quot;\\b&quot; + KEYWORDS.replace(/,/g, &#x27;\\b|\\b&#x27;) + &quot;\\b&quot;].join(&#x27;|&#x27;), &#x27;g&#x27;);
+        var NUMBER_RE = /\b\d[^,]*/g;
+        var BOUNDARY_RE = /^,+|,+$/g;
+        var getVariable = function (code) {
+            code = code
+                .replace(REMOVE_RE, &#x27;&#x27;)
+                .replace(SPLIT_RE, &#x27;,&#x27;)
+                .replace(KEYWORDS_RE, &#x27;&#x27;)
+                .replace(NUMBER_RE, &#x27;&#x27;)
+                .replace(BOUNDARY_RE, &#x27;&#x27;);
+            code = code ? code.split(/,+/) : [];
+
+            return code;
+        };
+
+        var isNewEngine = &#x27;&#x27;.trim;// &#x27;__proto__&#x27; in {}
+        var replaces = isNewEngine
+            ? [&quot;__=&#x27;&#x27;;&quot;, &quot;__+=&quot;, &quot;;&quot;, &quot;__&quot;]
+            : [&quot;__=[];&quot;, &quot;__.push(&quot;, &quot;);&quot;, &quot;__.join(&#x27;&#x27;)&quot;];
+
+        var concat = isNewEngine
+            ? &quot;if(content!==undefined){__+=content;return content}&quot;
+            : &quot;__.push(content);&quot;;
+
+        var print = &quot;function(content){&quot; + concat + &quot;}&quot;;
+
+        var include = &quot;function(id,data){&quot;
+            + &quot;if(data===undefined){data=jdata};&quot;
+            + &quot;var content = jthis.jstatic.apply(id,data);&quot;
+            + concat
+            + &quot;}&quot;;
+
+        function html(code, jthis) {
+
+
+            if (jthis.jstatic.isCompress) {
+                code = code.replace(/[\n\r\t\s]+/g, &#x27; &#x27;);
+            }
+
+            code = code
+                .replace(/(&#x27;|\\)/g, &#x27;\\$1&#x27;)
+                .replace(/\r/g, &#x27;\\r&#x27;)
+                .replace(/\n/g, &#x27;\\n&#x27;);
+
+            code = replaces[1] + &quot;&#x27;&quot; + code + &quot;&#x27;&quot; + replaces[2];
+
+            return code + &#x27;\n&#x27;;
+        }
+
+        function logic(code, jthis, getKey) {
+
+            if (jthis.jstatic.parser) {
+                code = jthis.jstatic.parser(code);
+                if (!$.isArray(code)) {
+                    return code[0];
+                }
+            }
+
+            //#inlude
+            if (code.indexOf(&#x27;#&#x27;) === 0) {
+                code = jthis.jstatic.include(code.substr(1));
+                jthis.variables += code[0];
+                return code[1] + &#x27;\n&#x27;;
+            }
+            if (code.indexOf(&#x27;!&#x27;) === 0) {
+                jthis.variables += code.substr(1) + &quot;,&quot;;
+                return &#x27;&#x27;;
+            }
+            if (code.indexOf(&#x27;@&#x27;) === 0) {
+                return code.substr(1) + &#x27;\n&#x27;;
+            }
+
+            //  &lt;%=value%&gt; &lt;%==value%&gt;
+            if (code.indexOf(&#x27;=&#x27;) === 0) {
+
+                var isEscape = code.indexOf(&#x27;==&#x27;) !== 0;
+
+                code = code.replace(/^=*|[\s;]*$/g, &#x27;&#x27;);
+
+                if (isEscape &amp;&amp; jthis.jstatic.isEscape) {
+
+                    var name = code.replace(/\s*\([^\)]+\)/, &#x27;&#x27;);
+                    code = &#x27;_$$(_$(&#x27; + code + &#x27;))&#x27;;
+
+                } else {
+                    code = &#x27;_$(&#x27; + code + &#x27;)&#x27;;
+                }
+
+                code = replaces[1] + code + replaces[2];
+
+            }
+            getKey(code);
+
+            return code + &#x27;\n&#x27;;
+        }
+
+        function setValue(name, jthis) {
+            var value;
+            switch (name) {
+                case &quot;$&quot;:
+                    return;
+                case &quot;print&quot;:
+                    value = print;
+                    break;
+                case &quot;include&quot;:
+                    value = include;
+                    break;
+                default :
+                    if (name.indexOf(&#x27;$&#x27;) === 0) {
+                        value = &#x27;jthis[&quot;&#x27; + name.substr(1) + &#x27;&quot;]&#x27;;
+                    } else {
+                        value = &#x27;jdata[&quot;&#x27; + name + &#x27;&quot;]&#x27;;
+                    }
+            }
+
+            jthis.variables += name + &#x27;=&#x27; + value + &#x27;,&#x27;;
+        }
+
+        //
+        jstatic(jsuper, {
+            getHTML: function (id) {
+                return document.getElementById(id).innerHTML;
+            },
+            openTag: &quot;&lt;%&quot;, closeTag: &quot;%&gt;&quot;, isCompress: false, isEscape: false,
+            keywords: {
+                &#x27;if&#x27;: function (code) {
+                    return &#x27;if(&#x27; + code + &#x27;){&#x27;;
+                },
+                &#x27;else&#x27;: function (code) {
+                    code = code.split(&#x27; &#x27;);
+
+                    if (code.shift() === &#x27;if&#x27;) {
+                        code = &#x27; if(&#x27; + code.join(&#x27; &#x27;) + &#x27;)&#x27;;
+                    } else {
+                        code = &#x27;&#x27;;
+                    }
+
+                    return &#x27;}else&#x27; + code + &#x27;{&#x27;;
+                },
+
+                &#x27;/if&#x27;: function () {
+                    return &#x27;}&#x27;;
+                },
+                &#x27;each&#x27;: function (code) {
+
+                    code = code.split(&#x27; &#x27;);
+
+                    var object = code[0] || &#x27;jdata&#x27;;
+                    var value = code[1] || &#x27;_v&#x27;;
+                    var index = code[2] || &#x27;_i&#x27;;
+
+                    var args = value + &#x27;,&#x27; + index;
+
+                    return &#x27;$.each(&#x27; + object + &#x27;,function(&#x27; + args + &#x27;){&#x27;;
+                },
+
+                &#x27;/each&#x27;: function () {
+                    return &#x27;});&#x27;;
+                }
+            },
+            parser: function (code) {
+                code = code.replace(/^\s/, &#x27;&#x27;);
+                var args = code.split(&#x27; &#x27;);
+                var key = args.shift();
+                var keywords = this.keywords;
+                var fuc = keywords[key];
+                if (fuc &amp;&amp; keywords.hasOwnProperty(key)) {
+                    args = args.join(&#x27; &#x27;);
+                    code = fuc.call(code, args);
+                }
+                return code;
+            },
+            get: function (id, check) {
+                var c = _cache[id];
+                if (!c &amp;&amp; !check) {
+                    c = new this(this.getHTML(id), {id: id});
+                }
+                return c;
+            },
+            apply: function (id, data) {
+                return this.get(id).apply(data);
+            },
+            include: function (id) {
+                return this.get(id).get();
+            }
+        });
+
+        //
+        jprotected(jsuper, {
+            __$: function (content) {
+                return typeof content === &#x27;string&#x27;
+                    ? content.replace(/&amp;(?![\w#]+;)|[&lt;&gt;&quot;&#x27;]/g, function (s) {
+                    return {
+                        &quot;&lt;&quot;: &quot;&amp;#60;&quot;,
+                        &quot;&gt;&quot;: &quot;&amp;#62;&quot;,
+                        &#x27;&quot;&#x27;: &quot;&amp;#34;&quot;,
+                        &quot;&#x27;&quot;: &quot;&amp;#39;&quot;,
+                        &quot;&amp;&quot;: &quot;&amp;#38;&quot;
+                    }[s];
+                })
+                    : content;
+            },
+            _$: function (value) {
+
+                if (typeof value === &#x27;string&#x27; || typeof value === &#x27;number&#x27;) {
+                    return value;
+                } else if (typeof value === &#x27;function&#x27;) {
+                    return value();
+                } else {
+                    return &#x27;&#x27;;
+                }
+
+            }
+        });
+        //
+        jpublic(jsuper, {
+            constructor: function () {
+                this.jsuper();
+                this.variables = &#x27;&#x27;;
+                if (!this.html &amp;&amp; this.id) {
+                    this.html = this.jstatic.getHTML(this.id);
+                }
+                this.compile(this.html);
+            },
+            apply: function (values) {
+                return this.compiled.call(this, values);
+            },
+            get: function () {
+                return [this.variables, this.code];
+            },
+            debug: function () {
+                console.log(&quot;variables:&quot; + this.variables);
+                console.log(&quot;code:&quot; + this.code);
+                return this;
+            },
+            compile: function (source) {
+                var openTag = this.jstatic.openTag;
+                var closeTag = this.jstatic.closeTag;
+
+
+                var code = source;
+                var tempCode = &#x27;&#x27;;
+                var jthis = this;
+
+                var uniq = {jthis: true, jdata: true};
+
+                function getKey(code) {
+                    code = getVariable(code);
+                    //console.log(code);
+                    $.each(code, function (name) {
+                        if (!uniq.hasOwnProperty(name)) {
+                            setValue(name, jthis);
+                            uniq[name] = true;
+                        }
+                    });
+                }
+
+                $.each(code.split(openTag), function (code, i) {
+                    code = code.split(closeTag);
+
+                    var $0 = code[0];
+                    var $1 = code[1];
+
+                    // code: [html]
+                    if (code.length === 1) {
+
+                        tempCode += html($0, jthis);
+
+                        // code: [logic, html]
+                    } else {
+
+                        tempCode += logic($0, jthis, getKey);
+
+                        if ($1) {
+                            tempCode += html($1, jthis);
+                        }
+                    }
+
+
+                });
+
+
+                code = tempCode;
+
+                this.code = code;
+
+                code = &quot;&#x27;use strict&#x27;;var jthis=this,_$=jthis[&#x27;_$&#x27;],__$=jthis[&#x27;__$&#x27;],&quot;
+                    + jthis.variables + replaces[0] + code
+                    + &#x27;return &#x27; + replaces[3];
+
+                if (this.jstatic.debug) {
+                    console.log(code);
+                }
+
+                this.compiled = new Function(&#x27;jdata&#x27;, code);
+                if (this.id) {
+                    _cache[this.id] = this;
+                }
+
+            }
+        });
+    });
+
+
+});
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

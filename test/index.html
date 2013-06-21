@@ -1,23 +1,68 @@
-<script type="text/javascript" src="../src/core/oop.js"></script>
 <script type="text/javascript" src="../src/core/j.js"></script>
-<script type="text/javascript" src="../src/core/event.js"></script>
-<style type="text/css">
-  .c {
-    color: #cc0000;
-  }
+<script type="text/javascript">
+    console.log("111");
+    $(function () {
+        console.log("222");
+    })
+</script>
+<!--
+<script type="text/javascript" src="../src/core/oop.js"></script>
 
-  .d {
-    font-size: 20px;
-  }
+
+<script type="text/javascript" src="../src/j/junit/Observable.js"></script>
+<script type="text/javascript" src="../src/j/junit/MixedCollection.js"></script>
+<script type="text/javascript" src="../src/j/junit/Template.js"></script>
+<script type="text/javascript" src="../src/j/jui/Component.js"></script>
+-->
+
+<!--
+<script type="text/javascript" src="jQuery.js"></script>
+-->
+
+<style type="text/css">
+    .c {
+        color: #cc0000;
+    }
+
+    .d {
+        font-size: 20px;
+    }
 </style>
-<div id="a" class="c"> dddddddddddd
-  <div style="color: red">bb</div>
+<div id="tpl">
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </div>
-<div id="a2">xxx</div>
-<input type="text"> </input>
-<input type="text"> </input>
+<div style="position: absolute;top:100px;border:1px solid #0000ff;width: 100px;height: 100px">
+    <div id="tpl1" data-bb="dddddddddddddddd" style="position: absolute;top:10px;left:100px;border: 1px solid #00ff00">
+        sssssssssss
+    </div>
+</div>
+
+<div id="tpl2" data-bb="dddddddddddddddd" style="position: fixed;top:300px;left:144px;border: 1px solid #ff0000">
+    xxxxxxx
+</div>
+<script id="test" type="text/html">
+    <%@$("#tpl1").css("color",jdata["color"])%>
+    <%!_title=jdata["title"]+"-microsoul",_b="ccccc"%>
+    <h1><%=_title+_b%></h1>
+    <%#list%>
+</script>
+
+<script id="list" type="text/html">
+    <ul>
+        <%each jdata _i _v%>
+        <li>条目内容 <%=_i%> ：<%=_v%></li>
+        <%/each%>
+    </ul>
+</script>
+
 <script type="text/javascript" src="t.js"></script>
 
+<input id="aa" value="dddddddddd"><input>
 <br/><br/><br/>
 <!--
 <div id="disqus_thread"></div>
