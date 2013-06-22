@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>j5/src/core/oop.js - The J API</title>
+    <link rel="stylesheet" href="../assets/css/cssgrids.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/icon" href="../assets/favicon.ico">
+    <script src="../assets/js/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+<a href="https://github.com/openxtiger/j"><img style="position: fixed; top: 0; right: 0; border: 0;z-index:110"
+src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+<div id="doc">
+    <div style="height: 100px;">
+    <div id="hd" class="yui3-g header" style="position:fixed;z-index:100;width:100%">
+
+        <div class="yui3-u-3-4">
+            <h1>
+                <img width="60" height="60" src="../assets/css/logo.png" title="The J API">
+            
+            J - Javascript OPP/DOM Tool
+            </h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+        </div>
+
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list" style="overflow: auto;position: fixed;height: 500px;width: 300px;padding-right: 10px;">
+    
+
+    
+<h2 class="off-left">APIs</h2>
+<div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/Jclass.html">Jclass</a></li>
+            
+                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+            
+                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+            
+                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+            
+                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+            
+                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+            
+                <li><a href="../classes/junit.Observer.html">junit.Observer</a></li>
+            
+                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+            
+                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+            
+                <li><a href="../classes/oop.html">oop</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div id="fileTree" class="sidebox">
+        <div class="hd">
+            <h2 class="no-toc">Files</h2>
+        </div>
+        <div class="bd">
+            <ul><li>j5/<ul><li>src/<ul><li>core/<ul><li><a href="../files/j5_src_core_j.js.html">j.js</a></li><li><a href="../files/j5_src_core_oop.js.html">oop.js</a></li></ul></li><li>j/<ul><li>jui/<ul><li><a href="../files/j5_src_j_jui_Component.js.html">Component.js</a></li></ul></li><li>junit/<ul><li><a href="../files/j5_src_j_junit_MixedCollection.js.html">MixedCollection.js</a></li><li><a href="../files/j5_src_j_junit_Observable.js.html">Observable.js</a></li><li><a href="../files/j5_src_j_junit_Observer.js.html">Observer.js</a></li><li><a href="../files/j5_src_j_junit_Template.js.html">Template.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+    
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: j5/src/core/oop.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+(function ($) {
+
+    function JClass() {
+    }
+
+    JClass.prototype = {
+        jsuper: function (method, args) {
+            if ($.isArray(method)) {
+                args = method;
+                method = &#x27;constructor&#x27;;
+            }
+            return this.superclass[method || &#x27;constructor&#x27;].apply(this,
+                args || $.toArray(this.jsuper.caller.arguments));
+        }
+    };
+
+    $.extend({
+        nameclass: function (c) {
+            if (__gclasses__[c]) return __gclasses__[c];
+            var d = c.split(&quot;.&quot;);
+            var o = window[d[0]] = window[d[0]] || {};
+            $.each(d.slice(1, d.length - 1), function (v2) {
+                o = o[v2] = o[v2] || {};
+            });
+            return __gclasses__[c] = o[d[d.length - 1]];
+        },
+        importstatic: function (c, code, args) {
+            if ($.isFunction(code)) {
+                code._jstatic = c._jstatic = c;
+                code.call(c, c);
+                delete code._jstatic;
+                delete c._jstatic;
+            } else {
+                $.extend(c, code);
+            }
+            if (args &amp;&amp; args.length &gt; 0) {
+                for (var i = 0, l = args.length; i &lt; l; i++) {
+                    $.extendIf(c, $.importclass(args[i]));
+                }
+            }
+        },
+
+        importclass: function (c) {
+            if (__statics__[c]) {
+                var ip;
+                __gclasses__[c] = ip = $.namespace(c);
+                ip.shortname = __statics__[c][0];
+                ip.classname = c;
+                $.importstatic(ip, __statics__[c][1], __statics__[c][2]);
+                delete __statics__[c];
+                return ip;
+            }
+            if (__gclasses__[c]) return __gclasses__[c];
+            if (__iclasses__[c]) return __iclasses__[c];
+            if (__importcs__[c]) return __importcs__[c];
+
+            var d = c.split(&quot;.&quot;);
+            var o = window[d[0]] = window[d[0]] || {};
+            var name = d[d.length - 1];
+            $.each(d.slice(1, d.length - 1), function (v2) {
+                o = o[v2] = o[v2] || {};
+            });
+            if (o[name]) {
+                o = __gclasses__[c] = o[name];
+            } else {
+
+                $.each(__imports__, function (i) {
+                    return (!(o = i[name]));
+                });
+
+                __iclasses__[c] = o;
+            }
+
+            return o;
+        }
+    });
+
+    /**
+     * The $ module contains the components required for building the $ seed file.
+     * opp for the library.
+     * @main j
+     */
+
+    var __cpackage__;  // current package object
+    var __npackage__;  // current package name
+
+    var __gclasses__ = {}; // save all class when be use
+
+    var __iclasses__ = {};  // save then import class,when leave the package will be clean
+    var __imports__ = [];   // save then import package/class,when leave the package will be clean
+
+    var __importcs__ = {};  // save then import class
+
+    var __statics__ = {}; // save the static class, when then first use class,will removed
+
+
+    /**
+     * The global namespace methods,Used to simulate the Java keyword.&lt;br/&gt;
+     * 模拟Java的面向对象功能，在此次分别模拟了 package,class,extends,public,private,protected,static,import
+     * 可以用以下形式定义类
+     * &lt;pre class=&quot;code&quot;&gt;&#x27;class C extends P implements I&#x27;.j(function(jsuper){
+     *      jstatic(jsuper,{
+     *          a:1
+     *      });
+     *      jpublic(jsuper,{
+     *          constructor: function () {
+     *              this.jsuper();
+     *          },
+     *          echo:function(){
+     *              console.log(this.jstatic.a);
+     *          }
+     *      });
+     *      jprotected(jsuper,{
+     *
+     *      });
+     * },&#x27;alias class name&#x27;);&lt;/pre&gt;
+     * @class oop
+     */
+
+
+    /**
+     * Simulation of java package
+     * @method jpackage
+     * @static
+     * @param {String} name package&#x27;s name
+     * @param {String|Object|Class} [imports]* import class or objects
+     *
+     *      For example:
+     *      &quot;foo.Foo;foo.*&quot;
+     *      &quot;foo.Foo&quot;,&quot;foo.*&quot;
+     *      foo.Foo
+     *
+     * @param {function} func(imports)  package body.
+     *
+     **   imports:According to the incoming imports sequence to make variables
+     *
+     *
+     *@global
+     **/
+
+    function jpackage() {
+        var l = arguments.length, i = 0;
+        if (l == 0) return;
+        var pkf = arguments[l - 1];
+        pkf.$Define = true;
+
+        if ($.isString(arguments[0])) {
+            __cpackage__ = $.namespace(arguments[0]);
+            __npackage__ = arguments[0];
+            i = 1;
+        } else {
+            __cpackage__ = window;
+            __npackage__ = &#x27;&#x27;;
+            i = 0;
+        }
+        var args = [], vs, ip;
+        $.each($.toArray(arguments, i, l - 1), function (v) {
+            if ($.isString(v)) {
+                vs = v.split(&quot;;&quot;);
+                $.each(vs, function (v2) {
+                    if (v2.substr(-2) == &quot;.*&quot;) {
+                        ip = $.namespace(v2.substring(0, v2.length - 2));
+                        __imports__.push(ip);
+                        args.push(ip);
+                    } else {
+                        args.push($.importclass(v2));
+                    }
+                });
+            } else if ($.isArray(v)) {
+                args = args.concat(v);
+            } else {
+                args.push(v);
+            }
+        });
+        pkf.apply(__cpackage__, args);
+
+        __cpackage__ = null;
+        __npackage__ = &#x27;&#x27;;
+        __imports__ = [];
+        __iclasses__ = {};
+
+    }
+
+    window.jpackage = jpackage;
+    /**
+     * @method jimport
+     * @static
+     * @global
+     */
+    function jimport() {
+        var args = [], vs, ip;
+        __imports__ = [];
+        __iclasses__ = {};
+        if (jimport.caller) {
+            jimport.caller.$Define = true;
+        }
+        $.each(arguments, function (v) {
+            if ($.isString(v)) {
+                vs = v.split(&quot;;&quot;);
+                $.each(vs, function (v2) {
+                    if (!v2) return;
+                    if (v2.substr(-2) == &quot;.*&quot;) {
+                        ip = $.namespace(v2.substring(0, v2.length - 2));
+                        __imports__.push(ip);
+                        args.push(ip);
+                    } else {
+                        ip = $.importclass(v2);
+                        args.push(ip);
+                        __importcs__[ip.shortname] = ip;
+                    }
+                });
+            } else if ($.isArray(v)) {
+                args = args.concat(v);
+            } else {
+                args.push(v);
+            }
+        });
+        if (args.length == 1) return args[0];
+        return args;
+    }
+
+    window.jimport = jimport;
+    /**
+     * @method jextends
+     * @global
+     */
+    function jextends() {
+
+        var oc = Object.prototype.constructor;
+        var l = arguments.length;
+        var sb = arguments[0];
+        var sp = arguments[1];
+        var mixins = [];
+        var coverrides;
+        if (l &lt; 2) {
+            throw new Error(&quot;[jextends] invalid arguments&quot;);
+        }
+        if (l == 2) {
+            coverrides = sp;
+            sp = sb;
+        } else if ($.isArray(arguments[2])) {
+            mixins = arguments[2];
+            coverrides = sp;
+            sp = sb;
+            l = 2;
+        } else {
+            coverrides = arguments[2];
+            if (l == 4) {
+                mixins = arguments[3];
+            }
+        }
+
+        if ($.isString(sp)) {
+            sp = $.importclass(sp);
+        }
+        var JClass = function () {
+        };
+        var sbp, spp = JClass.prototype = sp.prototype;
+        if ($.isFunction(coverrides)) {
+            coverrides.$Define = true;
+
+            var c = coverrides.apply(this, [spp].concat(mixins));
+            if (c) {
+                coverrides = c;
+            } else {
+                if (spp._jpublic) {
+                    coverrides = spp._jpublic;
+                    delete spp._jpublic;
+                }
+
+                if (!coverrides) coverrides = {};
+                if (spp._jstatic) {
+                    coverrides.jstatic = spp._jstatic;
+                    delete spp._jstatic;
+                }
+            }
+        }
+
+        if (l == 2) {
+            sb = coverrides.constructor != oc ? coverrides.constructor : function () {
+                sp.apply(this, arguments);
+            };
+        }
+
+
+        sbp = sb.prototype = new JClass();
+        sbp.constructor = sbp.jstatic = sb;
+
+        sbp.superclass = sb.superclass = sb.jsuper = spp;
+
+        if (spp.constructor == oc) {
+            spp.constructor = sp;
+        }
+        if (coverrides.jstatic) {
+            $.extend(sb, coverrides.jstatic);
+            delete coverrides.jstatic;
+        }
+
+        $.override(sb, coverrides);  // extend coverrides
+        if (mixins.length) {
+            for (var i = 0, len = mixins.length; i &lt; len; i++) {
+                $.extendIf(sbp, mixins[i]);
+            }
+        }
+
+        return sb;
+    }
+
+    window.jextends = jextends;
+    /**
+     * @method jprivate
+     * @global
+     */
+    function jprivate(origclass, overrides) {
+        $.extend(origclass, overrides);
+    }
+
+    window.jprivate = jprivate;
+    /**
+     * @method jpublic
+     * @global
+     */
+    function jpublic(origclass, overrides) {
+        if (!origclass._jpublic) {
+            origclass._jpublic = overrides;
+            return;
+        }
+        $.extend(origclass._jpublic, overrides);
+    }
+
+    window.jpublic = jpublic;
+    /**
+     * @method jprotected
+     * @global
+     */
+    function jprotected(origclass, overrides) {
+        if (!origclass._jpublic) {
+            origclass._jpublic = overrides;
+            return;
+        }
+        $.extend(origclass._jpublic, overrides);
+    }
+
+    window.jprotected = jprotected;
+    /**
+     * @method jstatic
+     * @global
+     */
+    function jstatic(origclass, overrides) {
+        var l = arguments.length;
+        if (l == 1) {
+            $.extend(jstatic.caller._jstatic, origclass);
+            return
+        }
+        if (!origclass._jstatic) {
+            origclass._jstatic = overrides;
+            return;
+        }
+        $.extend(origclass._jstatic, overrides);
+    }
+
+    window.jstatic = jstatic;
+    /**
+     * @method joverride
+     * @global
+     */
+    function joverride(origclass, overrides) {
+        if ($.isString(origclass)) {
+            origclass = jclass(origclass);
+        }
+        if (!origclass) {
+            throw new Error(&quot;[joverride] unrecognized orig class&quot;);
+        }
+        if (overrides) {
+            var op = origclass.prototype;
+            if ($.isFunction(overrides)) {
+                overrides = overrides.apply(this);
+            }
+
+            $.extend(op, overrides);
+
+            /*if ($.isIE &amp;&amp; overrides.hasOwnProperty(&#x27;toString&#x27;)) {
+             p.toString = overrides.toString;
+             }*/
+        }
+
+    }
+
+    window.joverride = joverride;
+    /**
+     * p1:String ==&gt;class name
+     * p2,String ==&gt;same package;Object
+     * p3,function ==&gt;
+     */
+    /**
+     * @method jclass
+     * @global
+     */
+    function jclass() {
+        var l = arguments.length, i = 0;
+        if (l == 0) {
+            throw new Error(&quot;[jclass] invalid arguments&quot;);
+        }
+        if (!$.isString(arguments[0])) {
+            throw new Error(&quot;[jclass] class name must be string&quot;);
+        }
+        if (l == 1) {
+            return jclass.caller &amp;&amp; jclass.caller.$Define ? __cpackage__ &amp;&amp; __cpackage__[name] ||
+                $.importclass(arguments[0]) : $.nameclass(arguments[0]);
+        }
+
+        var clf = arguments[l - 1];
+
+
+        var p;
+        if (l &gt;= 3) {
+            var name = arguments[1];
+            if ($.isString(name)) {
+                p = __cpackage__ &amp;&amp; __cpackage__[name] || $.importclass(name);
+            } else {
+                p = arguments[1];
+            }
+        } else {
+            p = JClass;
+        }
+        if (!p) {
+            throw new Error(&quot;[jclass] unrecognized parent class&quot;);
+        }
+        var mixins = [];
+
+        if (l &gt;= 4) {
+            var vs;
+            var mc;
+            $.each($.toArray(arguments, 2, l - 1), function (v) {
+                if ($.isString(v)) {
+                    vs = v.split(&quot;,&quot;);
+                    $.each(vs, function (v2) {
+                        mc = __cpackage__ &amp;&amp; __cpackage__[v2] || $.importclass(v2);
+                        if (mc) {
+                            mixins.push(mc.prototype);
+                        }
+
+                    });
+
+                } else {
+                    mixins.push(v.prototype);
+                }
+            });
+        }
+
+        var cls = jextends(p, clf, mixins);
+
+
+        if (arguments[0]) {
+            cls.shortname = arguments[0];
+            cls.classname = __npackage__ ? __npackage__ + &quot;.&quot; + arguments[0] : arguments[0];
+            __cpackage__[arguments[0]] = cls;
+        }
+
+        return cls;
+    }
+
+    window.jclass = jclass;
+    /**
+     * @method jnew
+     * @global
+     */
+    function jnew() {
+        var l = arguments.length, i = 0;
+        if (l == 0) return {};
+
+        var args = $.toArray(arguments, 1);
+
+        var name = arguments[0];
+
+        var cls;
+        if ($.isString(name)) {
+            cls = jnew.caller &amp;&amp; jnew.caller.$Define ?
+                __cpackage__ &amp;&amp; __cpackage__[name]
+                    || $.importclass(name) : $.nameclass(name);
+            if (!cls) {
+                throw new Error(&quot;[jnew] unrecognized class,use whole class name&quot;);
+            }
+        } else {
+            cls = name;
+        }
+
+        switch (l) {
+            case 1:
+                return new cls();
+            case 2:
+                return new cls(arguments[1]);
+            case 3:
+                return new cls(arguments[1], arguments[2]);
+        }
+
+
+        var c = cls.prototype.constructor;
+        var constructor = function () {
+            return c.apply(this, args);
+        };
+
+        constructor.prototype = cls.prototype;
+        constructor.prototype.constructor = c;
+
+        return new constructor();
+    }
+
+    window.jnew = jnew;
+
+    /**
+     * 模拟Java的语法，用 &#x27;class C extends E implements I&#x27;.j() 实现。
+     * @method j
+     * @param fuc {Function} 类实现体
+     * @param paras {String|Function} 如果是字符串，为类的别名，如果是函数，将会被定义成功后调用
+     *
+     * @global
+     */
+    String.prototype.j = function () {
+        var def, code;
+        var hextends = false, hasclass = false, istatic = false, isinner = false;
+
+        def = this.toString();
+
+        if (arguments.length &gt;= 1) {
+            code = arguments[0];
+        }
+        if ($.isArray(def)) {
+            def = def.join(&#x27; &#x27;);
+        }
+        var defs = def.replace(/\s{1,}/g, &#x27; &#x27;).split(/\s/);
+
+        var l = defs.length;
+        /*if (l % 2 != 0) {
+         throw new Error(&quot;[$] def error&quot;);
+         }*/
+        var args = [];
+
+        for (var i = 0; i &lt; l; i += 2) {
+            switch (defs[i]) {
+                case &quot;package&quot;:
+                    args = $.toArray(arguments);
+                    args.unshift(defs[i + 1]);
+                    return jpackage.apply(this, args);
+                case &quot;import&quot;:
+                    return jimport.call(this, defs[i + 1]);
+                case &quot;static&quot;:
+                    istatic = true;
+                    if (defs[i + 1] != &quot;class&quot;) {
+                        args[0] = defs[i + 1];
+                    } else {
+                        i--;
+                    }
+                    break;
+                case &quot;inner&quot;:
+                    isinner = true;
+                    i--;
+                    break;
+                case &quot;app&quot;:
+                    defs[i + 1].split(&quot;,&quot;).forEach(function (n) {
+                        __apps__[n] = code;
+                    });
+                    return null;
+                case &quot;class&quot;:
+                    if (!isinner &amp;&amp; l &gt; 1 &amp;&amp; defs[i + 1] != &#x27;extends&#x27; &amp;&amp; defs[i + 1] != &#x27;implements&#x27;) {
+                        args[0] = defs[i + 1];
+                        hasclass = true;
+                    } else {
+                        i--;
+                    }
+                    break;
+                case &quot;extends&quot;:
+                    hextends = true;
+                    args[1] = defs[i + 1];
+                    break;
+                case &quot;implements&quot;:
+                    args = args.concat(defs[i + 1].replace(/\s/).split(&quot;,&quot;));
+                    break;
+
+            }
+        }
+        if (istatic &amp;&amp; hasclass) {
+            var name = args[0];
+            if (args.length &gt; 1) args.shift();
+            __statics__[__npackage__ + &quot;.&quot; + name] = [name, code, args];
+            return null;
+        }
+        if (istatic) {
+            var c = __cpackage__[args[0]] = {};
+            c.shortname = args[0];
+            c.classname = __npackage__ ? __npackage__ + &quot;.&quot; + args[0] : args[0];
+            __gclasses__[c.classname] = c;
+            if (args.length &gt; 1) args.shift();
+            $.importstatic(c, code, args);
+            return c;
+        }
+        if (!hasclass) {
+            args.unshift(&quot;&quot;);
+        }
+        if (!hextends &amp;&amp; args.length &gt; 1) {
+            args.splice(1, 0, JClass);
+        }
+        args.push(code);
+        var cls = jclass.apply(this, args);
+        if (arguments.length &gt; 1) {
+            if ($.isFunction(arguments[1])) {
+                arguments[1].call(cls, cls.prototype);
+            } else {
+                $.define(arguments[1], cls);
+            }
+
+        }
+        return cls;
+    };
+
+    function jcall(jobject, method, scope, args) {
+        if (jobject == scope) return null;
+        if ($.isObject(method)) {
+            args = scope;
+            scope = method;
+            method = &#x27;constructor&#x27;;
+        }
+        return jobject[method || &#x27;constructor&#x27;].apply(scope || jobject,
+            args || $.toArray(jcall.caller.arguments));
+    }
+
+    window.jcall = jcall;
+
+})($);
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>

@@ -1,0 +1,1039 @@
+{
+    "project": {
+        "name": "The J API",
+        "description": "The J API: a library for Javascript",
+        "version": "1.0.0",
+        "url": "http://openxtiger.github.io/j"
+    },
+    "files": {
+        "j5/src/core/j.js": {
+            "name": "j5/src/core/j.js",
+            "modules": {},
+            "classes": {
+                "Jclass": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/core/oop.js": {
+            "name": "j5/src/core/oop.js",
+            "modules": {},
+            "classes": {
+                "oop": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/jui/Component.js": {
+            "name": "j5/src/j/jui/Component.js",
+            "modules": {},
+            "classes": {
+                "jui.Component": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/junit/MixedCollection.js": {
+            "name": "j5/src/j/junit/MixedCollection.js",
+            "modules": {},
+            "classes": {
+                "junit.MixedCollection": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/junit/Observable.js": {
+            "name": "j5/src/j/junit/Observable.js",
+            "modules": {},
+            "classes": {
+                "junit.Observable": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/junit/Observer.js": {
+            "name": "j5/src/j/junit/Observer.js",
+            "modules": {},
+            "classes": {
+                "junit.Observer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "j5/src/j/junit/Template.js": {
+            "name": "j5/src/j/junit/Template.js",
+            "modules": {},
+            "classes": {
+                "junit.BaseTemplate": 1,
+                "junit.STemplate": 1,
+                "junit.Template": 1,
+                "junit.JTemplate": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "Jclass": {
+            "name": "Jclass",
+            "shortname": "Jclass",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/core/j.js",
+            "line": 76,
+            "description": "Jclass 私有构造函数，只能由$函数调用 @see $",
+            "access": "private",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "\n * 空值时，将返回一个空的对象 　\n * 为dom时，返回此dom的Jclass对象\n * 为字符串时，返回通过 querySelectorAll 的dom数组\n * 其他的将合并到新的对象上",
+                    "type": "HTMLElement|String|Object",
+                    "optional": true
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "返回元素为０或多个Jclass对象数组",
+                "type": "*"
+            },
+            "is_constructor": 1
+        },
+        "oop": {
+            "name": "oop",
+            "shortname": "oop",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/core/oop.js",
+            "line": 97,
+            "description": "The global namespace methods,Used to simulate the Java keyword.<br/>\n模拟Java的面向对象功能，在此次分别模拟了 package,class,extends,public,private,protected,static,import\n可以用以下形式定义类\n<pre class=\"code\">'class C extends P implements I'.j(function(jsuper){\n     jstatic(jsuper,{\n         a:1\n     });\n     jpublic(jsuper,{\n         constructor: function () {\n             this.jsuper();\n         },\n         echo:function(){\n             console.log(this.jstatic.a);\n         }\n     });\n     jprotected(jsuper,{\n\n     });\n},'alias class name');</pre>"
+        },
+        "jui.Component": {
+            "name": "jui.Component",
+            "shortname": "jui.Component",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/jui/Component.js",
+            "line": 6,
+            "extends": "junit.Observable"
+        },
+        "junit.MixedCollection": {
+            "name": "junit.MixedCollection",
+            "shortname": "junit.MixedCollection",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/MixedCollection.js",
+            "line": 6,
+            "implements": "junit.Observable"
+        },
+        "junit.Observable": {
+            "name": "junit.Observable",
+            "shortname": "junit.Observable",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Observable.js",
+            "line": 6
+        },
+        "junit.Observer": {
+            "name": "junit.Observer",
+            "shortname": "junit.Observer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Observer.js",
+            "line": 6,
+            "static": 1
+        },
+        "junit.BaseTemplate": {
+            "name": "junit.BaseTemplate",
+            "shortname": "junit.BaseTemplate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Template.js",
+            "line": 6
+        },
+        "junit.STemplate": {
+            "name": "junit.STemplate",
+            "shortname": "junit.STemplate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Template.js",
+            "line": 47
+        },
+        "junit.Template": {
+            "name": "junit.Template",
+            "shortname": "junit.Template",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Template.js",
+            "line": 120
+        },
+        "junit.JTemplate": {
+            "name": "junit.JTemplate",
+            "shortname": "junit.JTemplate",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "j5/src/j/junit/Template.js",
+            "line": 305
+        }
+    },
+    "classitems": [
+        {
+            "file": "j5/src/core/j.js",
+            "line": 107,
+            "itemtype": "method",
+            "name": "$",
+            "params": [
+                {
+                    "name": "selector",
+                    "description": "\n * $() 空值时，返回 Jclass.prototype　\n * $(HTMLElement) 为HTMLElement时，返回一个快速Jclass对象。返回的对象不能存储，因为此对象的dom会被下一次调用时更新　\n * $({$:\"class\"}) 对象含有$属性时，返回 selector类的对象　\n * $(function(){}) 为函数时，文档加载完成后，回调此函数\n * 其他参考 @see Jclass",
+                    "type": "HTMLElement|String|Object|Jclass",
+                    "optional": true
+                },
+                {
+                    "name": "context",
+                    "description": "",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Jclass.prototype或返回元素为０或多个Jclass对象数组",
+                "type": "*"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 146,
+            "description": "$.extend() 对一个对象的扩展",
+            "itemtype": "method",
+            "name": "extend",
+            "static": 1,
+            "params": [
+                {
+                    "name": "1..n",
+                    "description": "\n * 只有一个参数时，是对$进行自身扩展\n * 其它依次将所有参数扩展到第一个参数上",
+                    "type": "Object..",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "返回扩展后的对象",
+                "type": "*"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 155,
+            "description": "$().extend() 对一个对象的prototype扩展",
+            "itemtype": "method",
+            "name": "extend",
+            "params": [
+                {
+                    "name": "1..n",
+                    "description": "\n * 只有一个参数时，是对$.prototype进行自身扩展\n * 其它依次将所有参数扩展到第一个参数的prototype上",
+                    "type": "Object..",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "返回扩展后的prototype对象",
+                "type": "*"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 198,
+            "description": "有条件的扩展对象",
+            "itemtype": "method",
+            "name": "extendIf",
+            "static": 1,
+            "params": [
+                {
+                    "name": "o",
+                    "description": "被扩展的对象",
+                    "type": "Object"
+                },
+                {
+                    "name": "c",
+                    "description": "扩展的对象，且对象中的属性值不为undefind时才扩展进入o对象",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "被扩展的对象",
+                "type": "Object"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 216,
+            "description": "将second合并到first中",
+            "itemtype": "method",
+            "name": "merge",
+            "static": 1,
+            "params": [
+                {
+                    "name": "first",
+                    "description": "",
+                    "type": "Array|Object"
+                },
+                {
+                    "name": "second",
+                    "description": "",
+                    "type": "Array|Object"
+                }
+            ],
+            "return": {
+                "description": "被扩展的对象",
+                "type": "Array|Object"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 244,
+            "description": "从 elems 中查找匹配元素，最终返回新数组",
+            "itemtype": "method",
+            "name": "grep",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "被查找的数组",
+                    "type": "Array"
+                },
+                {
+                    "name": "callback",
+                    "description": "回调函数，系统会将 elems的每个元素和索引传入，如果匹配则返回true，或则为false",
+                    "type": "Function"
+                },
+                {
+                    "name": "inv",
+                    "description": "如果为true，将转为返回不匹配元素"
+                }
+            ],
+            "return": {
+                "description": "返回匹配的数组",
+                "type": "Array"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 271,
+            "description": "将数组或对象经过逐一转换后，成一个新的数组",
+            "itemtype": "method",
+            "name": "map",
+            "static": 1,
+            "params": [
+                {
+                    "name": "elems",
+                    "description": "被转换的数组或对象",
+                    "type": "Array|Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "回调函数，系统会将 elems的每个元素、索引和arg传入，返回转化的值",
+                    "type": "Function"
+                },
+                {
+                    "name": "arg",
+                    "description": "附加的参数"
+                }
+            ],
+            "return": {
+                "description": "返回转换后的数组",
+                "type": "Array"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 311,
+            "description": "获取Jclass对象",
+            "itemtype": "method",
+            "name": "get",
+            "static": 1,
+            "params": [
+                {
+                    "name": "el",
+                    "description": "\n * 为String时，先判断是否可以做为ID获取DOM,否则做为参数构建一个新的Jclass对象.\n * 为HTMLElement时，由Jclass构建一个对象\n * 为Jclass时，返回自己\n * 其他返回空值",
+                    "type": "HTMLElement|String|Jclass"
+                }
+            ],
+            "return": {
+                "description": "Jclass对象",
+                "type": "*"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 340,
+            "description": "获取HTMLElement对象",
+            "itemtype": "method",
+            "name": "dom",
+            "static": 1,
+            "params": [
+                {
+                    "name": "el",
+                    "description": "\n * 为String时，根据ID获取DOM\n * 为Jclass时，返回对象的第一个dom\n * 其他返回 el",
+                    "type": "HTMLElement|String|Jclass"
+                }
+            ],
+            "return": {
+                "description": "HTMLElement对象",
+                "type": "*"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 364,
+            "description": "判断对象是否为函数",
+            "itemtype": "method",
+            "name": "isFunction",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 374,
+            "description": "判断对象是否为字符串",
+            "itemtype": "method",
+            "name": "isString",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 384,
+            "description": "判断对象是否为 boolean",
+            "itemtype": "method",
+            "name": "isBoolean",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 394,
+            "description": "判断对象是否为 HTMLElement",
+            "itemtype": "method",
+            "name": "isElement",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 404,
+            "description": "判断对象是定义",
+            "itemtype": "method",
+            "name": "isDefined",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 414,
+            "description": "判断对象是否为 object",
+            "itemtype": "method",
+            "name": "isObject",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 424,
+            "description": "判断对象是否为 Window",
+            "itemtype": "method",
+            "name": "isWindow",
+            "static": 1,
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 434,
+            "description": "判断对象是否为 Date",
+            "itemtype": "method",
+            "name": "isDate",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 444,
+            "description": "判断对象是否为基本变量",
+            "itemtype": "method",
+            "name": "isPrimitive",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 454,
+            "description": "判断对象是否为数字",
+            "itemtype": "method",
+            "name": "isNumber",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 464,
+            "description": "判断对象是否为空值，包括 null,undefined,空数组,空字符串",
+            "itemtype": "method",
+            "name": "isEmpty",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                },
+                {
+                    "name": "allowBlank",
+                    "description": "为false时，表示不判断空字符串",
+                    "type": "Boolean"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 475,
+            "description": "判断对象是否为数组",
+            "itemtype": "method",
+            "name": "isArray",
+            "static": 1,
+            "params": [
+                {
+                    "name": "v",
+                    "description": "判断的对象",
+                    "type": "*"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Boolean"
+            },
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 485,
+            "description": "空函数",
+            "itemtype": "method",
+            "name": "noop",
+            "static": 1,
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 579,
+            "itemtype": "property",
+            "name": "length",
+            "type": "Integer",
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/j.js",
+            "line": 583,
+            "itemtype": "method",
+            "name": "create",
+            "params": [
+                {
+                    "name": "elems",
+                    "description": ""
+                }
+            ],
+            "class": "Jclass"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 78,
+            "description": "The $ module contains the components required for building the $ seed file.\nopp for the library.",
+            "mainName": "j",
+            "tag": "main",
+            "itemtype": "main",
+            "_main": true,
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 121,
+            "description": "Simulation of java package",
+            "itemtype": "method",
+            "name": "jpackage",
+            "static": 1,
+            "params": [
+                {
+                    "name": "name",
+                    "description": "package's name",
+                    "type": "String"
+                },
+                {
+                    "name": "imports",
+                    "description": "import class or objects\n\n     For example:\n     \"foo.Foo;foo.*\"\n     \"foo.Foo\",\"foo.*\"\n     foo.Foo",
+                    "type": "String|Object|Class",
+                    "optional": true,
+                    "multiple": true
+                },
+                {
+                    "name": "func(imports)",
+                    "description": "package body.\n\n*   imports:According to the incoming imports sequence to make variables",
+                    "type": "Function"
+                }
+            ],
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 185,
+            "itemtype": "method",
+            "name": "jimport",
+            "static": 1,
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 223,
+            "itemtype": "method",
+            "name": "jextends",
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 310,
+            "itemtype": "method",
+            "name": "jprivate",
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 319,
+            "itemtype": "method",
+            "name": "jpublic",
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 332,
+            "itemtype": "method",
+            "name": "jprotected",
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 345,
+            "itemtype": "method",
+            "name": "jstatic",
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 363,
+            "itemtype": "method",
+            "name": "joverride",
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 390,
+            "description": "p1:String ==>class name\np2,String ==>same package;Object\np3,function ==>",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 395,
+            "itemtype": "method",
+            "name": "jclass",
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 464,
+            "itemtype": "method",
+            "name": "jnew",
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/core/oop.js",
+            "line": 511,
+            "description": "模拟Java的语法，用 'class C extends E implements I'.j() 实现。",
+            "itemtype": "method",
+            "name": "j",
+            "params": [
+                {
+                    "name": "fuc",
+                    "description": "类实现体",
+                    "type": "Function"
+                },
+                {
+                    "name": "paras",
+                    "description": "如果是字符串，为类的别名，如果是函数，将会被定义成功后调用",
+                    "type": "String|Function"
+                }
+            ],
+            "global": "",
+            "class": "oop"
+        },
+        {
+            "file": "j5/src/j/jui/Component.js",
+            "line": 1,
+            "pakcage": "jui",
+            "class": "jui.Component"
+        },
+        {
+            "file": "j5/src/j/junit/MixedCollection.js",
+            "line": 1,
+            "description": "package junit",
+            "class": "junit.MixedCollection"
+        },
+        {
+            "file": "j5/src/j/junit/MixedCollection.js",
+            "line": 58,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "allowFunctions",
+                    "description": ""
+                },
+                {
+                    "name": "keyFn",
+                    "description": ""
+                }
+            ],
+            "class": "junit.MixedCollection"
+        },
+        {
+            "file": "j5/src/j/junit/Observable.js",
+            "line": 1,
+            "description": "package junit",
+            "class": "junit.Observable"
+        },
+        {
+            "file": "j5/src/j/junit/Observable.js",
+            "line": 10,
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "config",
+                    "description": ""
+                }
+            ],
+            "class": "junit.Observable"
+        },
+        {
+            "file": "j5/src/j/junit/Observer.js",
+            "line": 1,
+            "pakcage": "junit",
+            "class": "junit.Observer"
+        },
+        {
+            "file": "j5/src/j/junit/Template.js",
+            "line": 1,
+            "pakcage": "junit",
+            "class": "junit.BaseTemplate"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:76"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:107"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:146"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:155"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:198"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:216"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:244"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:271"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:311"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:340"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:364"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:374"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:384"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:394"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:404"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:414"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:424"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:434"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:444"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:454"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:464"
+        },
+        {
+            "message": "replacing incorrect tag: returns with return",
+            "line": " j5/src/core/j.js:475"
+        },
+        {
+            "message": "unknown tag: pakcage",
+            "line": " j5/src/j/jui/Component.js:1"
+        },
+        {
+            "message": "unknown tag: implements",
+            "line": " j5/src/j/junit/MixedCollection.js:6"
+        },
+        {
+            "message": "unknown tag: pakcage",
+            "line": " j5/src/j/junit/Observer.js:1"
+        },
+        {
+            "message": "unknown tag: pakcage",
+            "line": " j5/src/j/junit/Template.js:1"
+        },
+        {
+            "message": "Missing item type\np1:String ==>class name\np2,String ==>same package;Object\np3,function ==>",
+            "line": " j5/src/core/oop.js:390"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/jui/Component.js:1"
+        },
+        {
+            "message": "Missing item type\npackage junit",
+            "line": " j5/src/j/junit/MixedCollection.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/junit/MixedCollection.js:58"
+        },
+        {
+            "message": "Missing item type\npackage junit",
+            "line": " j5/src/j/junit/Observable.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/junit/Observable.js:10"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/junit/Observer.js:1"
+        },
+        {
+            "message": "Missing item type",
+            "line": " j5/src/j/junit/Template.js:1"
+        }
+    ]
+}

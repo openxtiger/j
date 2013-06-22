@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>是时候让Javascript真正面向对象了</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <meta http-equiv="content-style-type" content="text/css"/>
+    <meta http-equiv="content-scripte-type" content="text/javascript"/>
+    <meta name="author" content="openxtiger"/>
+    <meta name="version" content="1.0"/>
+    <meta name="keywords" content="J, oop, framework, $"/>
+    <meta name="description" content="是时候让Javascript真正面向对象了"/>
+    <link type="text/css" rel="stylesheet" href="res/c.css"/>
+    <link type="text/css" rel="stylesheet" href="css/index.css"/>
+</head>
+<body>
+<!-- 顶栏 -->
+<div class="g-bar">
+    <!-- 顶栏github模块 -->
+    <div class="m-github">
+        <span class="title">gitHub:</span><a class="link" target="_blank" href="https://github.com/openxtiger/j/">https://github.com/openxtiger/j/</a>
+    </div>
+</div>
+<!-- 头部 -->
+<div class="g-hd">
+    <div class="m-hdnav">
+        <div class="bg">
+            <div class="wrap">
+                <ul class="cnt">
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="api/"  target="_blank">Api</a></li>
+                    <li><a href="">Demo</a></li>
+                    <li><a href="">Feature</a></li>
+                    <li><a href="https://github.com/openxtiger/j/wiki" class="last">Wiki</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="logo"><a href="#">
+            <div class="img"></div>
+        </a></div>
+    </div>
+</div>
+<!-- 整体居中 -->
+<div class="g-doc">
+    <!-- 主体 -->
+    <div class="g-bd">
+        <div class="m-showpomelo">
+            <h1>J</h1>
+
+            <p>是时候让Javascript真正面向对象了</p>
+        </div>
+        <!-- 展示特性模块 -->
+        <div class="dp-highlighter">
+            <ol start="1" class="dp-c">
+                <li><span><span class="comment">/**</span>&nbsp;</span></li>
+                <li><span><span class="comment">&nbsp;*&nbsp;package&nbsp;junit</span>&nbsp;</span></li>
+                <li><span><span class="comment">&nbsp;*/</span><span>&nbsp;&nbsp;</span></span></li>
+                <li class="assist">'<span class="java">package</span>&nbsp;<span>junit</span>'.j(function&nbsp;(){&nbsp;&nbsp;</li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li  class="assist">&nbsp;&nbsp;&nbsp;&nbsp;'<span class="java">class</span>&nbsp;<span>Observable</span>'.j(<span>{</span>&nbsp;&nbsp;</li>
+
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hidden:<span class="keyword">true</span><span>,&nbsp;&nbsp;</span></span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constructor:&nbsp;<span
+                        class="keyword">function</span><span>&nbsp;(config)&nbsp;{&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">var</span><span>&nbsp;jthis&nbsp;=&nbsp;</span><span class="keyword">this</span><span>;&nbsp;&nbsp;</span></span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.extend(jthis,&nbsp;config);&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addEvents:&nbsp;<span
+                        class="keyword">function</span><span>&nbsp;(o)&nbsp;{&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</span></li>
+                <li><span>});&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li  class="assist">'<span class="java">package</span>&nbsp;<span>jui'</span>.j(function&nbsp;()&nbsp;{&nbsp;&nbsp;</li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/**</span>&nbsp;</span></li>
+                <li><span><span
+                        class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@class&nbsp;jui.Component</span>&nbsp;</span>
+                </li>
+                <li><span><span
+                        class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@extends&nbsp;junit.Observable</span>&nbsp;</span>
+                </li>
+                <li><span><span class="comment">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/</span><span>&nbsp;&nbsp;</span></span>
+                </li>
+                <li  class="assist">&nbsp;&nbsp;&nbsp;&nbsp;'<span class="java">class</span>&nbsp;<span>Component</span>&nbsp;<span class="java">implements</span>
+                    &nbsp;<span>junit.Observable</span>'.j(function&nbsp;<span>(jsuper,&nbsp;ob)&nbsp;{</span>&nbsp;&nbsp;
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="java">jstatic</span>(jsuper,&nbsp;{&nbsp;&nbsp;</span></li>
+                <li>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AUTO_ID:&nbsp;1000&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="comment">//&nbsp;protected</span><span>&nbsp;&nbsp;</span></span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="java">jprotected</span>(jsuper,&nbsp;{&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getId:&nbsp;<span
+                        class="keyword">function</span><span>&nbsp;()&nbsp;{&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span><span>&nbsp;</span><span class="keyword">this</span><span>.id&nbsp;||&nbsp;(</span><span
+                        class="keyword">this</span><span>.id&nbsp;=&nbsp;</span><span class="string">'jc-'</span><span>&nbsp;+&nbsp;(++</span><span
+                        class="keyword">this</span><span>.jstatic.AUTO_ID));&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="comment">//&nbsp;publc&nbsp;vars</span><span>&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="java">jpublic</span>(jsuper,&nbsp;{&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hidden:&nbsp;<span
+                        class="keyword">false</span><span>&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">//&nbsp;publc&nbsp;method</span><span>&nbsp;&nbsp;</span></span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="java">jpublic</span>(jsuper,&nbsp;{&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;constructor:&nbsp;<span
+                        class="keyword">function</span><span>&nbsp;(config)&nbsp;{&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.extend(<span
+                        class="keyword">this</span><span>,&nbsp;config);&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jcall(ob,&nbsp;<span
+                        class="keyword">this</span><span>);&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">this</span><span>.initComponent();&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;initComponent:&nbsp;$.noop,&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;afterRender:&nbsp;$.noop,&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;render:&nbsp;<span
+                        class="keyword">function</span><span>&nbsp;(container,&nbsp;position)&nbsp;{&nbsp;&nbsp;</span></span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">if</span><span>&nbsp;(!</span><span class="keyword">this</span><span>.rendered&nbsp;&amp;&amp;&nbsp;</span><span
+                        class="keyword">this</span><span>.fireEvent(</span><span
+                        class="string">'beforerender'</span><span>,&nbsp;</span><span
+                        class="keyword">this</span><span>)&nbsp;!==&nbsp;</span><span class="keyword">false</span><span>)&nbsp;{&nbsp;&nbsp;</span></span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">if</span><span>&nbsp;(!container&nbsp;&amp;&amp;&nbsp;</span><span
+                        class="keyword">this</span><span>.el)&nbsp;{&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">this</span><span>.el&nbsp;=&nbsp;$.get(</span><span
+                        class="keyword">this</span><span>.el);&nbsp;&nbsp;</span></span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;container&nbsp;=&nbsp;<span
+                        class="keyword">this</span><span>.el.dom().parentNode;&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">this</span><span>.allowDomMove&nbsp;=&nbsp;</span><span
+                        class="keyword">false</span><span>;&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">this</span><span>.container&nbsp;=&nbsp;$.get(container);&nbsp;&nbsp;</span></span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span><span>&nbsp;</span><span
+                        class="keyword">this</span><span>;&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</span>
+                </li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li><span>&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<span
+                        class="string">'component'</span><span>);&nbsp;&nbsp;</span></span></li>
+                <li><span>&nbsp;&nbsp;</span></li>
+                <li><span>});&nbsp;&nbsp;</span></li>
+            </ol>
+        </div>
+        <!--&lt;!&ndash; 四列模块 &ndash;&gt;
+        <div class="m-4col">
+            <div class="col">
+                <h2>Architecture</h2>
+
+                <p>Pomelo uses multi-process architecture in nature, which is proved to be scalable. With pomelo, you
+                    can achieve this architecture in almost zero code.</p>
+            </div>
+            <div class="col">
+                <h2>Framework</h2>
+
+                <p>Pomelo framework can help you to extend servers easily, and handle request/response, broadcast, rpc
+                    with minimal codes. </p>
+            </div>
+            <div class="col">
+                <h2>Performance</h2>
+
+                <p>With a lot of stress tests for improving performance, we've breaked many bottlenecks. Pomelo has
+                    achieved industry level in many ways like online users.</p>
+            </div>
+            <div class="col last">
+                <h2>Libraries and tools</h2>
+
+                <p>Besides pomelo, a rich set of powerful libraries are provided, including AI, AOI, schedule, etc.
+                    Meanwhile a variety of tools such as stress testing and command line can make your work easier.</p>
+            </div>
+        </div>-->
+    </div>
+
+</div>
+<!-- 尾部 -->
+<div class="g-ft">
+    <!-- 尾部模块 -->
+    <div class="m-ft">
+        Copyright 2012-2013, Openxtiger, Inc. All Rights Reserved.
+    </div>
+</div>
+</body>
+</html>

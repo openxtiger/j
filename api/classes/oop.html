@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>oop - The J API</title>
+    <link rel="stylesheet" href="../assets/css/cssgrids.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/icon" href="../assets/favicon.ico">
+    <script src="../assets/js/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+<a href="https://github.com/openxtiger/j"><img style="position: fixed; top: 0; right: 0; border: 0;z-index:110"
+src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+<div id="doc">
+    <div style="height: 100px;">
+    <div id="hd" class="yui3-g header" style="position:fixed;z-index:100;width:100%">
+
+        <div class="yui3-u-3-4">
+            <h1>
+                <img width="60" height="60" src="../assets/css/logo.png" title="The J API">
+            
+            J - Javascript OPP/DOM Tool
+            </h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+        </div>
+
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list" style="overflow: auto;position: fixed;height: 500px;width: 300px;padding-right: 10px;">
+    
+    <div id="methods-on-page" class="sidebox on-page">
+        <div class="hd">
+            <h2 class="no-toc">Methods On Page</h2>
+        </div>
+        <div class="bd">
+            <ul>
+                
+                    
+                    <li><a href="#method_j">j</a></li>
+                    
+                
+                    
+                    <li><a href="#method_jclass">jclass</a></li>
+                    
+                
+                    
+                    <li><a href="#method_jextends">jextends</a></li>
+                    
+                
+                    
+                    
+                
+                    
+                    <li><a href="#method_jnew">jnew</a></li>
+                    
+                
+                    
+                    <li><a href="#method_joverride">joverride</a></li>
+                    
+                
+                    
+                    
+                
+                    
+                    <li><a href="#method_jprivate">jprivate</a></li>
+                    
+                
+                    
+                    <li><a href="#method_jprotected">jprotected</a></li>
+                    
+                
+                    
+                    <li><a href="#method_jpublic">jpublic</a></li>
+                    
+                
+                    
+                    <li><a href="#method_jstatic">jstatic</a></li>
+                    
+                
+            </ul>
+        </div>
+    </div>
+    
+
+    
+        <div id="methods-on-page" class="sidebox on-page">
+            <div class="hd">
+                <h2 class="no-toc">Static Methods On Page</h2>
+            </div>
+            <div class="bd">
+                <ul>
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li><a href="#method_jimport_static">jimport</a>
+                        <span class="flag static">static</span></li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                        <li><a href="#method_jpackage_static">jpackage</a>
+                        <span class="flag static">static</span></li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    
+<h2 class="off-left">APIs</h2>
+<div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/Jclass.html">Jclass</a></li>
+            
+                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+            
+                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+            
+                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+            
+                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+            
+                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+            
+                <li><a href="../classes/junit.Observer.html">junit.Observer</a></li>
+            
+                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+            
+                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+            
+                <li><a href="../classes/oop.html">oop</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+    <div id="fileTree" class="sidebox">
+        <div class="hd">
+            <h2 class="no-toc">Files</h2>
+        </div>
+        <div class="bd">
+            <ul><li>j5/<ul><li>src/<ul><li>core/<ul><li><a href="../files/j5_src_core_j.js.html">j.js</a></li><li><a href="../files/j5_src_core_oop.js.html">oop.js</a></li></ul></li><li>j/<ul><li>jui/<ul><li><a href="../files/j5_src_j_jui_Component.js.html">Component.js</a></li></ul></li><li>junit/<ul><li><a href="../files/j5_src_j_junit_MixedCollection.js.html">MixedCollection.js</a></li><li><a href="../files/j5_src_j_junit_Observable.js.html">Observable.js</a></li><li><a href="../files/j5_src_j_junit_Observer.js.html">Observer.js</a></li><li><a href="../files/j5_src_j_junit_Template.js.html">Template.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+    
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>oop Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/j5_src_core_oop.js.html#l97"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:97</code></a>
+        </div>
+    
+
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>The global namespace methods,Used to simulate the Java keyword.<br/>
+模拟Java的面向对象功能，在此次分别模拟了 package,class,extends,public,private,protected,static,import
+可以用以下形式定义类</p>
+
+<pre class="code">'class C extends P implements I'.j(function(jsuper){
+     jstatic(jsuper,{
+         a:1
+     });
+     jpublic(jsuper,{
+         constructor: function () {
+             this.jsuper();
+         },
+         echo:function(){
+             console.log(this.jstatic.a);
+         }
+     });
+     jprotected(jsuper,{
+
+     });
+},'alias class name');</pre>
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_j">j</a>
+                                
+                            </li>
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jclass">jclass</a>
+                                
+                            </li>
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jextends">jextends</a>
+                                
+                            </li>
+                            
+                        
+                            
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jnew">jnew</a>
+                                
+                            </li>
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_joverride">joverride</a>
+                                
+                            </li>
+                            
+                        
+                            
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jprivate">jprivate</a>
+                                
+                            </li>
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jprotected">jprotected</a>
+                                
+                            </li>
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jpublic">jpublic</a>
+                                
+                            </li>
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jstatic">jstatic</a>
+                                
+                            </li>
+                            
+                        
+                    </ul>
+                    <h3>Static Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jimport_static">jimport</a>
+                                    <span class="flag static">static</span>
+                                
+                            </li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                            <li class="index-item method">
+                                <a href="#method_jpackage_static">jpackage</a>
+                                    <span class="flag static">static</span>
+                                
+                            </li>
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_j" class="method item">
+    <h3 class="name"><code>j</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>fuc</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>paras</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l511"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:511</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>模拟Java的语法，用 'class C extends E implements I'.j() 实现。</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">fuc</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>类实现体</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">paras</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>如果是字符串，为类的别名，如果是函数，将会被定义成功后调用</p>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jclass" class="method item">
+    <h3 class="name"><code>jclass</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l395"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:395</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jextends" class="method item">
+    <h3 class="name"><code>jextends</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l223"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:223</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jimport_static" class="method item">
+    <h3 class="name"><code>jimport</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l185"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:185</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jnew" class="method item">
+    <h3 class="name"><code>jnew</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l464"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:464</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_joverride" class="method item">
+    <h3 class="name"><code>joverride</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l363"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:363</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jpackage_static" class="method item">
+    <h3 class="name"><code>jpackage</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[imports]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>func(imports)</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag static">static</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l121"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:121</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Simulation of java package</p>
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">name</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>package's name</p>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[imports]</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/String" class="crosslink external" target="_blank">String</a> | <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object" class="crosslink external" target="_blank">Object</a> | Class</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+                        <span class="flag multiple" title="This argument may occur one or more times.">multiple</span>
+                    
+
+                    <div class="param-description">
+                        <p>import class or objects</p>
+
+<pre><code> For example:
+ "foo.Foo;foo.*"
+ "foo.Foo","foo.*"
+ foo.Foo
+</code></pre>
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">func(imports)</code>
+                        <span class="type"><a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Function" class="crosslink external" target="_blank">Function</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>package body.</p>
+
+<ul>
+<li>imports:According to the incoming imports sequence to make variables</li>
+</ul>
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jprivate" class="method item">
+    <h3 class="name"><code>jprivate</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l310"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:310</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jprotected" class="method item">
+    <h3 class="name"><code>jprotected</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l332"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:332</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jpublic" class="method item">
+    <h3 class="name"><code>jpublic</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l319"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:319</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_jstatic" class="method item">
+    <h3 class="name"><code>jstatic</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/j5_src_core_oop.js.html#l345"><code>j5&#x2F;src&#x2F;core&#x2F;oop.js:345</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>
