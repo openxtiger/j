@@ -36,49 +36,61 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 <div id="api-list" style="overflow: auto;position: fixed;height: 500px;width: 300px;padding-right: 10px;">
     
 
+    <h2 class="off-left">APIs</h2>
     
-<h2 class="off-left">APIs</h2>
-<div id="api-tabview" class="tabview">
-        <ul class="tabs">
-            <li><a href="#api-classes">Classes</a></li>
-            <li><a href="#api-modules">Modules</a></li>
-        </ul>
-
-        <div id="api-tabview-filter">
-            <input type="search" id="api-filter" placeholder="Type to filter APIs">
-        </div>
-
-        <div id="api-tabview-panel">
-            <ul id="api-classes" class="apis classes">
-            
-                <li><a href="../classes/Jclass.html">Jclass</a></li>
-            
-                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
-            
-                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
-            
-                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
-            
-                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
-            
-                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
-            
-                <li><a href="../classes/junit.Observer.html">junit.Observer</a></li>
-            
-                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
-            
-                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
-            
-                <li><a href="../classes/oop.html">oop</a></li>
-            
-            </ul>
-
-            <ul id="api-modules" class="apis modules">
-            
-            </ul>
-        </div>
-    </div>
-
+    <div id="modules" class="sidebox on-page">
+          <div class="hd">
+              <h2 class="no-toc">Modules</h2>
+          </div>
+          <div class="bd">
+              <ul>
+                  
+                      <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a></li>
+                  
+                      <li><a href="../modules/jui.html">jui</a></li>
+                  
+                      <li><a href="../modules/junit.html">junit</a></li>
+                  
+                      <li><a href="../modules/OOP.html">OOP</a></li>
+                  
+              </ul>
+          </div>
+      </div>
+    
+    
+    <div id="classes" class="sidebox on-page">
+          <div class="hd">
+              <h2 class="no-toc">Classes</h2>
+          </div>
+          <div id="api-tabview-filter">
+                      <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                  </div>
+          <div class="bd">
+              <ul id="api-classes">
+                  
+                      <li><a href="../classes/Jclass.html">Jclass</a></li>
+                  
+                      <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+                  
+                      <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+                  
+                      <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+                  
+                      <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+                  
+                      <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+                  
+                      <li><a href="../classes/junit.Observer.html">junit.Observer</a></li>
+                  
+                      <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+                  
+                      <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+                  
+                      <li><a href="../classes/OOP.html">OOP</a></li>
+                  
+              </ul>
+          </div>
+      </div>
     
 
     
@@ -86,21 +98,14 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
     
 
     
-    <div id="fileTree" class="sidebox">
-        <div class="hd">
-            <h2 class="no-toc">Files</h2>
-        </div>
-        <div class="bd">
-            <ul><li>j5/<ul><li>src/<ul><li>core/<ul><li><a href="../files/j5_src_core_j.js.html">j.js</a></li><li><a href="../files/j5_src_core_oop.js.html">oop.js</a></li></ul></li><li>j/<ul><li>jui/<ul><li><a href="../files/j5_src_j_jui_Component.js.html">Component.js</a></li></ul></li><li>junit/<ul><li><a href="../files/j5_src_j_junit_MixedCollection.js.html">MixedCollection.js</a></li><li><a href="../files/j5_src_j_junit_Observable.js.html">Observable.js</a></li><li><a href="../files/j5_src_j_junit_Observer.js.html">Observer.js</a></li><li><a href="../files/j5_src_j_junit_Template.js.html">Template.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
-        </div>
-    </div>
-    
+
+
 </div>
 
             </div>
         </div>
         <div class="yui3-u-3-4">
-                <div id="api-options">
+            <!--    <div id="api-options">
         Show:
         <label for="api-show-inherited">
             <input type="checkbox" id="api-show-inherited" checked>
@@ -121,7 +126,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             Deprecated
         </label>
 
-    </div>
+    </div>   -->
 
 
             <div class="apidocs">
@@ -146,6 +151,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 args || $.toArray(this.jsuper.caller.arguments));
         }
     };
+    var jclasses = {}, jwidgets = {}, jctrls = {}, jmodels = {}, jlogics = {};
 
     $.extend({
         nameclass: function (c) {
@@ -205,14 +211,41 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             }
 
             return o;
+        },
+        define: function (jclass, cls) {
+            jclasses[jclass] = cls;
+        },
+        widget: function (id, c, defined) {
+            if (defined) {
+                return jwidgets[id] = c;
+            }
+            return new jwidgets[id](c);
+        },
+        create: function (config, defaultType) {
+            var jclass = config.$;
+            delete config.$;
+            var c = jclasses[jclass || defaultType] || $.importclass(jclass);
+            return new c(config);
+        },
+        ctrl: function (id, c) {
+            if (arguments.length == 1) {
+                return jctrls[id];
+            }
+            return jctrls[id] || (jctrls[id] = jclasses[id] &amp;&amp; new jclasses[id](c));
+        },
+        model: function (id, c) {
+            if (arguments.length == 1) {
+                return jmodels[id];
+            }
+            return $.extend(jmodels[id] || {}, c);
+        },
+        logic: function (id, c) {
+            if (arguments.length == 1) {
+                return jlogics[id];
+            }
+            return $.extend(jlogics[id] || {}, c);
         }
     });
-
-    /**
-     * The $ module contains the components required for building the $ seed file.
-     * opp for the library.
-     * @main j
-     */
 
     var __cpackage__;  // current package object
     var __npackage__;  // current package name
@@ -231,23 +264,26 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * The global namespace methods,Used to simulate the Java keyword.&lt;br/&gt;
      * 模拟Java的面向对象功能，在此次分别模拟了 package,class,extends,public,private,protected,static,import
      * 可以用以下形式定义类
-     * &lt;pre class=&quot;code&quot;&gt;&#x27;class C extends P implements I&#x27;.j(function(jsuper){
-     *      jstatic(jsuper,{
-     *          a:1
-     *      });
-     *      jpublic(jsuper,{
-     *          constructor: function () {
-     *              this.jsuper();
-     *          },
-     *          echo:function(){
-     *              console.log(this.jstatic.a);
-     *          }
-     *      });
-     *      jprotected(jsuper,{
-     *
-     *      });
-     * },&#x27;alias class name&#x27;);&lt;/pre&gt;
-     * @class oop
+
+     &#x27;class C extends P implements I&#x27;.j(function(jsuper){
+           jstatic(jsuper,{
+               a:1
+           });
+           jpublic(jsuper,{
+               constructor: function () {
+                   this.jsuper();
+               },
+               echo:function(){
+                   console.log(this.jstatic.a);
+               }
+           });
+           jprotected(jsuper,{
+
+           });
+      },&#x27;alias class name&#x27;);
+
+     * @module OOP
+     * @class OOP
      */
 
 
@@ -429,7 +465,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             delete coverrides.jstatic;
         }
 
-        $.override(sb, coverrides);  // extend coverrides
+        $.fn.extend(sb, coverrides);  // extend coverrides
         if (mixins.length) {
             for (var i = 0, len = mixins.length; i &lt; len; i++) {
                 $.extendIf(sbp, mixins[i]);

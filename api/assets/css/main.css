@@ -860,3 +860,10 @@ kbd .cmd { font-family: Monaco, Helvetica; }
     border-radius: 4px;
     opacity: .5;
 }
+
+a.external {
+    background-image: url(external-small.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 16px;
+}
