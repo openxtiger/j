@@ -13,6 +13,7 @@
                 args || $.toArray(this.jsuper.caller.arguments));
         }
     };
+    var jclasses = {}, jwidgets = {}, jctrls = {}, jmodels = {}, jlogics = {};
 
     $.extend({
         nameclass: function (c) {
@@ -72,14 +73,41 @@
             }
 
             return o;
+        },
+        define: function (jclass, cls) {
+            jclasses[jclass] = cls;
+        },
+        widget: function (id, c, defined) {
+            if (defined) {
+                return jwidgets[id] = c;
+            }
+            return new jwidgets[id](c);
+        },
+        create: function (config, defaultType) {
+            var jclass = config.$;
+            delete config.$;
+            var c = jclasses[jclass || defaultType] || $.importclass(jclass);
+            return new c(config);
+        },
+        ctrl: function (id, c) {
+            if (arguments.length == 1) {
+                return jctrls[id];
+            }
+            return jctrls[id] || (jctrls[id] = jclasses[id] && new jclasses[id](c));
+        },
+        model: function (id, c) {
+            if (arguments.length == 1) {
+                return jmodels[id];
+            }
+            return $.extend(jmodels[id] || {}, c);
+        },
+        logic: function (id, c) {
+            if (arguments.length == 1) {
+                return jlogics[id];
+            }
+            return $.extend(jlogics[id] || {}, c);
         }
     });
-
-    /**
-     * The $ module contains the components required for building the $ seed file.
-     * opp for the library.
-     * @main j
-     */
 
     var __cpackage__;  // current package object
     var __npackage__;  // current package name
@@ -95,14 +123,36 @@
 
 
     /**
-     * The global namespace methods,Used to simulate the Java keyword.
-     * @class .
+     * The global namespace methods,Used to simulate the Java keyword.<br/>
+     * 模拟Java的面向对象功能，在此次分别模拟了 package,class,extends,public,private,protected,static,import
+     * 可以用以下形式定义类
+
+     'class C extends P implements I'.j(function(jsuper){
+           jstatic(jsuper,{
+               a:1
+           });
+           jpublic(jsuper,{
+               constructor: function () {
+                   this.jsuper();
+               },
+               echo:function(){
+                   console.log(this.jstatic.a);
+               }
+           });
+           jprotected(jsuper,{
+
+           });
+      },'alias class name');
+
+     * @module OOP
+     * @class OOP
      */
 
 
     /**
      * Simulation of java package
      * @method jpackage
+     * @static
      * @param {String} name package's name
      * @param {String|Object|Class} [imports]* import class or objects
      *
@@ -119,10 +169,6 @@
      *@global
      **/
 
-    /**
-     * @method jpackage
-     * @global
-     */
     function jpackage() {
         var l = arguments.length, i = 0;
         if (l == 0) return;
@@ -169,6 +215,7 @@
     window.jpackage = jpackage;
     /**
      * @method jimport
+     * @static
      * @global
      */
     function jimport() {
@@ -280,7 +327,7 @@
             delete coverrides.jstatic;
         }
 
-        $.override(sb, coverrides);  // extend coverrides
+        $.fn.extend(sb, coverrides);  // extend coverrides
         if (mixins.length) {
             for (var i = 0, len = mixins.length; i < len; i++) {
                 $.extendIf(sbp, mixins[i]);
@@ -493,7 +540,11 @@
     window.jnew = jnew;
 
     /**
+     * 模拟Java的语法，用 'class C extends E implements I'.j() 实现。
      * @method j
+     * @param fuc {Function} 类实现体
+     * @param paras {String|Function} 如果是字符串，为类的别名，如果是函数，将会被定义成功后调用
+     *
      * @global
      */
     String.prototype.j = function () {

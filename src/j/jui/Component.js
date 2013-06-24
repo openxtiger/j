@@ -1,5 +1,6 @@
 /**
  * @pakcage jui
+ * @module jui
  */
 'package jui'.j(function () {
 
@@ -51,7 +52,7 @@
                     'staterestore', 'beforestatesave', 'statesave', 'resize', 'move'
                 );
 
-                $.register(this.getId(), this);
+                $.widget(this.getId(), this, true);
 
                 this.initComponent();
                 if (this.owner) {

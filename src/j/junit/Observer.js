@@ -1,5 +1,6 @@
 /**
  * @pakcage junit
+ * @module junit
  */
 'package junit'.j(function () {
 

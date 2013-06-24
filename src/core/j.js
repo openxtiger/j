@@ -31,6 +31,12 @@
                 typeof length === "number" && length > 0 && ( length - 1 ) in obj );
     }
 
+    /**
+     对DOM的封装和一些常用的工具，主要包括dom的获取、样式、位置、模板、HTML创建、数据、事件等
+     @main Jclass
+     @module DOM_UNIT
+     @class Jclass
+     */
     var $ = (function () {
         var $, JF, FF,
             class2type = {},
@@ -40,7 +46,7 @@
             enumerables = ['hasOwnProperty', 'valueOf', 'isPrototypeOf', 'propertyIsEnumerable', 'toLocaleString',
                 'toString', 'constructor'],
             objs = "Boolean Number String Function Array Date RegExp".split(" "),
-            jclasses = {}, jcomponent = {}, docReadyEvent;
+            docReadyEvent;
 
         function fireDocReady() {
             $.isReady = true;
@@ -75,12 +81,13 @@
 
         /**
          * Jclass 私有构造函数，只能由$函数调用 @see $
-         * @private
          * @class Jclass
          * @param [selector] {HTMLElement|String|Object}　
          *  * 空值时，将返回一个空的对象 　
          *  * 为dom时，返回此dom的Jclass对象
          *  * 为字符串时，返回通过 querySelectorAll 的dom数组
+         *  <a href="http://openxtiger.iteye.com/blog/1893289" target="_blank" class="external">[知识扫盲1]</a>
+         *  <a href="http://openxtiger.iteye.com/blog/1611723" target="_blank" class="external">[知识扫盲2]</a>
          *  * 其他的将合并到新的对象上
          * @param [context]
          * @returns {*} 返回元素为０或多个Jclass对象数组
@@ -106,10 +113,11 @@
 
         /**
          * @method $
+         * @static
          * @param [selector] {HTMLElement|String|Object|Jclass}　
          *  * $() 空值时，返回 Jclass.prototype　
+         *  * $(HTMLElement) 为HTMLElement时，返回一个快速Jclass对象。返回的对象不能存储，因为此对象的dom会被下一次调用时更新　
          *  * $({$:"class"}) 对象含有$属性时，返回 selector类的对象　
-         *  * $("@name")为字符串，且以@　开头属性时，返回 jcomponent 对象　
          *  * $(function(){}) 为函数时，文档加载完成后，回调此函数
          *  * 其他参考 @see Jclass
          * @param [context]
@@ -121,11 +129,11 @@
                 JF[0] = selector;
                 return JF;
             }
+            if (selector instanceof Jclass) {
+                return selector;
+            }
             if (selector && selector.$) {
                 return $.create(selector, context);
-            }
-            if (typeof selector === "string" && selector.substr(0, 1) == '@') {
-                return jcomponent[selector.substr(1)];
             }
             if (arguments.length == 0) {
                 return Jclass.prototype;
@@ -150,7 +158,7 @@
          * @param [1..n]  {Object..}
          *  * 只有一个参数时，是对$进行自身扩展
          *  * 其它依次将所有参数扩展到第一个参数上
-         *
+         *  @returns {*} 返回扩展后的对象
          */
         /**
          * $().extend() 对一个对象的prototype扩展
@@ -158,7 +166,7 @@
          * @param [1..n] {Object..}
          *  * 只有一个参数时，是对$.prototype进行自身扩展
          *  * 其它依次将所有参数扩展到第一个参数的prototype上
-         *
+         *  @returns {*} 返回扩展后的prototype对象
          */
         $.extend = $().extend = function () {
             var target = arguments[0],
@@ -201,6 +209,7 @@
              * @static
              * @param o {Object} 被扩展的对象
              * @param c {Object} 扩展的对象，且对象中的属性值不为undefind时才扩展进入o对象
+             * @returns {Object} 被扩展的对象
              */
             extendIf: function (o, c) {
                 if (o) {
@@ -213,10 +222,12 @@
                 return o;
             },
             /**
+             * 将second合并到first中
              * @method merge
              * @static
-             * @param first
-             * @param second
+             * @param first {Array|Object}
+             * @param second {Array|Object}
+             * @returns {Array|Object} 被扩展的对象
              */
             merge: function (first, second) {
                 if (!second || !first) return {};
@@ -238,6 +249,15 @@
                 first.length = i;
                 return first;
             },
+            /**
+             * 从 elems 中查找匹配元素，最终返回新数组
+             * @method grep
+             * @static
+             * @param elems {Array} 被查找的数组
+             * @param callback {Function} 回调函数，系统会将 elems的每个元素和索引传入，如果匹配则返回true，或则为false
+             * @param inv 如果为true，将转为返回不匹配元素
+             * @returns {Array} 返回匹配的数组
+             */
             grep: function (elems, callback, inv) {
                 var retVal,
                     ret = [],
@@ -256,6 +276,15 @@
 
                 return ret;
             },
+            /**
+             * 将数组或对象经过逐一转换后，成一个新的数组
+             * @method map
+             * @static
+             * @param elems {Array|Object} 被转换的数组或对象
+             * @param callback  {Function} 回调函数，系统会将 elems的每个元素、索引和arg传入，返回转化的值
+             * @param arg 附加的参数
+             * @returns {Array} 返回转换后的数组
+             */
             map: function (elems, callback, arg) {
                 var value,
                     i = 0,
@@ -288,9 +317,15 @@
                 return core_concat.apply([], ret);
             },
             /**
+             * 获取Jclass对象
              * @method get
              * @static
-             * @param el
+             * @param el {HTMLElement|String|Jclass}　
+             *  * 为String时，先判断是否可以做为ID获取DOM,否则做为参数构建一个新的Jclass对象.
+             *  * 为HTMLElement时，由Jclass构建一个对象
+             *  * 为Jclass时，返回自己
+             *  * 其他返回空值
+             * @returns {*} Jclass对象
              */
             get: function (el) {
                 var elm;
@@ -311,9 +346,14 @@
                 return null;
             },
             /**
+             * 获取HTMLElement对象
              * @method dom
              * @static
-             * @param el
+             * @param el {HTMLElement|String|Jclass}　
+             *  * 为String时，根据ID获取DOM
+             *  * 为Jclass时，返回对象的第一个dom
+             *  * 其他返回 el
+             * @returns {HTMLElement} HTMLElement对象
              */
             dom: function (el) {
                 if (!el) {
@@ -330,48 +370,140 @@
                 }
             },
             /**
+             * 判断对象是否为函数 @see $.type
              * @method isFunction
              * @static
-             * @param v
+             * @param v {*} 判断的对象
+             * @returns {boolean}
              */
             isFunction: function (v) {
                 return $.type(v) === 'function';
             },
+            /**
+             * 判断对象是否为字符串 @see $.type
+             * @method isString
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isString: function (v) {
                 return $.type(v) === 'string';
             },
+            /**
+             * 判断对象是否为 boolean @see $.type
+             * @method isBoolean
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isBoolean: function (v) {
                 return $.type(v) === 'boolean';
             },
+            /**
+             * 判断对象是否为 HTMLElement
+             * @method isElement
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isElement: function (v) {
                 return !!v && v.tagName;
             },
+            /**
+             * 判断对象是定义
+             * @method isDefined
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isDefined: function (v) {
                 return typeof v !== 'undefined';
             },
+            /**
+             * 判断对象是否为 object @see $.type
+             * @method isObject
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isObject: function (v) {
                 return !!v && $.type(v) === 'object';
             },
+            /**
+             * 判断对象是否为 Window
+             * @method isWindow
+             * @static
+             * @param obj {*} 判断的对象
+             * @returns {boolean}
+             */
             isWindow: function (obj) {
                 return obj != null && obj == obj.window
             },
+            /**
+             * 判断对象是否为 Date @see $.type
+             * @method isDate
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isDate: function (v) {
                 return $.type(v) === 'date';
             },
+            /**
+             * 判断对象是否为基本变量
+             * @method isPrimitive
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isPrimitive: function (v) {
                 return $.isString(v) || $.isNumber(v) || $.isBoolean(v);
             },
+            /**
+             * 判断对象是否为数字 @see $.type
+             * @method isNumber
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isNumber: function (v) {
                 return $.type(v) === 'number';
             },
+            /**
+             * 判断对象是否为空值，包括 null,undefined,空数组,空字符串
+             * @method isEmpty
+             * @static
+             * @param v {*} 判断的对象
+             * @param allowBlank {boolean} 为false时，表示不判断空字符串
+             * @returns {boolean}
+             */
             isEmpty: function (v, allowBlank) {
                 return v === null || v === undefined || (($.isArray(v) && !v.length)) || (!allowBlank ? v === '' : false);
             },
+            /**
+             * 判断对象是否为数组 @see $.type
+             * @method isArray
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isArray: Array.isArray || function (v) {
                 return $.type(v) === "array";
             },
+            /**
+             * 空函数
+             * @method noop
+             * @static
+             */
             noop: function () {
             },
+            /**
+             * 判断对象是否可迭代
+             * @method isIterable
+             * @static
+             * @param v {*} 判断的对象
+             * @returns {boolean}
+             */
             isIterable: function (v) {
                 //check for array or arguments
                 if ($.isArray(v) || v.callee) {
@@ -385,6 +517,13 @@
                 //IXMLDOMNodeList has nextNode method, needs to be checked first.
                 return ((typeof v.nextNode != 'undefined' || v.item) && $.isNumber(v.length));
             },
+            /**
+             * 判断对象是否为空对象
+             * @method isEmptyObject
+             * @static
+             * @param obj {*} 判断的对象
+             * @returns {boolean}
+             */
             isEmptyObject: function (obj) {
                 var name;
                 for (name in obj) {
@@ -392,10 +531,23 @@
                 }
                 return true;
             },
+            /**
+             * 获取对象的类型 <a href="http://openxtiger.iteye.com/blog/1893378" target="_blank" class="external">[知识扫盲]</a>
+             * @method type
+             * @static
+             * @param obj {*} 判断的对象
+             * @returns {string}
+             */
             type: function (obj) {
                 return class2type[ toString.call(obj) ] || "object";
             },
-
+            /**
+             * 监听文档加载完成的事件，使用DOMContentLoaded监听。
+             * @method ready
+             * @static
+             * @param fn 回调函数
+             * @param scope 作用域
+             */
             ready: function (fn, scope) {
 
                 if ($.isReady) {
@@ -406,6 +558,15 @@
                     docReadyEvent.add(fn, scope);
                 }
             },
+            /**
+             * 遍历数组或对象，如果是数组则传入值和索引；如果是对象则传入属性和属性值。
+             * @method each
+             * @static
+             * @param obj {Array|Object} 数组或对象
+             * @param fn  {Function} 回调处理函数
+             * @param scope {Object} 作用域
+             * @returns {Object} obj
+             */
             each: function (obj, fn, scope) {
                 if ($.isEmpty(obj, true)) {
                     return obj;
@@ -428,9 +589,24 @@
                 }
                 return obj;
             },
+            /**
+             * 将数组或对象数组转化为数组
+             * @method toArray
+             * @static
+             * @param array {Array|Object}
+             * @param start {int} 索引开始
+             * @param end {int} 索引结束
+             * @returns {Array}
+             */
             toArray: function (array, start, end) {
                 return core_slice.call(array, start || 0, end || array.length);
             },
+            /**
+             *
+             * @method namespace
+             * @static
+             * @returns {*}
+             */
             namespace: function () {
                 var o, d;
                 $.each(arguments, function (v) {
@@ -442,102 +618,201 @@
                 });
                 return o;
             },
+            create: function () {
 
-            define: function (jclass, cls) {
-                jclasses[jclass] = cls;
-            },
-            register: function (id, c) {
-                jcomponent[id] = c;
-            },
-            create: function (config, defaultType) {
-                var jclass = config.$;
-                delete config.$;
-                var c = jclasses[jclass || defaultType] || $.importclass(jclass);
-                return new c(config);
             }
+
         });
 
         //traversal
         $().extend({
             /**
-             * @property {Integer} length
+             * @property {int} length
              */
             length: 0,
             /**
+             * 创建Jclass对象，并记录创建他的对象。
              * @method create
-             * @param elems
+             * @param elems {HTMLElement} DOM对象
+             * @returns {Jclass} Jclass对象
              */
             create: function (elems) {
                 var ret = $.merge($(null), elems || []);
                 ret.prev$ = this;
                 return ret;
             },
-            dom: function (num) {
-                return this.length == 0 ? null : num < 0 ? this[ this.length + num ] : this[ num || 0 ];
+            /**
+             * 根据索引获取Jclass对象的dom
+             * @method dom
+             * @param index {int} 索引号，为空时，返回第一个dom，为负数时，反向获取。
+             * @returns {HTMLElement}
+             */
+            dom: function (index) {
+                return this.length == 0 ? null : index < 0 ? this[ this.length + index ] : this[ index || 0 ];
             },
+            /**
+             * 根据索引获取Jclass对象中dom的新Jclass对象
+             * @method get
+             * @param i {int} 索引号，为-1时，获取最后一个dom的Jclass对象。
+             * @returns {Jclass} Jclass对象
+             */
             get: function (i) {
                 i = +i;
                 return i === -1 ?
                     this.slice(i) :
                     this.slice(i, i + 1);
             },
-            slice: function () {
+            /**
+             * 截取获取Jclass对象中对应dom成为新Jclass对象
+             * @method slice
+             * @param start {int} 开始位置
+             * @param end {int} 结束位置
+             * @returns {Jclass} Jclass对象
+             */
+            slice: function (start, end) {
                 return this.create(core_slice.apply(this, arguments));
             },
+            /**
+             * 将Jclass对象中对象通过callback处理后成为新Jclass对象
+             * @method map
+             * @param callback 回调函数
+             * @returns {Jclass}
+             */
             map: function (callback) {
                 return this.create($.map(this, function (elem, i) {
                     return callback.call(elem, i, elem);
                 }));
             },
+            /**
+             * 获取第一个dom的新Jclass对象
+             * @method head
+             * @returns {Jclass} Jclass对象
+             */
             head: function () {
                 return this.get(0);
             },
+            /**
+             * 获取最后一个dom的新Jclass对象
+             * @method head
+             * @returns {Jclass} Jclass对象
+             */
             tail: function () {
                 return this.get(-1);
             },
-
+            /**
+             * 根据索引获取Jclass的dom元素的即时Jclass对象
+             * @method fly
+             * @param i {int} 索引号，为-1时，获取最后一个dom的Jclass对象。
+             * @returns {Jclass} Jclass对象
+             */
             fly: function (i) {
                 FF[0] = this.dom(i);
                 FF.prev$ = this;
                 return FF;
             },
+            /**
+             * 获取Jclass的第一个dom元素的即时Jclass对象
+             * @method begin
+             * @returns {Jclass} Jclass对象
+             */
             begin: function () {
                 return this.fly(0);
             },
+            /**
+             * 获取Jclass的最后一个dom元素的即时Jclass对象
+             * @method end
+             * @returns {Jclass} Jclass对象
+             */
             end: function () {
                 return this.fly(-1);
             },
-
-            match: function (dir, start, returnDom) {
-                var n = this.dom()[start];
+            /**
+             * 获取Jclass的第index个dom的dom或者Jclass
+             * @method match
+             * @param dir {string} dom的遍历方向，包括:nextSibling,previousSibling,parentNode
+             * @param start {string} dom遍历的起始dom,包括:firstChild,lastChild,nextSibling,previousSibling,parentNode,
+             * @param index {int} 索引号
+             * @param returnDom {boolean}
+             *  * true时返回dom
+             *  * 其他返回Jclass
+             * @returns {Jclass|HTMLElement}
+             */
+            match: function (dir, start, index, returnDom) {
+                var n = this.dom(index)[start];
                 while (n) {
                     if (n.nodeType == 1) {
-                        return !returnDom ? $.get(n) : n;
+                        return !returnDom ? this.create(n) : n;
                     }
                     n = n[dir];
                 }
                 return null;
             },
-            first: function (returnDom) {
-                return this.match(NEXTSIBLING, 'firstChild', returnDom);
+            /**
+             * 获取Jclass的第index个dom的第一个子dom或者子dom的Jclass
+             * @method first
+             * @param index {int} 索引号
+             * @param returnDom
+             *  * true时返回dom
+             *  * 其他返回Jclass
+             * @returns {Jclass|HTMLElement}
+             */
+            first: function (index, returnDom) {
+                return this.match(NEXTSIBLING, 'firstChild', index, returnDom);
             },
-
-            last: function (returnDom) {
-                return this.match(PREVIOUSSIBLING, 'lastChild', returnDom);
+            /**
+             * 获取Jclass的第index个dom的最后一个子dom或者子dom的Jclass
+             * @method last
+             * @param index {int} 索引号
+             * @param returnDom
+             *  * true时返回dom
+             *  * 其他返回Jclass
+             * @returns {Jclass|HTMLElement}
+             */
+            last: function (index, returnDom) {
+                return this.match(PREVIOUSSIBLING, 'lastChild', index, returnDom);
             },
-
-            prev: function (returnDom) {
-                return this.match(PREVIOUSSIBLING, PREVIOUSSIBLING, returnDom);
+            /**
+             * 获取Jclass的第index个dom的前一个相邻dom或者相邻dom的Jclass
+             * @method prev
+             * @param index {int} 索引号
+             * @param returnDom
+             *  * true时返回dom
+             *  * 其他返回Jclass
+             * @returns {Jclass|HTMLElement}
+             */
+            prev: function (index, returnDom) {
+                return this.match(PREVIOUSSIBLING, PREVIOUSSIBLING, index, returnDom);
             },
-
-            next: function (returnDom) {
-                return this.match(NEXTSIBLING, NEXTSIBLING, returnDom);
+            /**
+             * 获取Jclass的第index个dom的后一个相邻dom或者相邻dom的Jclass
+             * @method next
+             * @param index {int} 索引号
+             * @param returnDom
+             *  * true时返回dom
+             *  * 其他返回Jclass
+             * @returns {Jclass|HTMLElement}
+             */
+            next: function (index, returnDom) {
+                return this.match(NEXTSIBLING, NEXTSIBLING, index, returnDom);
             },
-
-            parent: function (returnDom) {
-                return this.match(PARENTNODE, PARENTNODE, returnDom);
+            /**
+             * 获取Jclass的第index个dom的父dom或者父dom的Jclass
+             * @method parent
+             * @param index {int} 索引号
+             * @param returnDom
+             *  * true时返回dom
+             *  * 其他返回Jclass
+             * @returns {Jclass|HTMLElement}
+             */
+            parent: function (index, returnDom) {
+                return this.match(PARENTNODE, PARENTNODE, index, returnDom);
             },
-
+            /**
+             * 查找dom是否在Jclass对象中，找到返回索引位置，否则为-1
+             * @method index
+             * @param elem {string|HTMLElement} 要查找的dom
+             * @returns {int}
+             */
             index: function (elem) {
 
                 // No argument, return index in parent
@@ -553,6 +828,12 @@
                 // Locate the position of the desired element
                 return core_indexOf.call(this, elem);
             },
+            /**
+             * 对Jclass对象的每个dom进行回调处理
+             * @method each
+             * @param callback {Function} 回调处理函数
+             * @returns {Jclass}
+             */
             each: function (callback) {
                 for (var i = 0, len = this.length; i < len; i++) {
                     if (callback.call(this[i], this[i], i, this) === false) {
@@ -561,11 +842,12 @@
                 }
                 return this;
             },
-
-            back: function () {
-                return this.prev$ || $(null);
-            },
-
+            /**
+             * 通过此Jclass对象的每一个dom元素继续查找匹配selector的dom，并重新构成新的Jclass对象
+             * @method query
+             * @param selector {string}
+             * @returns {Jclass}
+             */
             query: function (selector) {
                 var elem;
                 var ret = this.create();
@@ -586,12 +868,38 @@
                 }
                 return ret;
             },
+            /**
+             * 获取创建此Jclass对象的创建者的Jclass对象
+             * @method back
+             * @returns {Jclass}
+             */
+            back: function () {
+                return this.prev$ || $(null);
+            },
+            /**
+             *  @param [selector] {HTMLElement|String|Object|Jclass}　
+             *  * $() 空值时，返回 第一个dom
+             *  * $({$:"class"}) 对象含有$属性时，返回 selector类的对象,并将自己储存在selector类的对象的owner属性　
+             *  * $(function(){}) 为函数时，第一个dom加载完成后，回调此函数
+             *  * 其他参考 @see $().query
+             * @param [context]
+             * @returns {*}
+             */
             $: function (selector, context) {
                 if (arguments.length == 0) {
-                    return this.dom()
+                    return this[0];
                 }
                 if (selector instanceof Jclass) {
                     return new Jclass(selector);
+                }
+                if ($.isFunction(selector)) {
+                    var d = this[0];
+                    d && (d.onload = d.onreadystatechange = function () {
+                        if (this.readyState && this.readyState != 'complete') return;
+                        selector.call(context);
+                    });
+
+                    return this;
                 }
                 if (selector && selector.$) {
                     selector['owner'] = this;
