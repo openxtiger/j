@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>j5/src/j/junit/Template.js - The J API</title>
+    <link rel="stylesheet" href="../assets/css/cssgrids.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/icon" href="../assets/favicon.ico">
+    <script src="../assets/js/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+<a href="https://github.com/openxtiger/j"><img style="position: fixed; top: 0; right: 0; border: 0;z-index:110"
+src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+<div id="doc">
+    <div style="height: 100px;">
+    <div id="hd" class="yui3-g header" style="width:100%">
+
+        <div class="yui3-u-3-4">
+            <h1 style="position:fixed;z-index:100;">
+                <img width="60" height="60" src="../assets/css/logo.png" title="The J API">
+            
+            J - JS OPP/DOM Tool
+            </h1>
+        </div>
+        <div style="display: block;;position: absolute;right: 10px;bottom: 200px;z-index: 10000;height: 60px;width: 60px;text-indent: -999999px;overflow: hidden;background: #fff;"></div>
+        <a onclick="window.scrollTo(0,0)" style="display: block;position: fixed;right: 10px;bottom: 200px;z-index: 9999;height: 60px;width: 60px;text-indent: -999999px;overflow: hidden;background: #000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAAANAgMAAACP9jv8AAAACVBMVEX///////8AAACO9MPsAAAAAXRSTlMAQObYZgAAAGhJREFUeF49zsEJwCAMBdBvoRfvWaJTOEIPZp+O4lEyZcn/RIl+SMJDAG2gTlfc7+k8H8Pm6cRiuFfjip3RphXUV4ghJIaQjVZQoCfkLDI7C7kgiAuRDK+YvJwLQnBPhovRw7ER5of3DyPbFp8RB9axAAAAAElFTkSuQmCC) 18px 21px no-repeat;opacity: 0.5;" title="返回顶部">返回顶部</a>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+        </div>
+
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list" style="overflow: auto;position: fixed;height: 500px;width: 300px;padding-right: 10px;">
+    
+
+    <h2 class="off-left">APIs</h2>
+    
+    <div id="modules" class="sidebox on-page">
+          <div class="hd">
+              <h2 class="no-toc">Modules</h2>
+          </div>
+          <div class="bd">
+              <ul>
+                  
+                      <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a></li>
+                  
+                      <li><a href="../modules/jui.html">jui</a></li>
+                  
+                      <li><a href="../modules/junit.html">junit</a></li>
+                  
+                      <li><a href="../modules/OOP.html">OOP</a></li>
+                  
+              </ul>
+          </div>
+      </div>
+    
+    
+    <div id="classes" class="sidebox on-page">
+          <div class="hd">
+              <h2 class="no-toc">Classes</h2>
+          </div>
+          <div id="api-tabview-filter">
+                      <input type="search" id="api-filter" placeholder="Type to filter APIs">
+                  </div>
+          <div class="bd">
+              <ul id="api-classes">
+                  
+                      <li><a href="../classes/Jclass.html">Jclass</a></li>
+                  
+                      <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+                  
+                      <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+                  
+                      <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+                  
+                      <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+                  
+                      <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+                  
+                      <li><a href="../classes/junit.Observer.html">junit.Observer</a></li>
+                  
+                      <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+                  
+                      <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+                  
+                      <li><a href="../classes/Opp.html">Opp</a></li>
+                  
+              </ul>
+          </div>
+      </div>
+    
+
+    
+
+    
+
+    
+
+
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+            <!--    <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>   -->
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: j5/src/j/junit/Template.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/**
+ * @pakcage junit
+ * @module junit
+ */
+&#x27;package junit&#x27;.j(function () {
+
+    /**
+     * @class junit.BaseTemplate
+     */
+    &#x27;class BaseTemplate&#x27;.j({
+        constructor: function (html, args) {
+            var me = this;
+            $.extend(me, args);
+            me.html = html;
+            if (me.compiled) {
+                me.compile();
+            }
+        },
+
+        insertFirst: function (el, values) {
+            return this.doInsert(&#x27;afterBegin&#x27;, el, values);
+        },
+
+        insertBefore: function (el, values) {
+            return this.doInsert(&#x27;beforeBegin&#x27;, el, values);
+        },
+
+        insertAfter: function (el, values) {
+            return this.doInsert(&#x27;afterEnd&#x27;, el, values);
+        },
+
+        append: function (el, values) {
+            return this.doInsert(&#x27;beforeEnd&#x27;, el, values);
+        },
+
+        doInsert: function (where, el, values) {
+            el = $.dom(el);
+            return $.insertHtml(where, el, this.apply(values));
+        },
+
+        overwrite: function (el, values, returnElement) {
+            el = $.dom(el);
+            el.innerHTML = this.apply(values);
+            return returnElement ? $.get(el.firstChild) : el.firstChild;
+        }
+    });
+
+    /**
+     * @class junit.JTemplate
+     */
+    &#x27;class JTemplate extends BaseTemplate&#x27;.j(function (jsuper) {
+        var _cache = {};
+
+        var KEYWORDS =
+            &#x27;break,case,catch,continue,debugger,default,delete,do,else,false&#x27;
+                + &#x27;,finally,for,function,if,in,instanceof,new,null,return,switch,this&#x27;
+                + &#x27;,throw,true,try,typeof,var,void,while,with&#x27;
+
+                + &#x27;,abstract,boolean,byte,char,class,const,double,enum,export,extends&#x27;
+                + &#x27;,final,float,goto,implements,import,int,interface,long,native&#x27;
+                + &#x27;,package,private,protected,public,short,static,super,synchronized&#x27;
+                + &#x27;,throws,transient,volatile&#x27;
+
+                + &#x27;,arguments,let,yield&#x27;
+
+                + &#x27;,undefined&#x27;;
+        // reg , // ,
+        var REMOVE_RE = /\/\*(?:.|\n)*?\*\/|\/\/[^\n]*\n|\/\/[^\n]*$|&#x27;[^&#x27;]*&#x27;|&quot;[^&quot;]*&quot;|[$\w]+(?:\.[\w]+)+|_[$\w]+/g;
+        var SPLIT_RE = /[^\w$]+/g;
+        var KEYWORDS_RE = new RegExp([&quot;\\b&quot; + KEYWORDS.replace(/,/g, &#x27;\\b|\\b&#x27;) + &quot;\\b&quot;].join(&#x27;|&#x27;), &#x27;g&#x27;);
+        var NUMBER_RE = /\b\d[^,]*/g;
+        var BOUNDARY_RE = /^,+|,+$/g;
+        var getVariable = function (code) {
+            code = code
+                .replace(REMOVE_RE, &#x27;&#x27;)
+                .replace(SPLIT_RE, &#x27;,&#x27;)
+                .replace(KEYWORDS_RE, &#x27;&#x27;)
+                .replace(NUMBER_RE, &#x27;&#x27;)
+                .replace(BOUNDARY_RE, &#x27;&#x27;);
+            code = code ? code.split(/,+/) : [];
+
+            return code;
+        };
+
+        var isNewEngine = &#x27;&#x27;.trim;// &#x27;__proto__&#x27; in {}
+        var replaces = isNewEngine
+            ? [&quot;__=&#x27;&#x27;;&quot;, &quot;__+=&quot;, &quot;;&quot;, &quot;__&quot;]
+            : [&quot;__=[];&quot;, &quot;__.push(&quot;, &quot;);&quot;, &quot;__.join(&#x27;&#x27;)&quot;];
+
+        var concat = isNewEngine
+            ? &quot;if(content!==undefined){__+=content;return content}&quot;
+            : &quot;__.push(content);&quot;;
+
+        var print = &quot;function(content){&quot; + concat + &quot;}&quot;;
+
+        var include = &quot;function(id,data){&quot;
+            + &quot;if(data===undefined){data=jdata};&quot;
+            + &quot;var content = jthis.jstatic.apply(id,data);&quot;
+            + concat
+            + &quot;}&quot;;
+
+        function html(code, jthis) {
+
+
+            if (jthis.jstatic.isCompress) {
+                code = code.replace(/[\n\r\t\s]+/g, &#x27; &#x27;);
+            }
+
+            code = code
+                .replace(/(&#x27;|\\)/g, &#x27;\\$1&#x27;)
+                .replace(/\r/g, &#x27;\\r&#x27;)
+                .replace(/\n/g, &#x27;\\n&#x27;);
+
+            code = replaces[1] + &quot;&#x27;&quot; + code + &quot;&#x27;&quot; + replaces[2];
+
+            return code + &#x27;\n&#x27;;
+        }
+
+        function logic(code, jthis, getKey) {
+
+            if (jthis.jstatic.parser) {
+                code = jthis.jstatic.parser(code);
+                if ($.isArray(code)) {
+                    return code[0];
+                }
+            }
+
+            //#inlude
+            if (code.indexOf(&#x27;#&#x27;) === 0) {
+                code = jthis.jstatic.include(code.substr(1));
+                jthis.variables += code[0];
+                return code[1] + &#x27;\n&#x27;;
+            }
+            if (code.indexOf(&#x27;!&#x27;) === 0) {
+                jthis.variables += code.substr(1) + &quot;,&quot;;
+                return &#x27;&#x27;;
+            }
+            if (code.indexOf(&#x27;@&#x27;) === 0) {
+                return code.substr(1) + &#x27;\n&#x27;;
+            }
+            //  &lt;%=value%&gt; &lt;%==value%&gt;
+            if (code.indexOf(&#x27;=&#x27;) === 0) {
+
+                var isEscape = code.indexOf(&#x27;==&#x27;) !== 0;
+
+                code = code.replace(/^=*|[\s;]*$/g, &#x27;&#x27;);
+
+                if (isEscape &amp;&amp; jthis.jstatic.isEscape) {
+
+                    var name = code.replace(/\s*\([^\)]+\)/, &#x27;&#x27;);
+                    code = &#x27;_$$(_$(&#x27; + code + &#x27;))&#x27;;
+
+                } else {
+                    code = &#x27;_$(&#x27; + code + &#x27;)&#x27;;
+                }
+
+                code = replaces[1] + code + replaces[2];
+
+            }
+            getKey(code);
+            return code + &#x27;\n&#x27;;
+        }
+
+        function setValue(name, jthis) {
+            var value;
+            switch (name) {
+                case &quot;$&quot;:
+                    return;
+                case &quot;print&quot;:
+                    value = print;
+                    break;
+                case &quot;include&quot;:
+                    value = include;
+                    break;
+                default :
+                    if (name.indexOf(&#x27;$&#x27;) === 0) {
+                        value = &#x27;jthis[&quot;&#x27; + name.substr(1) + &#x27;&quot;]&#x27;;
+                    } else {
+                        value = &#x27;jdata[&quot;&#x27; + name + &#x27;&quot;]&#x27;;
+                    }
+            }
+
+            jthis.variables += name + &#x27;=&#x27; + value + &#x27;,&#x27;;
+        }
+
+        //
+        jstatic({
+            getHTML: function (id) {
+                return document.getElementById(id).innerHTML;
+            },
+            openTag: &quot;[#&quot;, closeTag: &quot;#]&quot;, isCompress: false, isEscape: false,
+            keywords: {
+                &#x27;if&#x27;: function (code) {
+                    return &#x27;if(&#x27; + code + &#x27;){&#x27;;
+                },
+                &#x27;else&#x27;: function (code) {
+                    code = code.split(&#x27; &#x27;);
+
+                    if (code.shift() === &#x27;if&#x27;) {
+                        code = &#x27; if(&#x27; + code.join(&#x27; &#x27;) + &#x27;)&#x27;;
+                    } else {
+                        code = &#x27;&#x27;;
+                    }
+
+                    return &#x27;}else&#x27; + code + &#x27;{&#x27;;
+                },
+
+                &#x27;/if&#x27;: function () {
+                    return &#x27;}&#x27;;
+                },
+                &#x27;each&#x27;: function (code) {
+
+                    code = code.split(&#x27; &#x27;);
+
+                    var object = code[0] || &#x27;jdata&#x27;;
+                    var value = code[1] || &#x27;_v&#x27;;
+                    var index = code[2] || &#x27;_i&#x27;;
+
+                    var args = value + &#x27;,&#x27; + index;
+
+                    return &#x27;$.each(&#x27; + object + &#x27;,function(&#x27; + args + &#x27;){&#x27;;
+                },
+
+                &#x27;/each&#x27;: function () {
+                    return &#x27;});&#x27;;
+                }
+            },
+            parser: function (code) {
+                code = code.replace(/^\s/, &#x27;&#x27;);
+                var args = code.split(&#x27; &#x27;);
+                var key = args.shift();
+                var keywords = this.keywords;
+                var fuc = keywords[key];
+                if (fuc &amp;&amp; keywords.hasOwnProperty(key)) {
+                    args = args.join(&#x27; &#x27;);
+                    code = fuc.call(code, args);
+                }
+                return code;
+            },
+            get: function (id, check) {
+                var c = _cache[id];
+                if (!c &amp;&amp; !check) {
+                    c = new this(this.getHTML(id), {id: id});
+                }
+                return c;
+            },
+            apply: function (id, data) {
+                return this.get(id).apply(data);
+            },
+            include: function (id) {
+                return this.get(id).get();
+            }
+        });
+
+        //
+        jprotected({
+            __$: function (content) {
+                return typeof content === &#x27;string&#x27;
+                    ? content.replace(/&amp;(?![\w#]+;)|[&lt;&gt;&quot;&#x27;]/g, function (s) {
+                    return {
+                        &quot;&lt;&quot;: &quot;&amp;#60;&quot;,
+                        &quot;&gt;&quot;: &quot;&amp;#62;&quot;,
+                        &#x27;&quot;&#x27;: &quot;&amp;#34;&quot;,
+                        &quot;&#x27;&quot;: &quot;&amp;#39;&quot;,
+                        &quot;&amp;&quot;: &quot;&amp;#38;&quot;
+                    }[s];
+                })
+                    : content;
+            },
+            _$: function (value) {
+
+                if (typeof value === &#x27;string&#x27; || typeof value === &#x27;number&#x27;) {
+                    return value;
+                } else if (typeof value === &#x27;function&#x27;) {
+                    return value();
+                } else {
+                    return &#x27;&#x27;;
+                }
+
+            }
+        });
+        //
+        jpublic({
+            constructor: function () {
+                this.jsuper();
+                this.variables = &#x27;&#x27;;
+                if (!this.html &amp;&amp; this.id) {
+                    this.html = this.jstatic.getHTML(this.id);
+                }
+                this.compile(this.html);
+            },
+            apply: function (values) {
+                return  this.compiled.call(this, values);
+            },
+            get: function () {
+                return [this.variables, this.code];
+            },
+            toString: function () {
+                return this.code;
+            },
+            debug: function () {
+                console.log(&quot;variables:&quot; + this.variables);
+                console.log(&quot;code:&quot; + this.code);
+                return this;
+            },
+            compile: function (source) {
+                var openTag = this.jstatic.openTag;
+                var closeTag = this.jstatic.closeTag;
+
+
+                var code = source.replace(/&lt;!--[^~]*?--&gt;/g,&quot;&quot;);
+                var tempCode = &#x27;&#x27;;
+                var jthis = this;
+
+                var uniq = {jthis: true, jdata: true};
+
+                function getKey(code) {
+                    code = getVariable(code);
+                    //console.log(code);
+                    $.each(code, function (name) {
+                        if (!uniq.hasOwnProperty(name)) {
+                            setValue(name, jthis);
+                            uniq[name] = true;
+                        }
+                    });
+                }
+
+                $.each(code.split(openTag), function (code, i) {
+                    code = code.split(closeTag);
+
+                    var $0 = code[0];
+                    var $1 = code[1];
+
+                    // code: [html]
+                    if (code.length === 1) {
+
+                        tempCode += html($0, jthis);
+
+                        // code: [logic, html]
+                    } else {
+
+                        tempCode += logic($0, jthis, getKey);
+
+                        if ($1) {
+                            tempCode += html($1, jthis);
+                        }
+                    }
+
+
+                });
+
+
+                code = tempCode;
+
+                this.code = code;
+
+                code = &quot;&#x27;use strict&#x27;;var jthis=this,_$=jthis[&#x27;_$&#x27;],__$=jthis[&#x27;__$&#x27;],&quot;
+                    + jthis.variables + replaces[0] + &#x27; try{&#x27; + code + &#x27;}catch(e){jthis.jstatic.debug &amp;&amp; console.error(e.message)}&#x27;
+                    + &#x27;return &#x27; + replaces[3];
+
+                if (this.jstatic.debug) {
+                    console.log(code);
+                }
+
+                this.compiled = new Function(&#x27;jdata&#x27;, code);
+                if (this.id) {
+                    _cache[this.id] = this;
+                }
+
+            }
+        });
+    });
+
+
+});
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>
