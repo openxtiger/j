@@ -27,10 +27,10 @@
         },
         importstatic: function (c, code, args) {
             if ($.isFunction(code)) {
-                code._jstatic = c._jstatic = c;
+                code.$Static = c.$Static = c;
                 code.call(c, c);
-                delete code._jstatic;
-                delete c._jstatic;
+                delete code.$Static;
+                delete c.$Static;
             } else {
                 $.extend(c, code);
             }
@@ -93,7 +93,7 @@
             if (arguments.length == 1) {
                 return jctrls[id];
             }
-            return jctrls[id] || (jctrls[id] = jclasses[id] && new jclasses[id](c));
+            return jctrls[id] || (jctrls[id] = jclasses[id] && new jclasses[id]($.extend(c || {}, {id: id})));
         },
         model: function (id, c) {
             if (arguments.length == 1) {
@@ -128,10 +128,12 @@
      * 可以用以下形式定义类
 
      'class C extends P implements I'.j(function(jsuper){
-           jstatic(jsuper,{
+
+           jstatic({
                a:1
            });
-           jpublic(jsuper,{
+
+           jpublic({
                constructor: function () {
                    this.jsuper();
                },
@@ -139,13 +141,18 @@
                    console.log(this.jstatic.a);
                }
            });
-           jprotected(jsuper,{
+
+           jprotected({
+
+           });
+
+           jprivate({
 
            });
       },'alias class name');
 
      * @module OOP
-     * @class OOP
+     * @class Opp
      */
 
 
@@ -214,7 +221,15 @@
 
     window.jpackage = jpackage;
     /**
+     * Simulation of java import
      * @method jimport
+     * @static
+     * @param {String|Object|Class} [imports]* import class or objects
+     *
+     *      For example:
+     *      "foo.Foo;foo.*"
+     *      "foo.Foo","foo.*"
+     *      foo.Foo
      * @static
      * @global
      */
@@ -252,7 +267,9 @@
 
     window.jimport = jimport;
     /**
+     * Simulation of java extends
      * @method jextends
+     * @static
      * @global
      */
     function jextends() {
@@ -288,23 +305,24 @@
         };
         var sbp, spp = JClass.prototype = sp.prototype;
         if ($.isFunction(coverrides)) {
-            coverrides.$Define = true;
+            var cc = coverrides;
+            //
+            cc.$Define = true;
+            cc.$Public = {};
+            cc.$Static = {};
 
-            var c = coverrides.apply(this, [spp].concat(mixins));
+            var c = cc.apply(this, [spp].concat(mixins));
             if (c) {
                 coverrides = c;
             } else {
-                if (spp._jpublic) {
-                    coverrides = spp._jpublic;
-                    delete spp._jpublic;
-                }
-
-                if (!coverrides) coverrides = {};
-                if (spp._jstatic) {
-                    coverrides.jstatic = spp._jstatic;
-                    delete spp._jstatic;
-                }
+                coverrides = cc.$Public;
+                coverrides.jstatic = cc.$Static;
             }
+
+            delete cc.$Define;
+            delete cc.$Public;
+            delete cc.$Static;
+            cc = null;
         }
 
         if (l == 2) {
@@ -339,60 +357,85 @@
 
     window.jextends = jextends;
     /**
+     * Simulation of java priate
+     * 模拟java的private关键字，J像c++的类定义一样，将类分为private:,public:等方块。方块定义的变量和方法对应相应的类作用域
+
+      For example:
+      jprivate({
+          _i:100
+      });
+
      * @method jprivate
+     * @static
+     * @param overrides {Object} 定义体，可以定义方法或变量
      * @global
      */
-    function jprivate(origclass, overrides) {
-        $.extend(origclass, overrides);
+    function jprivate(overrides) {
+        $.extend(jprivate.caller.$Public, overrides);
     }
 
     window.jprivate = jprivate;
+
     /**
+     * Simulation of java public
+     * 模拟java的public关键字，J像c++的类定义一样，将类分为private:,public:等方块。方块定义的变量和方法对应相应的类作用域
+
+       For example:
+       jpublic({
+           i:100
+       });
+
      * @method jpublic
+     * @static
+     * @param overrides {Object} 定义体，可以定义方法或变量
      * @global
      */
-    function jpublic(origclass, overrides) {
-        if (!origclass._jpublic) {
-            origclass._jpublic = overrides;
-            return;
-        }
-        $.extend(origclass._jpublic, overrides);
+    function jpublic(overrides) {
+        $.extend(jpublic.caller.$Public, overrides);
     }
 
     window.jpublic = jpublic;
     /**
+     * Simulation of java protected
+     * 模拟java的protected关键字，J像c++的类定义一样，将类分为private:,public:等方块。方块定义的变量和方法对应相应的类作用域
+
+       For example:
+       jprotected({
+           i:100
+       });
+
      * @method jprotected
+     * @static
+     * @param overrides {Object} 定义体，可以定义方法或变量
      * @global
      */
-    function jprotected(origclass, overrides) {
-        if (!origclass._jpublic) {
-            origclass._jpublic = overrides;
-            return;
-        }
-        $.extend(origclass._jpublic, overrides);
+    function jprotected(overrides) {
+        $.extend(jprotected.caller.$Public, overrides);
     }
 
     window.jprotected = jprotected;
     /**
+     * Simulation of java static
+     * 模拟java的static关键字，J像c++的类定义一样，将类分为private:,public:等方块。方块定义的变量和方法对应相应的类作用域
+
+       For example:
+       jstatic({
+           I:100
+       });
+
      * @method jstatic
+     * @static
+     * @param overrides {Object} 定义体，可以定义方法或变量
      * @global
      */
-    function jstatic(origclass, overrides) {
-        var l = arguments.length;
-        if (l == 1) {
-            $.extend(jstatic.caller._jstatic, origclass);
-            return
-        }
-        if (!origclass._jstatic) {
-            origclass._jstatic = overrides;
-            return;
-        }
-        $.extend(origclass._jstatic, overrides);
+    function jstatic(overrides) {
+        $.extend(jstatic.caller.$Static, overrides);
     }
 
     window.jstatic = jstatic;
     /**
      * @method joverride
+     * @static
      * @global
      */
     function joverride(origclass, overrides) {
@@ -418,6 +461,7 @@
     }
 
     window.joverride = joverride;
+
     /**
      * p1:String ==>class name
      * p2,String ==>same package;Object
@@ -425,6 +469,7 @@
      */
     /**
      * @method jclass
+     * @static
      * @global
      */
     function jclass() {
@@ -494,6 +539,7 @@
     window.jclass = jclass;
     /**
      * @method jnew
+     * @static
      * @global
      */
     function jnew() {

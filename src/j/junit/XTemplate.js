@@ -13,7 +13,7 @@
             compileBRe = /(\r\n|\n)/g,
             compileCRe = /'/g;
         //
-        jpublic(jsuper, {
+        jpublic({
             apply: function (values) {
                 var me = this;
                 if (me.compiled) {
@@ -181,7 +181,7 @@
         }
 
         //
-        jpublic(jsuper, {
+        jpublic({
             constructor: function () {
                 this.jsuper();
 

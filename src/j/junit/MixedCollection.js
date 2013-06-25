@@ -51,11 +51,11 @@
             this.fireEvent('sort', this);
         }
 
-        jprotected(jsuper, {
+        jprotected({
             allowFunctions: false
         });
 
-        jpublic(jsuper, {
+        jpublic({
             /**
              * @constructor
              * @param allowFunctions

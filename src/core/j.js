@@ -46,7 +46,9 @@
             enumerables = ['hasOwnProperty', 'valueOf', 'isPrototypeOf', 'propertyIsEnumerable', 'toLocaleString',
                 'toString', 'constructor'],
             objs = "Boolean Number String Function Array Date RegExp".split(" "),
-            docReadyEvent;
+            docReadyEvent, classSelectorRE = /^\.([\w-]+)$/,
+            idSelectorRE = /^#([\w-]*)$/,
+            tagSelectorRE = /^[\w-]+$/;
 
         function fireDocReady() {
             $.isReady = true;
@@ -85,9 +87,6 @@
          * @param [selector] {HTMLElement|String|Object}　
          *  * 空值时，将返回一个空的对象 　
          *  * 为dom时，返回此dom的Jclass对象
-         *  * 为字符串时，返回通过 querySelectorAll 的dom数组
-         *  <a href="http://openxtiger.iteye.com/blog/1893289" target="_blank" class="external">[知识扫盲1]</a>
-         *  <a href="http://openxtiger.iteye.com/blog/1611723" target="_blank" class="external">[知识扫盲2]</a>
          *  * 其他的将合并到新的对象上
          * @param [context]
          * @returns {*} 返回元素为０或多个Jclass对象数组
@@ -102,21 +101,19 @@
                 this.length = 1;
                 return this;
             }
-            if (typeof selector === "string") {
-                var rs = (context || document).querySelectorAll(selector);
-                return $.merge(this, rs);
-            }
-
             return $.merge(this, selector);
 
         }
 
         /**
+         * 工具类，如果传入的是dom，并需要做为变量继续使用，请采用$.get(),
+         * 如果是字符串，可以通过$.qsa优化方式获取;
          * @method $
          * @static
          * @param [selector] {HTMLElement|String|Object|Jclass}　
          *  * $() 空值时，返回 Jclass.prototype　
-         *  * $(HTMLElement) 为HTMLElement时，返回一个快速Jclass对象。返回的对象不能存储，因为此对象的dom会被下一次调用时更新　
+         *  * $(HTMLElement) 为HTMLElement时，返回一个即时Jclass对象。返回的对象不能存储，因为此对象的dom会被下一次调用时更新　
+         *  * 为字符串时，返回通过querySelectorAll方式获取
          *  * $({$:"class"}) 对象含有$属性时，返回 selector类的对象　
          *  * $(function(){}) 为函数时，文档加载完成后，回调此函数
          *  * 其他参考 @see Jclass
@@ -134,6 +131,9 @@
             }
             if (selector && selector.$) {
                 return $.create(selector, context);
+            }
+            if (typeof selector === "string") {
+                return new Jclass((context || document).querySelectorAll(selector, context));
             }
             if (arguments.length == 0) {
                 return Jclass.prototype;
@@ -317,34 +317,47 @@
                 return core_concat.apply([], ret);
             },
             /**
-             * 获取Jclass对象
+             * ID优先获取Jclass对象
              * @method get
              * @static
              * @param el {HTMLElement|String|Jclass}　
              *  * 为String时，先判断是否可以做为ID获取DOM,否则做为参数构建一个新的Jclass对象.
-             *  * 为HTMLElement时，由Jclass构建一个对象
-             *  * 为Jclass时，返回自己
-             *  * 其他返回空值
+             *  * 其他由Jclass构建一个对象
              * @returns {*} Jclass对象
              */
             get: function (el) {
                 var elm;
-                if (!el) {
-                    return null;
-                }
                 if ($.isString(el)) { // element id
-                    if (!(elm = document.getElementById(el))) {
-                        return $(el);
+                    if (elm = document.getElementById(el)) {
+                        return new Jclass(elm);
                     }
-                    return new Jclass(elm);
-
-                } else if (el.tagName) { // dom element
-                    return new Jclass(el);
-                } else if (el instanceof Jclass) {
-                    return el;
+                    return $.qsa(el)
                 }
-                return null;
+                return new Jclass(el);
             },
+            /**
+             * 优化方式获取Jclass对象
+             * <a href="http://openxtiger.iteye.com/blog/1893289" target="_blank" class="external">[知识扫盲1]</a>
+             * <a href="http://openxtiger.iteye.com/blog/1611723" target="_blank" class="external">[知识扫盲2]</a>
+             * @method qsa
+             * @static
+             * @param el {HTMLElement|String|Jclass}　
+             *  * 匹配 "#id"，通过getElementById获取
+             *  * 匹配 ".class"，通过getElementsByClassName获取
+             *  * 匹配 "tag"，通过getElementsByTagName获取
+             *  * 其他通过,querySelectorAll获取
+             * @param context
+             * @returns {*} Jclass对象
+             */
+            qsa: function (el, context) {
+                context = context || document;
+                el = idSelectorRE.test(el) ? context.getElementById(el) :
+                    classSelectorRE.test(el) ? context.getElementsByClassName(el) :
+                        tagSelectorRE.test(el) ? context.getElementsByTagName(el) :
+                            context.querySelectorAll(el);
+                return new Jclass(el);
+            },
+
             /**
              * 获取HTMLElement对象
              * @method dom
@@ -621,7 +634,6 @@
             create: function () {
 
             }
-
         });
 
         //traversal
@@ -637,7 +649,7 @@
              * @returns {Jclass} Jclass对象
              */
             create: function (elems) {
-                var ret = $.merge($(null), elems || []);
+                var ret = new Jclass(elems || []);
                 ret.prev$ = this;
                 return ret;
             },
@@ -874,7 +886,7 @@
              * @returns {Jclass}
              */
             back: function () {
-                return this.prev$ || $(null);
+                return this.prev$ || new Jclass();
             },
             /**
              *  @param [selector] {HTMLElement|String|Object|Jclass}　
@@ -897,7 +909,7 @@
                     d && (d.onload = d.onreadystatechange = function () {
                         if (this.readyState && this.readyState != 'complete') return;
                         selector.call(context);
-                    });
+                    }) && (d.src = context);
 
                     return this;
                 }
@@ -1127,6 +1139,28 @@
 
         function getStyles(elem) {
             return window.getComputedStyle(elem, null);
+        }
+
+        function showHide(elements, show) {
+            var display, elem,
+                index = 0,
+                length = elements.length;
+
+            for (; index < length; index++) {
+                elem = elements[ index ];
+                if (!elem.style) {
+                    continue;
+                }
+                display = elem.style.display;
+                if (show) {
+                    if (display === "none") {
+                        elem.style.display = "";
+                    }
+                } else {
+                    $(elem).css("display", 'none');
+                }
+            }
+            return elements;
         }
 
         return  {
@@ -1361,6 +1395,29 @@
                 }
 
                 return false;
+            },
+            show: function () {
+                return showHide(this, true);
+            },
+            hide: function () {
+                return showHide(this);
+            },
+            isShow: function () {
+                var show = true;
+                this.each(function () {
+                    if ($(this).css("display") == "none") {
+                        show = false;
+                        return false;
+                    }
+                    return true;
+                });
+                return show;
+            },
+            toggle: function (setting) {
+                return this.each(function () {
+                    var el = $(this);
+                    (setting === undefined ? el.css("display") == "none" : setting) ? el.show() : el.hide()
+                })
             }
 
         }
@@ -1861,7 +1918,6 @@
             }
             if (!(eventHandle = elemData.handle)) {
                 eventHandle = elemData.handle = function (e) {
-                    console.log($.event.triggered !== e.type, e);
                     return $.event.triggered !== e.type ?
                         $.event.dispatch.apply(eventHandle.elem, arguments) :
                         undefined;

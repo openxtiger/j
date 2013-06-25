@@ -184,7 +184,7 @@
         }
 
         //
-        jstatic(jsuper, {
+        jstatic({
             getHTML: function (id) {
                 return document.getElementById(id).innerHTML;
             },
@@ -253,7 +253,7 @@
         });
 
         //
-        jprotected(jsuper, {
+        jprotected({
             __$: function (content) {
                 return typeof content === 'string'
                     ? content.replace(/&(?![\w#]+;)|[<>"']/g, function (s) {
@@ -280,7 +280,7 @@
             }
         });
         //
-        jpublic(jsuper, {
+        jpublic({
             constructor: function () {
                 this.jsuper();
                 this.variables = '';

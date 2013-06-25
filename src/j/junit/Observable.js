@@ -65,7 +65,7 @@
                     me.events[a[i]] = me.events[a[i]] || true;
                 }
             } else {
-                J.extendIf(me.events, o);
+                $.extendIf(me.events, o);
             }
         }
 
