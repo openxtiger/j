@@ -9,18 +9,18 @@
      * @extends junit.Observable
      */
     'class Component implements junit.Observable'.j(function (jsuper, ob) {
-        jstatic(jsuper, {
+        jstatic({
             AUTO_ID: 1000
         });
 
         // project
-        jprotected(jsuper, {
+        jprotected({
             getId: function () {
                 return this.id || (this.id = 'jc-' + (++this.jstatic.AUTO_ID));
             }
         });
         // publc vars
-        jpublic(jsuper, {
+        jpublic({
             disabled: false,
             hidden: false,
 
@@ -41,7 +41,7 @@
         });
 
         // publc method
-        jpublic(jsuper, {
+        jpublic({
             constructor: function (config) {
                 $.extend(this, config);
                 jcall(ob, this);
