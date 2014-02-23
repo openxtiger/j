@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>dataview - The Js++ Language</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="../index.html"><img src="../assets/css/logo.png">The Js++ Language: dataview</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a>
+                
+                </li>
+            
+                <li><a href="../modules/jui.html">jui</a>
+                
+                </li>
+            
+                <li><a href="../modules/junit.html">junit</a>
+                
+                </li>
+            
+                <li><a href="../modules/OOP.html">OOP</a>
+                
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../classes/dataview.html">dataview</a></li>
+            
+                <li><a href="../classes/Jclass.html">Jclass</a></li>
+            
+                <li><a href="../classes/jde.DataProxy.html">jde.DataProxy</a></li>
+            
+                <li><a href="../classes/jde.JsonReader.html">jde.JsonReader</a></li>
+            
+                <li><a href="../classes/JDEngine.html">JDEngine</a></li>
+            
+                <li><a href="../classes/jdengine.html">jdengine</a></li>
+            
+                <li><a href="../classes/jsonreader.html">jsonreader</a></li>
+            
+                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+            
+                <li><a href="../classes/jui.DataView.html">jui.DataView</a></li>
+            
+                <li><a href="../classes/jui.form.Checkbox.html">jui.form.Checkbox</a></li>
+            
+                <li><a href="../classes/jui.form.ComboBox.html">jui.form.ComboBox</a></li>
+            
+                <li><a href="../classes/jui.form.Field.html">jui.form.Field</a></li>
+            
+                <li><a href="../classes/jui.form.Hidden.html">jui.form.Hidden</a></li>
+            
+                <li><a href="../classes/jui.form.NumberFiled.html">jui.form.NumberFiled</a></li>
+            
+                <li><a href="../classes/jui.form.Radio.html">jui.form.Radio</a></li>
+            
+                <li><a href="../classes/jui.form.TextArea.html">jui.form.TextArea</a></li>
+            
+                <li><a href="../classes/jui.form.TextField.html">jui.form.TextField</a></li>
+            
+                <li><a href="../classes/jui.form.TriggerField.html">jui.form.TriggerField</a></li>
+            
+                <li><a href="../classes/jui.form.TwinTriggerField.html">jui.form.TwinTriggerField</a></li>
+            
+                <li><a href="../classes/jui.Layer.html">jui.Layer</a></li>
+            
+                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+            
+                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+            
+                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+            
+                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+            
+                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+            
+                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+            
+                <li><a href="../classes/Opp.html">Opp</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+<div id="events-on-page" class="sidebox on-page">
+    <div class="hd">
+        <h2 class="no-toc">Events On Page</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="#events_beforeclick
+Fires before a click is processed. Returns false to cancel the default action.">beforeclick
+Fires before a click is processed. Returns false to cancel the default action.</a></li>
+            
+                <li><a href="#events_beforeselect
+Fires before a selection is made. If any handlers return false, the selection is cancelled.">beforeselect
+Fires before a selection is made. If any handlers return false, the selection is cancelled.</a></li>
+            
+                <li><a href="#events_click
+Fires when a template node is clicked.">click
+Fires when a template node is clicked.</a></li>
+            
+                <li><a href="#events_containerclick
+Fires when a click occurs and it is not on a template node.">containerclick
+Fires when a click occurs and it is not on a template node.</a></li>
+            
+                <li><a href="#events_containercontextmenu
+Fires when a right click occurs that is not on a template node.">containercontextmenu
+Fires when a right click occurs that is not on a template node.</a></li>
+            
+                <li><a href="#events_contextmenu
+Fires when a template node is right clicked.">contextmenu
+Fires when a template node is right clicked.</a></li>
+            
+                <li><a href="#events_dblclick
+Fires when a template node is double clicked.">dblclick
+Fires when a template node is double clicked.</a></li>
+            
+                <li><a href="#events_mouseenter
+Fires when the mouse enters a template node. trackOver:true or an overClass must be set to enable this event.">mouseenter
+Fires when the mouse enters a template node. trackOver:true or an overClass must be set to enable this event.</a></li>
+            
+                <li><a href="#events_mouseleave
+Fires when the mouse leaves a template node. trackOver:true or an overClass must be set to enable this event.">mouseleave
+Fires when the mouse leaves a template node. trackOver:true or an overClass must be set to enable this event.</a></li>
+            
+                <li><a href="#events_selectionchange
+Fires when the selected nodes change.">selectionchange
+Fires when the selected nodes change.</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>jspp/<ul><li>src/<ul><li>core/<ul><li><a href="../files/jspp_src_core_j.js.html">j.js</a></li><li><a href="../files/jspp_src_core_oop.js.html">oop.js</a></li></ul></li><li>j/<ul><li>jde/<ul><li><a href="../files/jspp_src_j_jde_DataProxy.js.html">DataProxy.js</a></li><li><a href="../files/jspp_src_j_jde_JDEngine.js.html">JDEngine.js</a></li><li><a href="../files/jspp_src_j_jde_JsonReader.js.html">JsonReader.js</a></li></ul></li><li>jui/<ul><li><a href="../files/jspp_src_j_jui_Component.js.html">Component.js</a></li><li><a href="../files/jspp_src_j_jui_DataView.js.html">DataView.js</a></li><li><a href="../files/jspp_src_j_jui_Layer.js.html">Layer.js</a></li><li>form/<ul><li><a href="../files/jspp_src_j_jui_form_Checkbox.js.html">Checkbox.js</a></li><li><a href="../files/jspp_src_j_jui_form_ComboBox.js.html">ComboBox.js</a></li><li><a href="../files/jspp_src_j_jui_form_Field.js.html">Field.js</a></li><li><a href="../files/jspp_src_j_jui_form_Hidden.js.html">Hidden.js</a></li><li><a href="../files/jspp_src_j_jui_form_NumberField.js.html">NumberField.js</a></li><li><a href="../files/jspp_src_j_jui_form_Radio.js.html">Radio.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextArea.js.html">TextArea.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextField.js.html">TextField.js</a></li><li><a href="../files/jspp_src_j_jui_form_TriggerField.js.html">TriggerField.js</a></li></ul></li></ul></li><li>junit/<ul><li><a href="../files/jspp_src_j_junit_MixedCollection.js.html">MixedCollection.js</a></li><li><a href="../files/jspp_src_j_junit_Observable.js.html">Observable.js</a></li><li><a href="../files/jspp_src_j_junit_Template.js.html">Template.js</a></li><li><a href="../files/jspp_src_j_junit_XTemplate.js.html">XTemplate.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>Class dataview</h4>
+
+
+
+<span class="foundat">Class defined in: <a href="../../files/jspp_src_j_jui_DataView.js.html#l7"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:7</code></a></span>
+<div class="intro"></div>
+
+
+
+<div id="classdocs">
+    <ul>
+        
+        
+        
+        
+        <li><a href="#events">Events</a></li>
+        
+    </ul>
+    <div>
+        
+        
+        
+        
+            <div id="events">
+            
+                <a name="events_beforeclick
+Fires before a click is processed. Returns false to cancel the default action."></a>
+<div class="events item">
+    `beforeclick
+Fires before a click is processed. Returns false to cancel the default action.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l14"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:14</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>index</code> <strong>&lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a>&gt;</strong>
+        
+        
+        <p>The index of the target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>node</code> <strong>&lt;<a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a>&gt;</strong>
+        
+        
+        <p>The target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>e</code> <strong>&lt;Ext.EventObject&gt;</strong>
+        
+        
+        <p>The raw event object</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_beforeselect
+Fires before a selection is made. If any handlers return false, the selection is cancelled."></a>
+<div class="events item">
+    `beforeselect
+Fires before a selection is made. If any handlers return false, the selection is cancelled.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l81"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:81</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>node</code> <strong>&lt;<a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a>&gt;</strong>
+        
+        
+        <p>The node to be selected</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>selections</code> <strong>&lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a>&gt;</strong>
+        
+        
+        <p>Array of currently selected nodes</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_click
+Fires when a template node is clicked."></a>
+<div class="events item">
+    `click
+Fires when a template node is clicked.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l22"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:22</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>index</code> <strong>&lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a>&gt;</strong>
+        
+        
+        <p>The index of the target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>node</code> <strong>&lt;<a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a>&gt;</strong>
+        
+        
+        <p>The target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>e</code> <strong>&lt;Ext.EventObject&gt;</strong>
+        
+        
+        <p>The raw event object</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_containerclick
+Fires when a click occurs and it is not on a template node."></a>
+<div class="events item">
+    `containerclick
+Fires when a click occurs and it is not on a template node.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l46"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:46</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>e</code> <strong>&lt;Ext.EventObject&gt;</strong>
+        
+        
+        <p>The raw event object</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_containercontextmenu
+Fires when a right click occurs that is not on a template node."></a>
+<div class="events item">
+    `containercontextmenu
+Fires when a right click occurs that is not on a template node.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l68"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:68</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>e</code> <strong>&lt;Ext.EventObject&gt;</strong>
+        
+        
+        <p>The raw event object</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_contextmenu
+Fires when a template node is right clicked."></a>
+<div class="events item">
+    `contextmenu
+Fires when a template node is right clicked.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l60"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:60</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>index</code> <strong>&lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a>&gt;</strong>
+        
+        
+        <p>The index of the target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>node</code> <strong>&lt;<a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a>&gt;</strong>
+        
+        
+        <p>The target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>e</code> <strong>&lt;Ext.EventObject&gt;</strong>
+        
+        
+        <p>The raw event object</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_dblclick
+Fires when a template node is double clicked."></a>
+<div class="events item">
+    `dblclick
+Fires when a template node is double clicked.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l52"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:52</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>index</code> <strong>&lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a>&gt;</strong>
+        
+        
+        <p>The index of the target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>node</code> <strong>&lt;<a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a>&gt;</strong>
+        
+        
+        <p>The target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>e</code> <strong>&lt;Ext.EventObject&gt;</strong>
+        
+        
+        <p>The raw event object</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_mouseenter
+Fires when the mouse enters a template node. trackOver:true or an overClass must be set to enable this event."></a>
+<div class="events item">
+    `mouseenter
+Fires when the mouse enters a template node. trackOver:true or an overClass must be set to enable this event.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l30"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:30</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>index</code> <strong>&lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a>&gt;</strong>
+        
+        
+        <p>The index of the target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>node</code> <strong>&lt;<a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a>&gt;</strong>
+        
+        
+        <p>The target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>e</code> <strong>&lt;Ext.EventObject&gt;</strong>
+        
+        
+        <p>The raw event object</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_mouseleave
+Fires when the mouse leaves a template node. trackOver:true or an overClass must be set to enable this event."></a>
+<div class="events item">
+    `mouseleave
+Fires when the mouse leaves a template node. trackOver:true or an overClass must be set to enable this event.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l38"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:38</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>index</code> <strong>&lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Number" class="crosslink external" target="_blank">Number</a>&gt;</strong>
+        
+        
+        <p>The index of the target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>node</code> <strong>&lt;<a href="https://developer.mozilla.org/en/Document_Object_Model_(DOM)/HTMLElement" class="crosslink external" target="_blank">HTMLElement</a>&gt;</strong>
+        
+        
+        <p>The target node</p>
+            
+        </li>
+    
+        <li>
+        
+            <code>e</code> <strong>&lt;Ext.EventObject&gt;</strong>
+        
+        
+        <p>The raw event object</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+                <a name="events_selectionchange
+Fires when the selected nodes change."></a>
+<div class="events item">
+    `selectionchange
+Fires when the selected nodes change.` 
+    
+    
+    <br>
+    <span class="foundat"><a href="../../files/jspp_src_j_jui_DataView.js.html#l74"><code>jspp&#x2F;src&#x2F;j&#x2F;jui&#x2F;DataView.js:74</code></a></span>
+    
+    
+    <strong>Extra event object properties:</strong>
+    <ul>
+    
+        <li>
+        
+            <code>this</code> <strong>&lt;Ext.DataView&gt;</strong>
+        
+        
+         
+            
+        </li>
+    
+        <li>
+        
+            <code>selections</code> <strong>&lt;<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array" class="crosslink external" target="_blank">Array</a>&gt;</strong>
+        
+        
+        <p>Array of the selected nodes</p>
+            
+        </li>
+    
+    </ul>
+    
+</div>
+
+
+            
+            </div>
+        
+    </div>
+</div>
+</div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>

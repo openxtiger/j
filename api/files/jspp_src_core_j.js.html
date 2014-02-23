@@ -2,147 +2,147 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>j5/src/core/j.js - The J API</title>
-    <link rel="stylesheet" href="../assets/css/cssgrids.css">
+    <title>jspp/src/core/j.js - The Js++ Language</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="shortcut icon" type="image/icon" href="../assets/favicon.ico">
-    <script src="../assets/js/yui-min.js"></script>
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
 </head>
 <body class="yui3-skin-sam">
-<a href="https://github.com/openxtiger/j"><img style="position: fixed; top: 0; right: 0; border: 0;z-index:110"
-src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-<div id="doc">
-    <div style="height: 100px;">
-    <div id="hd" class="yui3-g header" style="width:100%">
 
+<div id="doc">
+    <div id="hd" class="yui3-g header">
         <div class="yui3-u-3-4">
-            <h1 style="position:fixed;z-index:100;">
-                <img width="60" height="60" src="../assets/css/logo.png" title="The J API">
-            
-            J - JS OPP/DOM Tool
-            </h1>
+            <h1><a href="../index.html"><img src="../assets/css/logo.png">The Js++ Language: jspp/src/core/j.js</a></h1>
         </div>
-        <div style="display: block;;position: absolute;right: 10px;bottom: 200px;z-index: 10000;height: 60px;width: 60px;text-indent: -999999px;overflow: hidden;background: #fff;"></div>
-        <a onclick="window.scrollTo(0,0)" style="display: block;position: fixed;right: 10px;bottom: 200px;z-index: 9999;height: 60px;width: 60px;text-indent: -999999px;overflow: hidden;background: #000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAAANAgMAAACP9jv8AAAACVBMVEX///////8AAACO9MPsAAAAAXRSTlMAQObYZgAAAGhJREFUeF49zsEJwCAMBdBvoRfvWaJTOEIPZp+O4lEyZcn/RIl+SMJDAG2gTlfc7+k8H8Pm6cRiuFfjip3RphXUV4ghJIaQjVZQoCfkLDI7C7kgiAuRDK+YvJwLQnBPhovRw7ER5of3DyPbFp8RB9axAAAAAElFTkSuQmCC) 18px 21px no-repeat;opacity: 0.5;" title="返回顶部">返回顶部</a>
         <div class="yui3-u-1-4 version">
             <em>API Docs for: 1.0.0</em>
         </div>
-        </div>
-
     </div>
-    <div id="bd" class="yui3-g">
+    <div class="yui3-g">
 
-        <div class="yui3-u-1-4">
-            <div id="docs-sidebar" class="sidebar apidocs">
-                <div id="api-list" style="overflow: auto;position: fixed;height: 500px;width: 300px;padding-right: 10px;">
-    
-
-    <h2 class="off-left">APIs</h2>
-    
-    <div id="modules" class="sidebox on-page">
-          <div class="hd">
-              <h2 class="no-toc">Modules</h2>
-          </div>
-          <div class="bd">
-              <ul>
-                  
-                      <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a></li>
-                  
-                      <li><a href="../modules/jui.html">jui</a></li>
-                  
-                      <li><a href="../modules/junit.html">junit</a></li>
-                  
-                      <li><a href="../modules/OOP.html">OOP</a></li>
-                  
-              </ul>
-          </div>
-      </div>
-    
-    
-    <div id="classes" class="sidebox on-page">
-          <div class="hd">
-              <h2 class="no-toc">Classes</h2>
-          </div>
-          <div id="api-tabview-filter">
-                      <input type="search" id="api-filter" placeholder="Type to filter APIs">
-                  </div>
-          <div class="bd">
-              <ul id="api-classes">
-                  
-                      <li><a href="../classes/Jclass.html">Jclass</a></li>
-                  
-                      <li><a href="../classes/jui.Component.html">jui.Component</a></li>
-                  
-                      <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
-                  
-                      <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
-                  
-                      <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
-                  
-                      <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
-                  
-                      <li><a href="../classes/junit.Observer.html">junit.Observer</a></li>
-                  
-                      <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
-                  
-                      <li><a href="../classes/junit.Template.html">junit.Template</a></li>
-                  
-                      <li><a href="../classes/Opp.html">Opp</a></li>
-                  
-              </ul>
-          </div>
-      </div>
-    
-
-    
-
-    
-
-    
-
-
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a>
+                
+                </li>
+            
+                <li><a href="../modules/jui.html">jui</a>
+                
+                </li>
+            
+                <li><a href="../modules/junit.html">junit</a>
+                
+                </li>
+            
+                <li><a href="../modules/OOP.html">OOP</a>
+                
+                </li>
+            
+        </ul>
+    </div>
 </div>
 
-            </div>
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../classes/dataview.html">dataview</a></li>
+            
+                <li><a href="../classes/Jclass.html">Jclass</a></li>
+            
+                <li><a href="../classes/jde.DataProxy.html">jde.DataProxy</a></li>
+            
+                <li><a href="../classes/jde.JsonReader.html">jde.JsonReader</a></li>
+            
+                <li><a href="../classes/JDEngine.html">JDEngine</a></li>
+            
+                <li><a href="../classes/jdengine.html">jdengine</a></li>
+            
+                <li><a href="../classes/jsonreader.html">jsonreader</a></li>
+            
+                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+            
+                <li><a href="../classes/jui.DataView.html">jui.DataView</a></li>
+            
+                <li><a href="../classes/jui.form.Checkbox.html">jui.form.Checkbox</a></li>
+            
+                <li><a href="../classes/jui.form.ComboBox.html">jui.form.ComboBox</a></li>
+            
+                <li><a href="../classes/jui.form.Field.html">jui.form.Field</a></li>
+            
+                <li><a href="../classes/jui.form.Hidden.html">jui.form.Hidden</a></li>
+            
+                <li><a href="../classes/jui.form.NumberFiled.html">jui.form.NumberFiled</a></li>
+            
+                <li><a href="../classes/jui.form.Radio.html">jui.form.Radio</a></li>
+            
+                <li><a href="../classes/jui.form.TextArea.html">jui.form.TextArea</a></li>
+            
+                <li><a href="../classes/jui.form.TextField.html">jui.form.TextField</a></li>
+            
+                <li><a href="../classes/jui.form.TriggerField.html">jui.form.TriggerField</a></li>
+            
+                <li><a href="../classes/jui.form.TwinTriggerField.html">jui.form.TwinTriggerField</a></li>
+            
+                <li><a href="../classes/jui.Layer.html">jui.Layer</a></li>
+            
+                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+            
+                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+            
+                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+            
+                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+            
+                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+            
+                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+            
+                <li><a href="../classes/Opp.html">Opp</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>jspp/<ul><li>src/<ul><li>core/<ul><li><a href="../files/jspp_src_core_j.js.html">j.js</a></li><li><a href="../files/jspp_src_core_oop.js.html">oop.js</a></li></ul></li><li>j/<ul><li>jde/<ul><li><a href="../files/jspp_src_j_jde_DataProxy.js.html">DataProxy.js</a></li><li><a href="../files/jspp_src_j_jde_JDEngine.js.html">JDEngine.js</a></li><li><a href="../files/jspp_src_j_jde_JsonReader.js.html">JsonReader.js</a></li></ul></li><li>jui/<ul><li><a href="../files/jspp_src_j_jui_Component.js.html">Component.js</a></li><li><a href="../files/jspp_src_j_jui_DataView.js.html">DataView.js</a></li><li><a href="../files/jspp_src_j_jui_Layer.js.html">Layer.js</a></li><li>form/<ul><li><a href="../files/jspp_src_j_jui_form_Checkbox.js.html">Checkbox.js</a></li><li><a href="../files/jspp_src_j_jui_form_ComboBox.js.html">ComboBox.js</a></li><li><a href="../files/jspp_src_j_jui_form_Field.js.html">Field.js</a></li><li><a href="../files/jspp_src_j_jui_form_Hidden.js.html">Hidden.js</a></li><li><a href="../files/jspp_src_j_jui_form_NumberField.js.html">NumberField.js</a></li><li><a href="../files/jspp_src_j_jui_form_Radio.js.html">Radio.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextArea.js.html">TextArea.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextField.js.html">TextField.js</a></li><li><a href="../files/jspp_src_j_jui_form_TriggerField.js.html">TriggerField.js</a></li></ul></li></ul></li><li>junit/<ul><li><a href="../files/jspp_src_j_junit_MixedCollection.js.html">MixedCollection.js</a></li><li><a href="../files/jspp_src_j_junit_Observable.js.html">Observable.js</a></li><li><a href="../files/jspp_src_j_junit_Template.js.html">Template.js</a></li><li><a href="../files/jspp_src_j_junit_XTemplate.js.html">XTemplate.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
         </div>
-        <div class="yui3-u-3-4">
-            <!--    <div id="api-options">
-        Show:
-        <label for="api-show-inherited">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
 
-        <label for="api-show-protected">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>jspp/src/core/j.js</h4>
 
-        <label for="api-show-private">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
-    </div>   -->
-
-
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                        <h1 class="file-heading">File: j5/src/core/j.js</h1>
-
-<div class="file">
-    <pre class="code prettyprint linenums">
+<pre class="code prettyprint linenums">
 (function (undefined) {
 
     var core_rnotwhite = /\S+/g,
-        rkeyEvent = /^key/,
-        rmouseEvent = /^(?:mouse|contextmenu)|click/,
         rfocusMorph = /^(?:focusinfocus|focusoutblur)$/,
         rtypenamespace = /^([^.]*)(?:\.(.+)|)$/,
         rootNodeRE = /^(?:body|html)$/i,
@@ -190,6 +190,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             idSelectorRE = /^#([\w-]*)$/,
             tagSelectorRE = /^[\w-]+$/;
 
+
         function fireDocReady() {
             $.isReady = true;
             document.removeEventListener(&quot;DOMContentLoaded&quot;, fireDocReady, false);
@@ -236,7 +237,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             if (!selector) {
                 return this;
             }
-            if (selector.nodeType) {
+            if (selector.nodeType || selector == window) {
                 this[0] = selector;
                 this.length = 1;
                 return this;
@@ -246,7 +247,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         }
 
         /**
-         * 工具类，如果传入的是dom，并需要做为变量继续使用，请采用$.get(),
+         * 工具类，
          * 如果是字符串，可以通过$.qsa优化方式获取;
          * @method $
          * @static
@@ -262,25 +263,31 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
          */
 
         $ = function (selector, context) {
-            if (selector &amp;&amp; selector.nodeType) {
-                JF[0] = selector;
-                return JF;
+            if (selector &amp;&amp; selector.nodeType || selector == window) {
+                /*JF[0] = selector;
+                 return JF;*/
+                return new Jclass(selector, context);
             }
+
             if (selector instanceof Jclass) {
                 return selector;
             }
+
             if (selector &amp;&amp; selector.$) {
                 return $.create(selector, context);
             }
+
             if (typeof selector === &quot;string&quot;) {
                 return new Jclass((context || document).querySelectorAll(selector, context));
             }
+
             if (arguments.length == 0) {
                 return Jclass.prototype;
             }
             if ($.isFunction(selector)) {
                 return $.ready(selector, context);
             }
+
             return new Jclass(selector, context);
         };
 
@@ -310,34 +317,56 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
          */
         $.extend = $().extend = function () {
             var target = arguments[0],
-                i = 1, options,
-                length = arguments.length;
+                i = 1, options, p, clone,
+                length = arguments.length,
+                deep = false;
+
+            if (length == 0) return null;
+            // Handle a deep copy situation
+            if (typeof target === &quot;boolean&quot;) {
+                deep = true;
+                target = arguments[1] || {};
+                // skip the boolean and the target
+                i = 2;
+            }
             if (typeof target !== &quot;object&quot; &amp;&amp; !$.isFunction(target)) {
                 target = {};
             }
-            if (length == 0) return null;
             // extend $ itself if only one argument is passed
             if (length === i) {
                 target = this;
                 --i;
             } else if (this == $.prototype) {
-                target = arguments[0] ? arguments[0].prototype : {};
+                target = target.prototype;
             }
             for (; i &lt; length; i++) {
                 if ((options = arguments[ i ]) != null) {
-                    for (var name in options) {
-                        target[name] = options[name];
+                    if (options === null) {
+                        return null;
                     }
-                    if (enumerables) {
-                        for (var j = enumerables.length; j--;) {
-                            name = enumerables[j];
-                            if (options.hasOwnProperty(name))target[name] = options[name];
+
+                    if (deep) {
+                        clone = options.constructor === Array ? [] : {};
+                        for (p in options) {
+                            if (options.hasOwnProperty(p)) {
+                                target[p] = typeof options[p] === &quot;object&quot; ? $.extend(true, clone, options[p]) : options[p];
+                            }
+                        }
+                    } else {
+                        for (p in options) {
+                            if (options.hasOwnProperty(p)) {
+                                target[p] = options[p];
+                            }
                         }
                     }
+
                 }
             }
             return target;
         };
+
+        var tagTokenRe = /^(#)?([\w\\-\\*]+)/,
+            jisguid = 1;
 
         $.extend({
             guid: 1,
@@ -360,6 +389,12 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                     }
                 }
                 return o;
+            },
+            inherit: function (subclass) {
+                var j = subclass.constructor;
+                j.prototype = new Jclass();
+                $.extend(j.prototype, subclass);
+                return j;
             },
             /**
              * 将second合并到first中
@@ -388,6 +423,17 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 }
                 first.length = i;
                 return first;
+            },
+            /**
+             * @method clone
+             * @static
+             * 如果第一参数为true，则为深度拷贝.
+             * 将所有参数克隆为一个新对象
+             */
+            clone: function () {
+                return $.extend.apply(this, [
+                    {}
+                ].concat($.toArray(arguments)));
             },
             /**
              * 从 elems 中查找匹配元素，最终返回新数组
@@ -427,14 +473,14 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
              */
             map: function (elems, callback, arg) {
                 var value,
-                    i = 0,
+                    i,
                     length = elems.length,
                     isArray = isArraylike(elems),
                     ret = [];
 
                 // Go through the array, translating each of the items to their
                 if (isArray) {
-                    for (; i &lt; length; i++) {
+                    for (i = 0; i &lt; length; i++) {
                         value = callback(elems[ i ], i, arg);
 
                         if (value != null) {
@@ -455,6 +501,10 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
 
                 // Flatten any nested arrays
                 return core_concat.apply([], ret);
+            },
+            fly: function (dom) {
+                JF[0] = dom;
+                return JF;
             },
             /**
              * ID优先获取Jclass对象
@@ -498,6 +548,37 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 return new Jclass(el);
             },
 
+            is: function (dom, selector) {
+                dom = $.dom(dom);
+
+                var tokenMatch = selector.match(tagTokenRe);
+                if (tokenMatch) {
+                    if (tokenMatch[1] == &quot;#&quot;) {
+                        if (dom.id != tokenMatch[2]) {
+                            return false;
+                        }
+                    } else {
+                        if (dom.tagName.toLowerCase() != tokenMatch[2].toLowerCase()) {
+                            return false;
+                        }
+                    }
+                    selector = selector.replace(tokenMatch[0], &quot;&quot;);
+                    if (!selector) return true;
+                }
+                var pdom;
+                if (dom &amp;&amp; (pdom = dom[PARENTNODE])) {
+                    var id = dom.id;
+                    if (!id) {
+                        dom.id = id = &quot;_J&quot; + jisguid++;
+                    }
+                    selector = &#x27;#&#x27; + id + selector;
+                    var ret = pdom.querySelector(selector);
+                    //dom.id = id ? id : null;
+
+                    return ret !== null;
+                }
+                return false;
+            },
             /**
              * 获取HTMLElement对象
              * @method dom
@@ -561,6 +642,9 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
              */
             isElement: function (v) {
                 return !!v &amp;&amp; v.tagName;
+            },
+            isNull: function (v) {
+                return v === null;
             },
             /**
              * 判断对象是定义
@@ -725,11 +809,15 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                     return obj;
                 }
                 var name;
-
+                if ($.isPrimitive(obj)) {
+                    obj = [obj];
+                }
                 if (obj.length === undefined &amp;&amp; $.isObject(obj)) {
                     for (name in obj) {
-                        if (fn.call(scope || obj, name, obj[ name ]) === false) {
-                            break;
+                        if (obj.hasOwnProperty(name)) {
+                            if (fn.call(scope || obj, name, obj[ name ]) === false) {
+                                break;
+                            }
                         }
                     }
                     return obj;
@@ -790,7 +878,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
              */
             create: function (elems) {
                 var ret = new Jclass(elems || []);
-                ret.prev$ = this;
+                ret.prev$ = this == FF ? this.prev$ : this;
                 return ret;
             },
             /**
@@ -862,35 +950,19 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 FF.prev$ = this;
                 return FF;
             },
+
             /**
-             * 获取Jclass的第一个dom元素的即时Jclass对象
-             * @method begin
-             * @returns {Jclass} Jclass对象
-             */
-            begin: function () {
-                return this.fly(0);
-            },
-            /**
-             * 获取Jclass的最后一个dom元素的即时Jclass对象
-             * @method end
-             * @returns {Jclass} Jclass对象
-             */
-            end: function () {
-                return this.fly(-1);
-            },
-            /**
-             * 获取Jclass的第index个dom的dom或者Jclass
+             * 获取Jclass的第1个dom的“dom”或“Jclass”
              * @method match
              * @param dir {string} dom的遍历方向，包括:nextSibling,previousSibling,parentNode
-             * @param start {string} dom遍历的起始dom,包括:firstChild,lastChild,nextSibling,previousSibling,parentNode,
-             * @param index {int} 索引号
+             * @param pos {string} dom遍历的起始dom,包括:firstChild,lastChild,nextSibling,previousSibling,parentNode,
              * @param returnDom {boolean}
              *  * true时返回dom
              *  * 其他返回Jclass
              * @returns {Jclass|HTMLElement}
              */
-            match: function (dir, start, index, returnDom) {
-                var n = this.dom(index)[start];
+            match: function (dir, pos, returnDom) {
+                var n = this[0][pos];
                 while (n) {
                     if (n.nodeType == 1) {
                         return !returnDom ? this.create(n) : n;
@@ -900,72 +972,210 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 return null;
             },
             /**
-             * 获取Jclass的第index个dom的第一个子dom或者子dom的Jclass
+             * 获取Jclass的第index个dom的第一个“子dom”或“子dom的Jclass”
              * @method first
-             * @param index {int} 索引号
+             * @param index
              * @param returnDom
              *  * true时返回dom
              *  * 其他返回Jclass
              * @returns {Jclass|HTMLElement}
              */
-            first: function (index, returnDom) {
-                return this.match(NEXTSIBLING, &#x27;firstChild&#x27;, index, returnDom);
+            child: function (index, returnDom) {
+                var ns = this[0].childNodes;
+                var j = 0;
+                for (var i = 0; i &lt; ns.length; i++) {
+                    if (ns[i].nodeType == 1 &amp;&amp; j++ == index) {
+                        return !returnDom ? this.create(ns[i]) : ns[i];
+                    }
+                }
+                return null;
             },
             /**
-             * 获取Jclass的第index个dom的最后一个子dom或者子dom的Jclass
+             * 获取Jclass的第0个dom的所有“子dom”或所有“子dom的Jclass”
+             * @method first
+             * @param returnDom
+             *  * true时返回dom
+             *  * 其他返回Jclass
+             * @returns {Jclass|HTMLElement}
+             */
+            children: function (returnDom) {
+                var ns = this[0].childNodes;
+                var ret = [];
+                for (var i = 0; i &lt; ns.length; i++) {
+                    if (ns[i].nodeType == 1) {
+                        ret.push(ns[i]);
+                    }
+                }
+                if (ret.length) {
+                    return !returnDom ? this.create(ret) : ret;
+                }
+                return null;
+            },
+            /**
+             * 获取Jclass的第0个dom的所有“兄弟dom”或所有“兄弟dom的Jclass”
+             * @param returnDom
+             */
+            siblings: function (returnDom) {
+                var dom = this[0];
+                if (!dom.parentNode) return null;
+
+                var ns = dom.parentNode.childNodes;
+                var ret = [];
+                for (var i = 0; i &lt; ns.length; i++) {
+                    if (ns[i].nodeType == 1 &amp;&amp; ns[i] !== dom) {
+                        ret.push(ns[i]);
+                    }
+                }
+                if (ret.length) {
+                    return !returnDom ? this.create(ret) : ret;
+                }
+                return null;
+            },
+            /**
+             * 获取Jclass的第1个dom的第一个“子dom”或“子dom的Jclass”
+             * @method first
+             * @param returnDom
+             *  * true时返回dom
+             *  * 其他返回Jclass
+             * @returns {Jclass|HTMLElement}
+             */
+            first: function (returnDom) {
+                return this.match(NEXTSIBLING, &#x27;firstChild&#x27;, returnDom);
+            },
+            /**
+             * 获取Jclass的第1个dom的最后一个“子dom”或“子dom的Jclass”
              * @method last
-             * @param index {int} 索引号
              * @param returnDom
              *  * true时返回dom
              *  * 其他返回Jclass
              * @returns {Jclass|HTMLElement}
              */
-            last: function (index, returnDom) {
-                return this.match(PREVIOUSSIBLING, &#x27;lastChild&#x27;, index, returnDom);
+            last: function (returnDom) {
+                return this.match(PREVIOUSSIBLING, &#x27;lastChild&#x27;, returnDom);
             },
             /**
-             * 获取Jclass的第index个dom的前一个相邻dom或者相邻dom的Jclass
+             * 获取Jclass的第1个dom的前一个“相邻dom”或“相邻dom的Jclass”
              * @method prev
-             * @param index {int} 索引号
              * @param returnDom
              *  * true时返回dom
              *  * 其他返回Jclass
              * @returns {Jclass|HTMLElement}
              */
-            prev: function (index, returnDom) {
-                return this.match(PREVIOUSSIBLING, PREVIOUSSIBLING, index, returnDom);
+            prev: function (returnDom) {
+                return this.match(PREVIOUSSIBLING, PREVIOUSSIBLING, returnDom);
             },
             /**
-             * 获取Jclass的第index个dom的后一个相邻dom或者相邻dom的Jclass
+             * 获取Jclass的第1个dom的后一个“相邻dom”或“相邻dom的Jclass”
              * @method next
-             * @param index {int} 索引号
              * @param returnDom
              *  * true时返回dom
              *  * 其他返回Jclass
              * @returns {Jclass|HTMLElement}
              */
-            next: function (index, returnDom) {
-                return this.match(NEXTSIBLING, NEXTSIBLING, index, returnDom);
+            next: function (returnDom) {
+                return this.match(NEXTSIBLING, NEXTSIBLING, returnDom);
             },
             /**
-             * 获取Jclass的第index个dom的父dom或者父dom的Jclass
+             * 获取Jclass的第1个dom的“父dom”或“父dom的Jclass”
              * @method parent
-             * @param index {int} 索引号
              * @param returnDom
              *  * true时返回dom
              *  * 其他返回Jclass
              * @returns {Jclass|HTMLElement}
              */
-            parent: function (index, returnDom) {
-                return this.match(PARENTNODE, PARENTNODE, index, returnDom);
+            parent: function (returnDom) {
+                return this.match(PARENTNODE, PARENTNODE, returnDom);
+            },
+
+            /**
+             * 通过selector获取元素
+             * @param dir
+             * @param pos
+             * @param selector
+             * @param returnDom
+             * @returns {*}
+             */
+            find: function (dir, pos, selector, returnDom) {
+                var n = this[0][pos];
+                while (n &amp;&amp; n != document.body) {
+                    if (n.nodeType == 1 &amp;&amp; (!selector || $.is(n, selector))) {
+                        return !returnDom ? this.create(n) : n;
+                    }
+                    n = n[dir];
+                }
+                return null;
+            },
+
+            up: function (selector, returnDom) {
+                return this.find(PARENTNODE, PARENTNODE, selector, returnDom);
+            },
+            down: function (selector, returnDom) {
+                var n = this[0];
+                if (n) {
+                    n = n.querySelector(selector);
+                    if (n) {
+                        return  !returnDom ? this.create(n) : n;
+                    }
+                }
+                return null;
+            },
+            is: function (selector) {
+                return $.is(this[0], selector);
+            },
+            /**
+             * 通过此Jclass对象的每一个dom元素继续查找匹配selector的dom，并重新构成新的Jclass对象
+             * @method query
+             * @param selector {string}
+             * @returns {Jclass}
+             */
+            query: function (selector) {
+                var elem;
+                var ret = this.create();
+                var rs, r;
+
+                for (var i = 0, l = this.length; i &lt; l; i++) {
+                    elem = this[i];
+                    rs = elem.querySelectorAll(selector);
+                    $.merge(ret, rs);
+                }
+                for (var n = 0; n &lt; ret.length; n++) {
+                    for (r = 0; r &lt; ret.length; r++) {
+                        if (r !== n &amp;&amp; ret[r] === ret[n]) {
+                            ret.splice(n--, 1);
+                            break;
+                        }
+                    }
+                }
+                return ret;
+            },
+            contains: function (el) {
+                if (!el) return false;
+
+                var ret = false;
+
+                var p = this[0];
+                var c = $.dom(el);
+
+                if (p &amp;&amp; c) {
+                    if (p.contains) {
+                        return p.contains(c);
+                    } else if (p.compareDocumentPosition) {
+                        return !!(p.compareDocumentPosition(c) &amp; 16);
+                    } else {
+                        while (c = c.parentNode) {
+                            ret = c == p || ret;
+                        }
+                    }
+                }
+                return ret;
             },
             /**
              * 查找dom是否在Jclass对象中，找到返回索引位置，否则为-1
-             * @method index
+             * @method indexOf
              * @param elem {string|HTMLElement} 要查找的dom
              * @returns {int}
              */
-            index: function (elem) {
+            indexOf: function (elem) {
 
                 // No argument, return index in parent
                 if (!elem) {
@@ -994,32 +1204,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 }
                 return this;
             },
-            /**
-             * 通过此Jclass对象的每一个dom元素继续查找匹配selector的dom，并重新构成新的Jclass对象
-             * @method query
-             * @param selector {string}
-             * @returns {Jclass}
-             */
-            query: function (selector) {
-                var elem;
-                var ret = this.create();
-                var rs, r;
 
-                for (var i = 0, l = this.length; i &lt; l; i++) {
-                    elem = this[i];
-                    rs = elem.querySelectorAll(selector);
-                    $.merge(ret, rs);
-                }
-                for (var n = 0; n &lt; ret.length; n++) {
-                    for (r = 0; r &lt; ret.length; r++) {
-                        if (r !== n &amp;&amp; ret[r] === ret[n]) {
-                            ret.splice(n--, 1);
-                            break;
-                        }
-                    }
-                }
-                return ret;
-            },
             /**
              * 获取创建此Jclass对象的创建者的Jclass对象
              * @method back
@@ -1059,6 +1244,11 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 }
                 return this.query(selector);
             },
+            $$: function (name, config) {
+                config = config || {};
+                config[&#x27;owner&#x27;] = this;
+                return $.$$(name, config);
+            },
             push: core_push,
             sort: [].sort,
             splice: [].splice
@@ -1070,7 +1260,48 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         return $;
     })();
 
-//format
+    $.extendIf(String, {
+        /**
+         *
+         * @param format
+         * @returns {*|string|void}
+         */
+        format: function (format) {
+            var args = $.toArray(arguments, 1);
+            return format.replace(/\{(\d+)\}/g, function (m, i) {
+                return args[i];
+            });
+        }
+    });
+
+    var $$ = function () {
+        return $.$$.apply(this, arguments);
+    };
+
+    $$.extend = function () {
+        var target = arguments[0],
+            i = 1, options, p,
+            length = arguments.length;
+        if (length == 0) return null;
+        if (typeof target !== &quot;object&quot; &amp;&amp; !$.isFunction(target)) {
+            target = {};
+        }
+        for (; i &lt; length; i++) {
+            if ((options = arguments[ i ]) != null) {
+                if (options === null) {
+                    return null;
+                }
+                for (p in options) {
+                    if (options.hasOwnProperty(p)) {
+                        target[p] = target.prototype[p] = options[p];
+                    }
+                }
+            }
+        }
+        return target;
+    };
+
+//tool
     $.extend(function ($) {
         return {
             htmlEncode: function (value) {
@@ -1078,6 +1309,31 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             },
             htmlDecode: function (value) {
                 return !value ? value : String(value).replace(/&amp;gt;/g, &quot;&gt;&quot;).replace(/&amp;lt;/g, &quot;&lt;&quot;).replace(/&amp;quot;/g, &#x27;&quot;&#x27;).replace(/&amp;amp;/g, &quot;&amp;&quot;);
+            },
+            delay: function (fn, scope, args) {
+                return new function () {
+                    var me = this,
+                        id,
+                        call = function () {
+                            clearInterval(id);
+                            id = null;
+                            fn.apply(scope, args || []);
+                        };
+                    this.delay = function (delay, newFn, newScope, newArgs) {
+                        me.cancel();
+                        fn = newFn || fn;
+                        scope = newScope || scope;
+                        args = newArgs || args;
+                        id = setInterval(call, delay);
+                    };
+
+                    this.cancel = function () {
+                        if (id) {
+                            clearInterval(id);
+                            id = null;
+                        }
+                    };
+                };
             }
         }
     }($));
@@ -1095,6 +1351,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         hash[afterend] = [&#x27;AfterEnd&#x27;, &#x27;nextSibling&#x27;];
         hash[afterbegin] = [&#x27;AfterBegin&#x27;, &#x27;firstChild&#x27;];
         hash[beforeend] = [&#x27;BeforeEnd&#x27;, &#x27;lastChild&#x27;];
+
         function createHtml(o) {
             var b = &#x27;&#x27;, cn;
             if (!o) {
@@ -1178,88 +1435,36 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 el.innerHTML = createHtml(o);
                 return returnElement ? $.get(el.firstChild) : el.firstChild;
             },
+            remove: function (el) {
+                /*if (el &amp;&amp; el.parentNode &amp;&amp; el.tagName != &#x27;BODY&#x27;) {
+                 el.parentNode.removeChild(el);
+                 }*/
+                el.remove();
+            },
+            destroy: function () {
+                var ln = arguments.length,
+                    i, arg;
+
+                for (i = 0; i &lt; ln; i++) {
+                    arg = arguments[i];
+                    if (arg) {
+                        if ($.isArray(arg)) {
+                            this.destroy.apply(this, arg);
+                        }
+                        else if ($.isFunction(arg.destroy)) {
+                            arg.destroy();
+                        }
+                        else if (arg.dom) {
+                            arg.remove();
+                        }
+                    }
+                }
+            },
             html: createHtml
         };
 
         return pub;
-    }($));
 
-//template
-    $.extend(function ($) {
-        return {
-            stpl: function (tpl) {
-                var buf = [];
-                var args = {};
-                if ($.isArray(tpl)) {
-                    tpl = tpl.join(&quot;&quot;);
-                } else if (arguments.length &gt; 1) {
-                    $.each(arguments, function (v) {
-                        if ($.isObject(v)) {
-                            $.extend(args, v);
-                        } else {
-                            buf.push(v);
-                        }
-                    });
-                    tpl = buf.join(&#x27;&#x27;);
-                }
-                return new junit.STemplate(tpl, args);
-            },
-            tpl: function (tpl) {
-                var buf = [];
-                var args = {};
-                if ($.isArray(tpl)) {
-                    tpl = tpl.join(&quot;&quot;);
-                } else if (arguments.length &gt; 1) {
-                    $.each(arguments, function (v) {
-                        if ($.isObject(v)) {
-                            $.extend(args, v);
-                        } else {
-                            buf.push(v);
-                        }
-                    });
-                    tpl = buf.join(&#x27;&#x27;);
-                }
-                return new junit.Template(tpl, args);
-            },
-            xtpl: function (tpl) {
-                var buf = [];
-                var args = {};
-                if ($.isArray(tpl)) {
-                    tpl = tpl.join(&quot;&quot;);
-                } else if (arguments.length &gt; 1) {
-                    $.each($.toArray(arguments, 1), function (v) {
-                        if ($.isObject(v)) {
-                            $.extend(args, v);
-                        } else {
-                            buf.push(v);
-                        }
-                    });
-                    tpl = buf.join(&#x27;&#x27;);
-                }
-                return new junit.JTemplate(tpl, args);
-            },
-            jtpl: function (id, tpl) {
-                var t;
-                if (id &amp;&amp; (t = junit.JTemplate.get(id, true))) {
-                    return t;
-                }
-                var buf = [];
-                var args = {id: id};
-                if ($.isArray(tpl)) {
-                    tpl = tpl.join(&quot;&quot;);
-                } else if (arguments.length &gt; 1) {
-                    $.each($.toArray(arguments, 1), function (v) {
-                        if ($.isObject(v)) {
-                            $.extend(args, v);
-                        } else {
-                            buf.push(v);
-                        }
-                    });
-                    tpl = buf.join(&#x27;&#x27;);
-                }
-                return new junit.JTemplate(tpl, args);
-            }
-        }
 
     }($));
 
@@ -1267,7 +1472,11 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
     $().extend(function ($) {
         var propCache = {};
         var unitPattern = /\d+(px|em|%|en|ex|pt|in|cm|mm|pc)$/i;
-
+        var VISIBILITY = &quot;visibility&quot;,
+            DISPLAY = &quot;display&quot;,
+            HIDDEN = &quot;hidden&quot;,
+            NONE = &quot;none&quot;,
+            VISMODE = &#x27;visibilityMode&#x27;;
 
         function camelFn(m, a) {
             return a.charAt(1).toUpperCase();
@@ -1536,62 +1745,144 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
 
                 return false;
             },
+
+            isStyle: function (style, val) {
+                return this.css(style) == val;
+            },
+            setVisibility: function (visMode) {
+                this.data(VISMODE, visMode ? 1 : 2);
+                return this;
+            },
+            setVisible: function (visible) {
+                var me = this,
+                    dom = this[0],
+                    isVisible = this.data(VISMODE) == 1;
+                if (isVisible) {
+                    dom.style.visibility = visible ? &quot;visible&quot; : HIDDEN;
+                } else {
+                    showHide(this, visible);
+                }
+                return me;
+            },
             show: function () {
-                return showHide(this, true);
+                return this.setVisible(true);
             },
             hide: function () {
-                return showHide(this);
+                return this.setVisible(false);
             },
-            isShow: function () {
-                var show = true;
-                this.each(function () {
-                    if ($(this).css(&quot;display&quot;) == &quot;none&quot;) {
-                        show = false;
-                        return false;
-                    }
-                    return true;
-                });
-                return show;
+            isVisible: function () {
+                return !this.isStyle(VISIBILITY, HIDDEN) &amp;&amp; !this.isStyle(DISPLAY, NONE);
             },
             toggle: function (setting) {
                 return this.each(function () {
                     var el = $(this);
-                    (setting === undefined ? el.css(&quot;display&quot;) == &quot;none&quot; : setting) ? el.show() : el.hide()
+                    (setting === undefined ? !el.isVisible() : setting) ? el.show() : el.hide()
                 })
             }
-
         }
     }($));
 
+    var body, head, doc;
+//window or document
+    $.extend({
+
+        width: function () {
+            var doc = document.documentElement;
+            return arguments.length ? Math.max(
+                document.body[&quot;scrollWidth&quot;], doc[&quot;scrollWidth&quot;],
+                document.body[&quot;offsetWidth&quot;], doc[&quot;offsetWidth&quot;],
+                doc[&quot;clientWidth&quot;]) :
+                Math.max(doc[&quot;clientWidth&quot;], document.body[&quot;clientWidth&quot;]);
+        },
+
+        height: function () {
+            var doc = document.documentElement;
+            return arguments.length ? Math.max(
+                document.body[&quot;scrollHeight&quot;], doc[&quot;scrollHeight&quot;],
+                document.body[&quot;offsetHeight&quot;], doc[&quot;offsetHeight&quot;],
+                doc[ &quot;clientHeight&quot;]) :
+                Math.max(doc[&quot;clientHeight&quot;], document.body[&quot;clientHeight&quot;]);
+        },
+        getBody: function () {
+            return body || (body = $.get(document.body));
+        },
+        getHead: function () {
+            return head || (head = $.get(document.getElementsByTagName(&quot;head&quot;)[0]));
+        },
+        getDoc: function () {
+            return doc || (doc = $.get(document));
+        }
+    });
+
 //position
     $().extend(function ($) {
+        var borders = {l: &#x27;border-left-width&#x27;, r: &#x27;border-right-width&#x27;,
+                t: &#x27;border-top-width&#x27;, b: &#x27;border-bottom-width&#x27;},
+            paddings = {l: &#x27;padding-left&#x27;, r: &#x27;padding-right&#x27;, t: &#x27;padding-top&#x27;, b: &#x27;padding-bottom&#x27;},
+            margins = {l: &#x27;margin-left&#x27;, r: &#x27;margin-right&#x27;, t: &#x27;margin-top&#x27;, b: &#x27;margin-bottom&#x27;};
+
+        function styles(sides, styles) {
+            var val = 0,
+                m = sides.match(/\w/g),
+                s;
+            for (var i = 0, len = m.length; i &lt; len; i++) {
+                s = m[i] &amp;&amp; parseInt(this.css(styles[m[i]]), 10);
+                if (s) {
+                    val += Math.abs(s);
+                }
+            }
+            return val;
+        }
+
         return {
-            width: function (w) {
+            /**
+             *
+             * @param v =undefined:offset width,=true:content width,=false:width margin
+             * @returns {*}
+             */
+            width: function (v) {
                 var me = this;
-                if (w == undefined) {
-                    var dom = me.dom();
-                    w = Math.max(dom.offsetWidth, dom.clientWidth) || 0;
-                    //w = !contentWidth ? w : w - me.getBorderWidth(&quot;lr&quot;) - me.getPadding(&quot;lr&quot;);
-                    return w &lt; 0 ? 0 : w;
+                if (v == undefined || $.isBoolean(v)) {
+                    var dom = this[0];
+                    var w = Math.max(dom.offsetWidth, dom.clientWidth) || 0;
+                    if (v == undefined) return w &lt; 0 ? 0 : w; // width
+                    if (v) return w - me.border(&quot;lr&quot;) - me.padding(&quot;lr&quot;);   // content width
+                    return w + me.margin(&quot;lr&quot;);// width margin
                 }
                 this.each(function () {
-                    this.style.width = me.addUnits(w);
+                    this.style.width = me.addUnits(v);
                 });
                 return this;
             },
-            height: function (h) {
+            /**
+             *
+             * @param v =undefined:offset height,=true:content height,=false:width margin
+             * @returns {*}
+             */
+            height: function (v) {
                 var me = this;
-                if (h == undefined) {
-                    var dom = me.dom();
-                    h = Math.max(dom.offsetHeight, dom.clientHeight) || 0;
-                    //w = !contentWidth ? w : w - me.getBorderWidth(&quot;lr&quot;) - me.getPadding(&quot;lr&quot;);
-                    return h &lt; 0 ? 0 : h;
+                if (v == undefined) {
+                    var dom = this[0];
+                    var h = Math.max(dom.offsetHeight, dom.clientHeight) || 0;
+                    if (v == undefined) return h &lt; 0 ? 0 : h; // offset height
+                    if (v) return h - me.border(&quot;tb&quot;) - me.padding(&quot;tb&quot;);   // content height
+                    return h + me.margin(&quot;tb&quot;);// width margin
                 }
                 this.each(function () {
-                    this.style.height = me.addUnits(h);
+                    this.style.height = me.addUnits(v);
                 });
                 return this;
             },
+            padding: function (side) {
+                return styles.call(this, side || &#x27;lrtb&#x27;, paddings);
+            },
+            border: function (side) {
+                return styles.call(this, side || &#x27;lrtb&#x27;, borders);
+            },
+            margin: function (side) {
+                return styles.call(this, side || &#x27;lrtb&#x27;, margins);
+            },
+
             size: function (width, height) {
                 var me = this;
                 if (width == undefined) {
@@ -1610,6 +1901,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 return this;
 
             },
+
             offset: function (options) {
                 if (arguments.length) {
                     return options === undefined ?
@@ -1620,13 +1912,12 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                                 props = {}, position = me.css(&quot;position&quot;), curTop, curLeft;
                             var curCSSTop = me.css(&quot;top&quot;);
                             var curCSSLeft = me.css(&quot;left&quot;);
-                            var calculatePosition = ( position === &quot;absolute&quot; || position === &quot;fixed&quot; ) &amp;&amp; ( curCSSTop + curCSSLeft ).indexOf(&quot;auto&quot;) &gt; -1;
-                            // Need to be able to calculate position if either top or left is auto and position is either absolute or fixed
+                            var calculatePosition = ( position === &quot;absolute&quot; || position === &quot;fixed&quot; )
+                                &amp;&amp; ( curCSSTop + curCSSLeft ).indexOf(&quot;auto&quot;) &gt; -1;
                             if (calculatePosition) {
                                 var curPosition = me.position();
                                 curTop = curPosition.top;
                                 curLeft = curPosition.left;
-
                             } else {
                                 curTop = parseFloat(curCSSTop) || 0;
                                 curLeft = parseFloat(curCSSLeft) || 0;
@@ -1645,18 +1936,48 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                             me.css(props);
                         });
                 }
+
                 var box = { top: 0, left: 0 }, elem = this[0];
                 if (this.length == 0) return null;
-                if (typeof elem.getBoundingClientRect !== undefined) {
+                var body = document.body;
+                if (elem === body) {
+                    return {top: body.offsetTop, left: body.offsetLeft};
+                }
+                if (typeof elem.getBoundingClientRect !== &quot;undefined&quot;) {
                     box = elem.getBoundingClientRect();
                 }
                 var docElem = document.documentElement;
                 return {
-                    top: box.top + window.pageYOffset - docElem.clientTop,
-                    left: box.left + window.pageXOffset - docElem.clientLeft
+                    top: box.top + (window.pageYOffset || docElem.scrollTop) - (docElem.clientTop || body.clientTop || 0),
+                    left: box.left + (window.pageXOffset || docElem.scrollLeft) - (docElem.clientLeft || body.clientLeft || 0)
                 }
             },
+
+            offsetParent: function () {
+                return this.map(function () {
+                    var parent = this.offsetParent || document.body;
+                    while (parent &amp;&amp; !rootNodeRE.test(parent.nodeName) &amp;&amp; parent.style[&quot;position&quot;] == &quot;static&quot;)
+                        parent = parent.offsetParent;
+                    return parent;
+                });
+            },
+
             position: function (options) {
+                if (arguments.length) {
+                    return this.each(function (index) {
+                        if ($.isFunction(options)) {
+                            options = options.call(this, index, curOffset);
+                        }
+                        var props = {};
+                        if (options.top != null) {
+                            props.top = options.top;
+                        }
+                        if (options.left != null) {
+                            props.left = options.left;
+                        }
+                        $(this).css(props);
+                    });
+                }
                 if (!this.length) return [0, 0];
 
                 var elem = this[0],
@@ -1675,14 +1996,53 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                     left: offset.left - parentOffset.left
                 }
             },
-            offsetParent: function () {
-                return this.map(function () {
-                    var parent = this.offsetParent || document.body;
-                    while (parent &amp;&amp; !rootNodeRE.test(parent.nodeName) &amp;&amp; $(parent).css(&quot;position&quot;) == &quot;static&quot;)
-                        parent = parent.offsetParent;
-                    return parent
-                })
+
+            region: function () {
+                var pos = this.offset();
+                pos[&quot;bottom&quot;] = pos.top + this.height();
+                pos[&quot;right&quot;] = pos.left + this.width();
+                return pos;
+            },
+
+            scrollLeft: function (val) {
+                var d = this[0];
+                if (val == undefined) {
+                    var doc = document, body = doc.body;
+                    if (d == window || d == doc || d == body) {
+                        return window.pageXOffset || (body ? body.scrollLeft : 0);
+                    }
+                    return d.scrollLeft;
+                }
+                if (d == window) {
+                    window.scrollTo(
+                        val, this.scrollTop()
+                    );
+                } else {
+                    d.scrollLeft = val;
+                }
+
+                return this;
+            },
+            scrollTop: function (val) {
+                var d = this[0];
+                if (val == undefined) {
+                    var doc = document, body = doc.body;
+                    if (d == window || d == doc || d == body) {
+                        return window.pageYOffset || (body ? body.scrollTop : 0);
+                    }
+                    return d.scrollTop;
+                }
+                if (d == window) {
+                    window.scrollTo(
+                        this.scrollLeft(), val
+                    );
+                } else {
+                    d.scrollTop = val;
+                }
+
+                return this;
             }
+
         }
     }($));
 
@@ -1694,16 +2054,16 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 return $(el).appendTo(this);
             },
             appendTo: function (el) {
-                GETDOM(el).appendChild(this.dom());
+                GETDOM(el).appendChild(this[0]);
                 return this;
             },
 
             insertBefore: function (el) {
-                (el = GETDOM(el)).parentNode.insertBefore(this.dom(), el);
+                (el = GETDOM(el)).parentNode.insertBefore(this[0], el);
                 return this;
             },
             insertAfter: function (el) {
-                (el = GETDOM(el)).parentNode.insertBefore(this.dom(), el.nextSibling);
+                (el = GETDOM(el)).parentNode.insertBefore(this[0], el.nextSibling);
                 return this;
             },
 
@@ -1711,10 +2071,10 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 el = el || {};
                 if (el.nodeType || el.dom || typeof el == &#x27;string&#x27;) { // element
                     el = GETDOM(el);
-                    this.dom().insertBefore(el, this.dom().firstChild);
+                    this[0].insertBefore(el, this[0].firstChild);
                     return !returnDom ? $.get(el) : el;
                 } else { // dh config
-                    return this.createChild(el, this.dom().firstChild, returnDom);
+                    return this.createChild(el, this[0].firstChild, returnDom);
                 }
             },
 
@@ -1729,21 +2089,343 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 config = config || {tag: &#x27;div&#x27;};
                 return insertBefore ?
                     $.insertBefore(insertBefore, config, returnDom !== true) :
-                    $[!this.dom().firstChild ? &#x27;overwrite&#x27; : &#x27;append&#x27;](this.dom(), config, returnDom !== true);
+                    $[!this.dom().firstChild ? &#x27;overwrite&#x27; : &#x27;append&#x27;](this[0], config, returnDom !== true);
             },
 
             wrap: function (config, returnDom) {
-                var newEl = $.insertBefore(this.dom(), config || {tag: &quot;div&quot;}, !returnDom);
-                returnDom ? newEl.appendChild(this.dom()) : newEl.dom().appendChild(this.dom());
+                var newEl = $.insertBefore(this[0], config || {tag: &quot;div&quot;}, !returnDom);
+                returnDom ? newEl.appendChild(this[0]) : newEl[0].appendChild(this[0]);
                 return newEl;
             },
 
             insertHtml: function (where, html, returnEl) {
-                var el = $.insertHtml(where, this.dom(), html);
+                var el = $.insertHtml(where, this[0], html);
                 return returnEl ? $.get(el) : el;
+            },
+            remove: function () {
+                var elem,
+                    elems = this,
+                    i = 0;
+
+                for (; (elem = elems[i]) != null; i++) {
+                    if (elem.parentNode) {
+                        elem.parentNode.removeChild(elem);
+                    }
+                }
+                return this;
             }
 
         }
+    }($));
+
+//$.callbacks
+    $.extend(function ($) {
+        var optionsCache = {};
+        var core_rspace = /\s+/;
+
+        function createOptions(options) {
+            var object = optionsCache[ options ] = {};
+            $.each(options.split(core_rspace), function (flag) {
+                object[ flag ] = true;
+            });
+            return object;
+        }
+
+        return {
+            callbacks: function (options) {
+                options = typeof options === &quot;string&quot; ?
+                    ( optionsCache[ options ] || createOptions(options) ) :
+                    $.clone(options);
+
+                var // Last fire value (for non-forgettable lists)
+                    memory,
+                // Flag to know if list was already fired
+                    fired,
+                // Flag to know if list is currently firing
+                    firing,
+                // First callback to fire (used internally by add and fireWith)
+                    firingStart,
+                // End of the loop when firing
+                    firingLength,
+                // Index of currently firing callback (modified by remove if needed)
+                    firingIndex,
+                // Actual callback list
+                    list = [],
+                // Stack of fire calls for repeatable lists
+                    stack = !options.once &amp;&amp; [],
+                // Fire callbacks
+                    fire = function (data) {
+                        memory = options.memory &amp;&amp; data;
+                        fired = true;
+                        firingIndex = firingStart || 0;
+                        firingStart = 0;
+                        firingLength = list.length;
+                        firing = true;
+                        for (; list &amp;&amp; firingIndex &lt; firingLength; firingIndex++) {
+                            if (list[ firingIndex ].apply(data[ 0 ], data[ 1 ]) === false &amp;&amp; options.stopOnFalse) {
+                                memory = false; // To prevent further calls using add
+                                break;
+                            }
+                        }
+                        firing = false;
+                        if (list) {
+                            if (stack) {
+                                if (stack.length) {
+                                    fire(stack.shift());
+                                }
+                            } else if (memory) {
+                                list = [];
+                            } else {
+                                self.disable();
+                            }
+                        }
+                    },
+                // Actual Callbacks object
+                    self = {
+                        // Add a callback or a collection of callbacks to the list
+                        add: function () {
+                            if (list) {
+                                // First, we save the current length
+                                var start = list.length;
+                                (function add(args) {
+                                    $.each(args, function (arg) {
+                                        var type = $.type(arg);
+                                        if (type === &quot;function&quot; &amp;&amp; ( !options.unique || !self.has(arg) )) {
+                                            list.push(arg);
+                                        } else if (arg &amp;&amp; arg.length &amp;&amp; type !== &quot;string&quot;) {
+                                            // Inspect recursively
+                                            add(arg);
+                                        }
+                                    });
+                                })(arguments);
+                                // Do we need to add the callbacks to the
+                                // current firing batch?
+                                if (firing) {
+                                    firingLength = list.length;
+                                    // With memory, if we&#x27;re not firing then
+                                    // we should call right away
+                                } else if (memory) {
+                                    firingStart = start;
+                                    fire(memory);
+                                }
+                            }
+                            return this;
+                        },
+                        // Remove a callback from the list
+                        remove: function () {
+                            if (list) {
+                                $.each(arguments, function (arg) {
+                                    var index;
+                                    while (( index = list.indexOf(arg, index) ) &gt; -1) {
+                                        list.splice(index, 1);
+                                        // Handle firing indexes
+                                        if (firing) {
+                                            if (index &lt;= firingLength) {
+                                                firingLength--;
+                                            }
+                                            if (index &lt;= firingIndex) {
+                                                firingIndex--;
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                            return this;
+                        },
+                        // Control if a given callback is in the list
+                        has: function (fn) {
+                            return list.indexOf(fn) &gt; -1;
+                        },
+                        // Remove all callbacks from the list
+                        empty: function () {
+                            list = [];
+                            return this;
+                        },
+                        // Have the list do nothing anymore
+                        disable: function () {
+                            list = stack = memory = undefined;
+                            return this;
+                        },
+                        // Is it disabled?
+                        disabled: function () {
+                            return !list;
+                        },
+                        // Lock the list in its current state
+                        lock: function () {
+                            stack = undefined;
+                            if (!memory) {
+                                self.disable();
+                            }
+                            return this;
+                        },
+                        // Is it locked?
+                        locked: function () {
+                            return !stack;
+                        },
+                        // Call all callbacks with the given context and arguments
+                        fireWith: function (context, args) {
+                            args = args || [];
+                            args = [ context, args.slice ? args.slice() : args ];
+                            if (list &amp;&amp; ( !fired || stack )) {
+                                if (firing) {
+                                    stack.push(args);
+                                } else {
+                                    fire(args);
+                                }
+                            }
+                            return this;
+                        },
+                        // Call all the callbacks with the given arguments
+                        fire: function () {
+                            self.fireWith(this, arguments);
+                            return this;
+                        },
+                        // To know if the callbacks have already been called at least once
+                        fired: function () {
+                            return !!fired;
+                        }
+                    };
+
+                return self;
+            },
+            deferred: function (func) {
+                var tuples = [
+                        // action, add listener, listener list, final state
+                        [ &quot;resolve&quot;, &quot;done&quot;, $.callbacks(&quot;once memory&quot;), &quot;resolved&quot; ],
+                        [ &quot;reject&quot;, &quot;fail&quot;, $.callbacks(&quot;once memory&quot;), &quot;rejected&quot; ],
+                        [ &quot;notify&quot;, &quot;progress&quot;, $.callbacks(&quot;memory&quot;) ]
+                    ],
+                    state = &quot;pending&quot;,
+                    promise = {
+                        state: function () {
+                            return state;
+                        },
+                        always: function () {
+                            deferred.done(arguments).fail(arguments);
+                            return this;
+                        },
+                        then: function (/* fnDone, fnFail, fnProgress */) {
+                            var fns = arguments;
+                            return $.deferred(function (newDefer) {
+                                $.each(tuples, function (tuple, i) {
+                                    var action = tuple[ 0 ],
+                                        fn = fns[ i ];
+                                    // deferred[ done | fail | progress ] for forwarding actions to newDefer
+                                    deferred[ tuple[1] ]($.isFunction(fn) ?
+                                        function () {
+                                            var returned = fn.apply(this, arguments);
+                                            if (returned &amp;&amp; $.isFunction(returned.promise)) {
+                                                returned.promise()
+                                                    .done(newDefer.resolve)
+                                                    .fail(newDefer.reject)
+                                                    .progress(newDefer.notify);
+                                            } else {
+                                                newDefer[ action + &quot;With&quot; ](this === deferred ? newDefer : this, [ returned ]);
+                                            }
+                                        } :
+                                        newDefer[ action ]
+                                    );
+                                });
+                                fns = null;
+                            }).promise();
+                        },
+                        // Get a promise for this deferred
+                        // If obj is provided, the promise aspect is added to the object
+                        promise: function (obj) {
+                            return obj != null ? $.extend(obj, promise) : promise;
+                        }
+                    },
+                    deferred = {};
+
+                // Keep pipe for back-compat
+                promise.pipe = promise.then;
+
+                // Add list-specific methods
+                $.each(tuples, function (tuple, i) {
+                    var list = tuple[ 2 ],
+                        stateString = tuple[ 3 ];
+
+                    // promise[ done | fail | progress ] = list.add
+                    promise[ tuple[1] ] = list.add;
+
+                    // Handle state
+                    /*if (stateString) {
+                        list.add(function () {
+                            // state = [ resolved | rejected ]
+                            state = stateString;
+
+                            // [ reject_list | resolve_list ].disable; progress_list.lock
+                        }, tuples[ i ^ 1 ][ 2 ].disable, tuples[ 2 ][ 2 ].lock);
+                    }*/
+
+                    // deferred[ resolve | reject | notify ] = list.fire
+                    deferred[ tuple[0] ] = list.fire;
+                    deferred[ tuple[0] + &quot;With&quot; ] = list.fireWith;
+                });
+
+                // Make the deferred a promise
+                promise.promise(deferred);
+
+                // Call given func if any
+                if (func) {
+                    func.call(deferred, deferred);
+                }
+
+                // All done!
+                return deferred;
+            },
+
+            // Deferred helper
+            when: function (subordinate /* , ..., subordinateN */) {
+                var i = 0,
+                    resolveValues = core_slice.call(arguments),
+                    length = resolveValues.length,
+
+                // the count of uncompleted subordinates
+                    remaining = length !== 1 || ( subordinate &amp;&amp; $.isFunction(subordinate.promise) ) ? length : 0,
+
+                // the master Deferred. If resolveValues consist of only a single Deferred, just use that.
+                    deferred = remaining === 1 ? subordinate : $.deferred(),
+
+                // Update function for both resolve and progress values
+                    updateFunc = function (i, contexts, values) {
+                        return function (value) {
+                            contexts[ i ] = this;
+                            values[ i ] = arguments.length &gt; 1 ? core_slice.call(arguments) : value;
+                            if (values === progressValues) {
+                                deferred.notifyWith(contexts, values);
+                            } else if (!( --remaining )) {
+                                deferred.resolveWith(contexts, values);
+                            }
+                        };
+                    },
+
+                    progressValues, progressContexts, resolveContexts;
+                // add listeners to Deferred subordinates; treat others as resolved
+                if (length &gt; 1) {
+                    progressValues = new Array(length);
+                    progressContexts = new Array(length);
+                    resolveContexts = new Array(length);
+                    for (; i &lt; length; i++) {
+                        if (resolveValues[ i ] &amp;&amp; $.isFunction(resolveValues[ i ].promise)) {
+                            resolveValues[ i ].promise()
+                                .done(updateFunc(i, resolveContexts, resolveValues))
+                                .fail(deferred.reject)
+                                .progress(updateFunc(i, progressContexts, progressValues));
+                        } else {
+                            --remaining;
+                        }
+                    }
+                }
+                // if we&#x27;re not waiting on anything, resolve the master
+                if (!remaining) {
+                    deferred.resolveWith(resolveContexts, resolveValues);
+                }
+
+                return deferred.promise();
+            }
+        };
+
     }($));
 
 //data
@@ -1965,54 +2647,46 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         return false;
     }
 
-    $.event = function (src, props) {
+    $.event = function (e, props) {
         // Allow instantiation without the &#x27;new&#x27; keyword
         if (!(this instanceof $.event)) {
-            return new $.event(src, props);
+            return new $.event(e, props);
         }
-
+        var me = this;
         // Event object
-        if (src &amp;&amp; src.type) {
-            this.originalEvent = src;
-            this.type = src.type;
+        if (e &amp;&amp; e.type) {
+            this.browserEvent = e;
+            this.type = e.type;
 
+            // normalize buttons
+            me.button = e.button;
+            if (e.type == &#x27;click&#x27; &amp;&amp; me.button == -1) {
+                me.button = 1;
+            }
+            me.type = e.type;
+            me.shiftKey = e.shiftKey;
+            // mac metaKey behaves like ctrlKey
+            me.ctrlKey = e.ctrlKey || e.metaKey || false;
+            me.altKey = e.altKey;
+            // in getKey these will be normalized for the mac
+            me.keyCode = e.keyCode;
+            me.charCode = e.charCode;
+            // cache the target for the delayed and or buffered events
+            me.target = e.target;
+            if (me.pageX == null &amp;&amp; e.clientX != null) {
+                var eventDoc = me.target.ownerDocument || document,
+                    doc = eventDoc.documentElement, body = eventDoc.body;
+                me.x = e.clientX + ( doc &amp;&amp; doc.scrollLeft || body &amp;&amp; body.scrollLeft || 0 ) - ( doc &amp;&amp; doc.clientLeft || body &amp;&amp; body.clientLeft || 0 );
+                me.y = e.clientY + ( doc &amp;&amp; doc.scrollTop || body &amp;&amp; body.scrollTop || 0 ) - ( doc &amp;&amp; doc.clientTop || body &amp;&amp; body.clientTop || 0 );
+            }
             // Events bubbling up the document may have been marked as prevented
             // by a handler lower down the tree; reflect the correct value.
-            this.isDefaultPrevented = ( src.defaultPrevented ||
-                src.getPreventDefault &amp;&amp; src.getPreventDefault() ) ? returnTrue : returnFalse;
+            this.isDefaultPrevented = ( e.defaultPrevented ||
+                e.getPreventDefault &amp;&amp; e.getPreventDefault() ) ? returnTrue : returnFalse;
 
             // Event type
         } else {
-            this.type = src;
-        }
-        var me = this;
-        if (src) {
-            // normalize buttons
-            me.button = src.button;
-            if (src.type == &#x27;click&#x27; &amp;&amp; me.button == -1) {
-                me.button = 1;
-            }
-            me.type = src.type;
-            me.shiftKey = src.shiftKey;
-            // mac metaKey behaves like ctrlKey
-            me.ctrlKey = src.ctrlKey || src.metaKey || false;
-            me.altKey = src.altKey;
-            // in getKey these will be normalized for the mac
-            me.keyCode = src.keyCode;
-            me.charCode = src.charCode;
-            // cache the target for the delayed and or buffered events
-            me.target = src.target;
-            // same for XY
-            //me.xy = E.getXY(src);
-        } else {
-            me.button = -1;
-            me.shiftKey = false;
-            me.ctrlKey = false;
-            me.altKey = false;
-            me.keyCode = 0;
-            me.charCode = 0;
-            me.target = null;
-            me.xy = [0, 0];
+            this.type = e;
         }
 
         // Put explicitly provided properties onto the event object
@@ -2021,12 +2695,35 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         }
 
         // Create a timestamp if incoming event doesn&#x27;t have one
-        this.timeStamp = src &amp;&amp; src.timeStamp || Date.now();
+        this.timeStamp = e &amp;&amp; e.timeStamp || Date.now();
 
         this[$.jkey] = true;
 
         return this;
     };
+
+    $$.extend($.event, {BACKSPACE: 8, TAB: 9, NUM_CENTER: 12, ENTER: 13, RETURN: 13, SHIFT: 16, CTRL: 17,
+        CONTROL: 17, // legacy
+        ALT: 18, PAUSE: 19, CAPS_LOCK: 20, ESC: 27, SPACE: 32,
+        PAGE_UP: 33,
+        PAGEUP: 33, // legacy
+        PAGE_DOWN: 34,
+        PAGEDOWN: 34, // legacy
+        END: 35, HOME: 36, LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40,
+        PRINT_SCREEN: 44, INSERT: 45, DELETE: 46, ZERO: 48, ONE: 49, TWO: 50,
+        THREE: 51, FOUR: 52, FIVE: 53, SIX: 54, SEVEN: 55, EIGHT: 56, NINE: 57,
+
+        A: 65, B: 66, C: 67, D: 68, E: 69, F: 70, G: 71, H: 72, I: 73, J: 74,
+        K: 75, L: 76, M: 77, N: 78, O: 79, P: 80, Q: 81, R: 82, S: 83,
+        T: 84, U: 85, V: 86, W: 87, X: 88, Y: 89, Z: 90,
+
+        CONTEXT_MENU: 93, NUM_ZERO: 96, NUM_ONE: 97, NUM_TWO: 98, NUM_THREE: 99,
+        NUM_FOUR: 100, NUM_FIVE: 101, NUM_SIX: 102, NUM_SEVEN: 103, NUM_EIGHT: 104,
+        NUM_NINE: 105, NUM_MULTIPLY: 106, NUM_PLUS: 107, NUM_MINUS: 109, NUM_PERIOD: 110,
+        NUM_DIVISION: 111,
+
+        F1: 112, F2: 113, F3: 114, F4: 115, F5: 116, F6: 117,
+        F7: 118, F8: 119, F9: 120, F10: 121, F11: 122, F12: 123});
 
     $.extend($.event, {
         add: function (elem, types, handler, data, selector, scope) {
@@ -2106,7 +2803,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                     // Only use addEventListener if the special events handler returns false
                     if (!special.setup || special.setup.call(elem, data, namespaces, eventHandle) === false) {
                         if (elem.addEventListener) {
-                            elem.addEventListener(type, eventHandle, false);
+                            elem.addEventListener(type, eventHandle, false); // add reay event
                         }
                     }
                 }
@@ -2198,6 +2895,9 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 data_priv.remove(elem, &quot;events&quot;);
             }
         },
+        has: function (elem, types) {
+
+        },
         trigger: function (event, data, elem, onlyHandlers) {
 
             var i, cur, tmp, bubbleType, ontype, handle, special,
@@ -2225,7 +2925,8 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             }
             ontype = type.indexOf(&quot;:&quot;) &lt; 0 &amp;&amp; &quot;on&quot; + type;
 
-            // Caller can pass in a $.Event object, Object, or just an event type string
+            // Caller can pass in a $.event object, Object, or just an event type string
+
             event = event[ $.jkey ] ? event : new $.event(type, typeof event === &quot;object&quot; &amp;&amp; event);
 
             event.namespace = namespaces.join(&quot;.&quot;);
@@ -2281,6 +2982,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
 
                 // $ handler
                 handle = ( data_priv.get(cur, &quot;events&quot;) || {} )[ event.type ] &amp;&amp; data_priv.get(cur, &quot;handle&quot;);
+
                 if (handle) {
                     handle.apply(cur, data);
                 }
@@ -2319,6 +3021,40 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
 
             return event.result;
         },
+
+        fire: function (elem, type, data) {
+            var i, namespaces;
+
+            if (type.indexOf(&quot;.&quot;) &gt;= 0) {
+                // Namespaced trigger; create a regexp to match event type in handle()
+                namespaces = type.split(&quot;.&quot;);
+                type = namespaces.shift();
+                namespaces.sort();
+            }
+
+            var namespace_re = namespaces ?
+                new RegExp(&quot;(^|\\.)&quot; + namespaces.join(&quot;\\.(?:.*\\.|)&quot;) + &quot;(\\.|$)&quot;) :
+                null;
+
+            data = !$.isDefined(data) ? [ ] : isArraylike(data) ? data : [data];
+
+
+            // $ handler
+            var handles = ( data_priv.get(elem, &quot;events&quot;) || {} )[ type ];
+            if (handles) {
+                var len = handles.length, l;
+                i = 0;
+                for (; i &lt; len; i++) {
+                    l = handles[i];
+                    if (l &amp;&amp; l.handler.apply(l.scope || this || window, l.data ? data.concat(l.data) : data) === false) {
+                        return true;
+                    }
+                }
+            }
+
+            return true;
+        },
+        /** do for stand event **/
         dispatch: function (event) {
             // Make a writable $.event from the native event object
             event = $.event.fix(event);
@@ -2347,7 +3083,6 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
 
                         event.handleObj = handleObj;
                         event.data = handleObj.data;
-
                         ret = ( ($.event.special[ handleObj.origType ] || {}).handle || handleObj.handler )
                             .apply(handleObj.scope || matched.elem, args);
 
@@ -2408,8 +3143,6 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             if (event[ $.jkey ]) {
                 return event;
             }
-            var originalEvent = event;
-
             return new $.event(event);
 
         },
@@ -2417,12 +3150,44 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
     });
 
     $().extend($.event, {
+
         isDefaultPrevented: returnFalse,
         isPropagationStopped: returnFalse,
         isImmediatePropagationStopped: returnFalse,
 
+        within: function (el, related, allowEl) {
+            if (el) {
+                var t = this.getTarget();
+                return t &amp;&amp; ((allowEl ? (t == $.dom(el)) : false) || $(el).contains(t));
+            }
+            return false;
+        },
+
+        getTarget: function (selector, returnDom) {
+            return selector ? $(this.target).up(selector, returnDom) : (returnDom ? this.target : $.get(this.target));
+        },
+        getRelatedTarget: function () {
+            var original = this.browserEvent, fromElement = original.fromElement;
+            return fromElement === event.target ? original.toElement : fromElement;
+        },
+        getPageX: function () {
+            return this.x;
+        },
+        getPageY: function () {
+            return this.y;
+        },
+        getWheelDelta: function () {
+            var e = this.browserEvent;
+            var delta = 0;
+            if (e.wheelDelta) { /* IE/Opera. */
+                delta = e.wheelDelta / 120;
+            } else if (e.detail) { /* Mozilla case. */
+                delta = -e.detail / 3;
+            }
+            return delta;
+        },
         preventDefault: function () {
-            var e = this.originalEvent;
+            var e = this.browserEvent;
 
             this.isDefaultPrevented = returnTrue;
 
@@ -2431,7 +3196,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             }
         },
         stopPropagation: function () {
-            var e = this.originalEvent;
+            var e = this.browserEvent;
 
             this.isPropagationStopped = returnTrue;
 
@@ -2442,12 +3207,55 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         stopImmediatePropagation: function () {
             this.isImmediatePropagationStopped = returnTrue;
             this.stopPropagation();
+        },
+
+        stopEvent: function () {
+            this.stopPropagation();
+            this.preventDefault();
+        },
+
+        normalizeKey: function (k) {
+            return k;
+        },
+
+        isNavKeyPress: function () {
+            var me = this,
+                k = this.normalizeKey(me.keyCode);
+            return (k &gt;= 33 &amp;&amp; k &lt;= 40) ||  // Page Up/Down, End, Home, Left, Up, Right, Down
+                k == $.event.RETURN ||
+                k == $.event.TAB ||
+                k == $.event.ESC;
+        },
+
+        isSpecialKey: function () {
+            var k = this.normalizeKey(this.keyCode);
+            return (this.type == &#x27;keypress&#x27; &amp;&amp; this.ctrlKey) ||
+                this.isNavKeyPress() ||
+                (k == $.event.BACKSPACE) || // Backspace
+                (k &gt;= 16 &amp;&amp; k &lt;= 20) || // Shift, Ctrl, Alt, Pause, Caps Lock
+                (k &gt;= 44 &amp;&amp; k &lt;= 46);   // Print Screen, Insert, Delete
+        },
+        getKey: function () {
+            return this.normalizeKey(this.keyCode || this.charCode);
+        },
+        getCharCode: function () {
+            return this.charCode || this.keyCode;
         }
     });
 
     $().extend({
+        /**
+         * (types,fn)
+         * (types,fn,scope)
+         * (types,selector,fn)
+         * (types,data,fn)
+         * (types,selector,fn,scope)
+         * (types,fn,scope,data)
+         * (types,data,fn,scope)
+         *
+         */
         on: function (types, selector, data, fn, scope, /*INTERNAL*/ one) {
-            var origFn, type;
+            var origFn, type, options;
 
             // Types can be a map of types/handlers
             if (typeof types === &quot;object&quot;) {
@@ -2458,8 +3266,9 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                     selector = undefined;
                 }
                 scope = types.scope;
+                delete types.scope;
                 for (type in types) {
-                    this.on(type, selector, data, types[ type ], one);
+                    this.on(type, selector, data, types[ type ], scope, one);
                 }
                 return this;
             }
@@ -2490,6 +3299,12 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                     scope = fn;
                     fn = data;
                     data = undefined;
+                } else if ($.isFunction(selector)) {
+                    //(types,fn,scope,data)
+                    fn = selector;
+                    scope = data;
+                    data = fn;
+                    selector = undefined;
                 } else {
                     //(types,data,fn,scope)
                     scope = fn;
@@ -2582,6 +3397,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
 
     });
 
+
     $.each((&quot;blur focus focusin focusout load resize scroll unload click dblclick &quot; +
         &quot;mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave &quot; +
         &quot;change select submit keydown keypress keyup error contextmenu&quot;).split(&quot; &quot;), function (name) {
@@ -2594,31 +3410,19 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         };
     });
 
-
     window.$ = $;
+    window.$$ = $$;
 
 })(undefined);
+</pre>
 
-
-
-
-    </pre>
 </div>
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 <script src="../assets/vendor/prettify/prettify-min.js"></script>
 <script>prettyPrint();</script>
 <script src="../assets/js/yui-prettify.js"></script>
-<script src="../assets/../api.js"></script>
-<script src="../assets/js/api-filter.js"></script>
-<script src="../assets/js/api-list.js"></script>
-<script src="../assets/js/api-search.js"></script>
-<script src="../assets/js/apidocs.js"></script>
 <script src="../assets/js/tabs.js"></script>
 </body>
 </html>

@@ -2,157 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>j5/src/core/oop.js - The J API</title>
-    <link rel="stylesheet" href="../assets/css/cssgrids.css">
+    <title>jspp/src/core/oop.js - The Js++ Language</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
-    <link rel="shortcut icon" type="image/icon" href="../assets/favicon.ico">
-    <script src="../assets/js/yui-min.js"></script>
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
 </head>
 <body class="yui3-skin-sam">
-<a href="https://github.com/openxtiger/j"><img style="position: fixed; top: 0; right: 0; border: 0;z-index:110"
-src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
-<div id="doc">
-    <div style="height: 100px;">
-    <div id="hd" class="yui3-g header" style="width:100%">
 
+<div id="doc">
+    <div id="hd" class="yui3-g header">
         <div class="yui3-u-3-4">
-            <h1 style="position:fixed;z-index:100;">
-                <img width="60" height="60" src="../assets/css/logo.png" title="The J API">
-            
-            J - JS OPP/DOM Tool
-            </h1>
+            <h1><a href="../index.html"><img src="../assets/css/logo.png">The Js++ Language: jspp/src/core/oop.js</a></h1>
         </div>
-        <div style="display: block;;position: absolute;right: 10px;bottom: 200px;z-index: 10000;height: 60px;width: 60px;text-indent: -999999px;overflow: hidden;background: #fff;"></div>
-        <a onclick="window.scrollTo(0,0)" style="display: block;position: fixed;right: 10px;bottom: 200px;z-index: 9999;height: 60px;width: 60px;text-indent: -999999px;overflow: hidden;background: #000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEMAAAANAgMAAACP9jv8AAAACVBMVEX///////8AAACO9MPsAAAAAXRSTlMAQObYZgAAAGhJREFUeF49zsEJwCAMBdBvoRfvWaJTOEIPZp+O4lEyZcn/RIl+SMJDAG2gTlfc7+k8H8Pm6cRiuFfjip3RphXUV4ghJIaQjVZQoCfkLDI7C7kgiAuRDK+YvJwLQnBPhovRw7ER5of3DyPbFp8RB9axAAAAAElFTkSuQmCC) 18px 21px no-repeat;opacity: 0.5;" title="返回顶部">返回顶部</a>
         <div class="yui3-u-1-4 version">
             <em>API Docs for: 1.0.0</em>
         </div>
-        </div>
-
     </div>
-    <div id="bd" class="yui3-g">
+    <div class="yui3-g">
 
-        <div class="yui3-u-1-4">
-            <div id="docs-sidebar" class="sidebar apidocs">
-                <div id="api-list" style="overflow: auto;position: fixed;height: 500px;width: 300px;padding-right: 10px;">
-    
-
-    <h2 class="off-left">APIs</h2>
-    
-    <div id="modules" class="sidebox on-page">
-          <div class="hd">
-              <h2 class="no-toc">Modules</h2>
-          </div>
-          <div class="bd">
-              <ul>
-                  
-                      <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a></li>
-                  
-                      <li><a href="../modules/jui.html">jui</a></li>
-                  
-                      <li><a href="../modules/junit.html">junit</a></li>
-                  
-                      <li><a href="../modules/OOP.html">OOP</a></li>
-                  
-              </ul>
-          </div>
-      </div>
-    
-    
-    <div id="classes" class="sidebox on-page">
-          <div class="hd">
-              <h2 class="no-toc">Classes</h2>
-          </div>
-          <div id="api-tabview-filter">
-                      <input type="search" id="api-filter" placeholder="Type to filter APIs">
-                  </div>
-          <div class="bd">
-              <ul id="api-classes">
-                  
-                      <li><a href="../classes/Jclass.html">Jclass</a></li>
-                  
-                      <li><a href="../classes/jui.Component.html">jui.Component</a></li>
-                  
-                      <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
-                  
-                      <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
-                  
-                      <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
-                  
-                      <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
-                  
-                      <li><a href="../classes/junit.Observer.html">junit.Observer</a></li>
-                  
-                      <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
-                  
-                      <li><a href="../classes/junit.Template.html">junit.Template</a></li>
-                  
-                      <li><a href="../classes/Opp.html">Opp</a></li>
-                  
-              </ul>
-          </div>
-      </div>
-    
-
-    
-
-    
-
-    
-
-
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a>
+                
+                </li>
+            
+                <li><a href="../modules/jui.html">jui</a>
+                
+                </li>
+            
+                <li><a href="../modules/junit.html">junit</a>
+                
+                </li>
+            
+                <li><a href="../modules/OOP.html">OOP</a>
+                
+                </li>
+            
+        </ul>
+    </div>
 </div>
 
-            </div>
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../classes/dataview.html">dataview</a></li>
+            
+                <li><a href="../classes/Jclass.html">Jclass</a></li>
+            
+                <li><a href="../classes/jde.DataProxy.html">jde.DataProxy</a></li>
+            
+                <li><a href="../classes/jde.JsonReader.html">jde.JsonReader</a></li>
+            
+                <li><a href="../classes/JDEngine.html">JDEngine</a></li>
+            
+                <li><a href="../classes/jdengine.html">jdengine</a></li>
+            
+                <li><a href="../classes/jsonreader.html">jsonreader</a></li>
+            
+                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+            
+                <li><a href="../classes/jui.DataView.html">jui.DataView</a></li>
+            
+                <li><a href="../classes/jui.form.Checkbox.html">jui.form.Checkbox</a></li>
+            
+                <li><a href="../classes/jui.form.ComboBox.html">jui.form.ComboBox</a></li>
+            
+                <li><a href="../classes/jui.form.Field.html">jui.form.Field</a></li>
+            
+                <li><a href="../classes/jui.form.Hidden.html">jui.form.Hidden</a></li>
+            
+                <li><a href="../classes/jui.form.NumberFiled.html">jui.form.NumberFiled</a></li>
+            
+                <li><a href="../classes/jui.form.Radio.html">jui.form.Radio</a></li>
+            
+                <li><a href="../classes/jui.form.TextArea.html">jui.form.TextArea</a></li>
+            
+                <li><a href="../classes/jui.form.TextField.html">jui.form.TextField</a></li>
+            
+                <li><a href="../classes/jui.form.TriggerField.html">jui.form.TriggerField</a></li>
+            
+                <li><a href="../classes/jui.form.TwinTriggerField.html">jui.form.TwinTriggerField</a></li>
+            
+                <li><a href="../classes/jui.Layer.html">jui.Layer</a></li>
+            
+                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+            
+                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+            
+                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+            
+                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+            
+                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+            
+                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+            
+                <li><a href="../classes/Opp.html">Opp</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>jspp/<ul><li>src/<ul><li>core/<ul><li><a href="../files/jspp_src_core_j.js.html">j.js</a></li><li><a href="../files/jspp_src_core_oop.js.html">oop.js</a></li></ul></li><li>j/<ul><li>jde/<ul><li><a href="../files/jspp_src_j_jde_DataProxy.js.html">DataProxy.js</a></li><li><a href="../files/jspp_src_j_jde_JDEngine.js.html">JDEngine.js</a></li><li><a href="../files/jspp_src_j_jde_JsonReader.js.html">JsonReader.js</a></li></ul></li><li>jui/<ul><li><a href="../files/jspp_src_j_jui_Component.js.html">Component.js</a></li><li><a href="../files/jspp_src_j_jui_DataView.js.html">DataView.js</a></li><li><a href="../files/jspp_src_j_jui_Layer.js.html">Layer.js</a></li><li>form/<ul><li><a href="../files/jspp_src_j_jui_form_Checkbox.js.html">Checkbox.js</a></li><li><a href="../files/jspp_src_j_jui_form_ComboBox.js.html">ComboBox.js</a></li><li><a href="../files/jspp_src_j_jui_form_Field.js.html">Field.js</a></li><li><a href="../files/jspp_src_j_jui_form_Hidden.js.html">Hidden.js</a></li><li><a href="../files/jspp_src_j_jui_form_NumberField.js.html">NumberField.js</a></li><li><a href="../files/jspp_src_j_jui_form_Radio.js.html">Radio.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextArea.js.html">TextArea.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextField.js.html">TextField.js</a></li><li><a href="../files/jspp_src_j_jui_form_TriggerField.js.html">TriggerField.js</a></li></ul></li></ul></li><li>junit/<ul><li><a href="../files/jspp_src_j_junit_MixedCollection.js.html">MixedCollection.js</a></li><li><a href="../files/jspp_src_j_junit_Observable.js.html">Observable.js</a></li><li><a href="../files/jspp_src_j_junit_Template.js.html">Template.js</a></li><li><a href="../files/jspp_src_j_junit_XTemplate.js.html">XTemplate.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
         </div>
-        <div class="yui3-u-3-4">
-            <!--    <div id="api-options">
-        Show:
-        <label for="api-show-inherited">
-            <input type="checkbox" id="api-show-inherited" checked>
-            Inherited
-        </label>
 
-        <label for="api-show-protected">
-            <input type="checkbox" id="api-show-protected">
-            Protected
-        </label>
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>jspp/src/core/oop.js</h4>
 
-        <label for="api-show-private">
-            <input type="checkbox" id="api-show-private">
-            Private
-        </label>
-        <label for="api-show-deprecated">
-            <input type="checkbox" id="api-show-deprecated">
-            Deprecated
-        </label>
-
-    </div>   -->
-
-
-            <div class="apidocs">
-                <div id="docs-main">
-                    <div class="content">
-                        <h1 class="file-heading">File: j5/src/core/oop.js</h1>
-
-<div class="file">
-    <pre class="code prettyprint linenums">
+<pre class="code prettyprint linenums">
 (function ($) {
 
     function JClass() {
     }
 
-    JClass.prototype = {
-        jsuper: function (method, args) {
-            if ($.isArray(method)) {
-                args = method;
-                method = &#x27;constructor&#x27;;
-            }
-            return this.superclass[method || &#x27;constructor&#x27;].apply(this,
-                args || $.toArray(this.jsuper.caller.arguments));
-        }
-    };
     var jclasses = {}, jwidgets = {}, jctrls = {}, jmodels = {}, jlogics = {};
 
     $.extend({
@@ -204,30 +196,56 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
             if (o[name]) {
                 o = __gclasses__[c] = o[name];
             } else {
-
+                var found = false;
                 $.each(__imports__, function (i) {
-                    return (!(o = i[name]));
+                    return (!(found = i[name]));
                 });
-
-                __iclasses__[c] = o;
+                if (found) {
+                    __iclasses__[c] = o = found;
+                }
             }
-
             return o;
         },
         define: function (jclass, cls) {
             jclasses[jclass] = cls;
-        },
-        widget: function (id, c, defined) {
-            if (defined) {
-                return jwidgets[id] = c;
-            }
-            return new jwidgets[id](c);
         },
         create: function (config, defaultType) {
             var jclass = config.$;
             delete config.$;
             var c = jclasses[jclass || defaultType] || $.importclass(jclass);
             return new c(config);
+        },
+        $$: function (name) {
+            var c = jclasses[name] || $.importclass(name);
+            switch (arguments.length) {
+                case 1:
+                    return new c();
+                case 2:
+                    return new c(arguments[1]);
+                case 3:
+                    return new c(arguments[1], arguments[2]);
+                case 4:
+                    return new c(arguments[1], arguments[2], arguments[3]);
+                case 5:
+                    return new c(arguments[1], arguments[2], arguments[3], arguments[4]);
+                default :
+                    var args = $.toArray(arguments, 1);
+                    c = c.prototype.constructor;
+                    var constructor = function () {
+                        return c.apply(this, args);
+                    };
+
+                    constructor.prototype = c.prototype;
+                    constructor.prototype.constructor = c;
+
+                    return new constructor();
+            }
+        },
+        widget: function (id, c) {
+            if (arguments.length == 2) {
+                return jwidgets[id] = c;
+            }
+            return jwidgets[id];
         },
         ctrl: function (id, c) {
             if (arguments.length == 1) {
@@ -267,7 +285,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * 模拟Java的面向对象功能，在此次分别模拟了 package,class,extends,public,private,protected,static,import
      * 可以用以下形式定义类
 
-     &#x27;class C extends P implements I&#x27;.j(function(jsuper){
+     &#x27;class C extends P implements I&#x27;.j(function(csuper){
 
            jstatic({
                a:1
@@ -275,10 +293,10 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
 
            jpublic({
                constructor: function () {
-                   this.jsuper();
+                   jsuper(this);
                },
                echo:function(){
-                   console.log(this.jstatic.a);
+                   console.log(jstatic().a);
                }
            });
 
@@ -360,6 +378,13 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
     }
 
     window.jpackage = jpackage;
+
+    /* function jrequire() {
+     arguments
+     }
+
+     window.jrequire = jrequire;*/
+
     /**
      * Simulation of java import
      * @method jimport
@@ -444,11 +469,16 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         var JClass = function () {
         };
         var sbp, spp = JClass.prototype = sp.prototype;
+        var prv;
+        var pro = {};
+
         if ($.isFunction(coverrides)) {
             var cc = coverrides;
             //
             cc.$Define = true;
             cc.$Public = {};
+            cc.$Private = {};
+            cc.$Protected = {};
             cc.$Static = {};
 
             var c = cc.apply(this, [spp].concat(mixins));
@@ -456,36 +486,65 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
                 coverrides = c;
             } else {
                 coverrides = cc.$Public;
-                coverrides.jstatic = cc.$Static;
+                //$.extend(coverrides, cc.$Protected);
+                prv = cc.$Private;
+
+                var pp = cc.$Protected;
+                var po = false;
+                for (var p in pp) {
+                    if ($.isObject(pp[p])) {
+                        pro[p] = pp[p];
+                        po = true;
+                    } else {
+                        coverrides[p] = pp[p];
+                    }
+                }
+                coverrides.$Static = cc.$Static;
             }
 
             delete cc.$Define;
             delete cc.$Public;
+            delete cc.$Protected;
             delete cc.$Static;
+            delete cc.$Private;
             cc = null;
         }
 
-        if (l == 2) {
-            sb = coverrides.constructor != oc ? coverrides.constructor : function () {
+        if (l == 2) {     //
+            sb = coverrides.constructor != oc ? function () {
+                $.extend(false, this, sb.__proms__);
+                $.extend(false, this, prv);
+                coverrides.constructor.apply(this, arguments);
+            } : function () {
+                $.extend(true, this, prv);
                 sp.apply(this, arguments);
             };
         }
 
 
         sbp = sb.prototype = new JClass();
-        sbp.constructor = sbp.jstatic = sb;
+        sb.__proms__ = $.extend(pro, sp.__proms__);
 
-        sbp.superclass = sb.superclass = sb.jsuper = spp;
+        sbp.superclass = sb.superclass = spp;
 
         if (spp.constructor == oc) {
             spp.constructor = sp;
         }
-        if (coverrides.jstatic) {
-            $.extend(sb, coverrides.jstatic);
-            delete coverrides.jstatic;
+        if (coverrides.$Static) {
+            $.extend(sb, coverrides.$Static);
+            delete coverrides.$Static;
         }
 
-        $.fn.extend(sb, coverrides);  // extend coverrides
+        for (var name in coverrides) {
+            if (coverrides.hasOwnProperty(name)) {
+                if (typeof coverrides[name] == &#x27;function&#x27;) {
+                    coverrides[name].methodname = name;
+                    coverrides[name].owner = sb;
+                }
+                sbp[name] = coverrides[name];
+            }
+        }
+
         if (mixins.length) {
             for (var i = 0, len = mixins.length; i &lt; len; i++) {
                 $.extendIf(sbp, mixins[i]);
@@ -500,8 +559,8 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * Simulation of java priate
      * 模拟java的private关键字，J像c++的类定义一样，将类分为private:,public:等方块。方块定义的变量和方法对应相应的类作用域
 
-      For example:
-      jprivate({
+     For example:
+     jprivate({
           _i:100
       });
 
@@ -511,7 +570,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * @global
      */
     function jprivate(overrides) {
-        $.extend(jprivate.caller.$Public, overrides);
+        $.extend(jprivate.caller.$Private, overrides);
     }
 
     window.jprivate = jprivate;
@@ -520,8 +579,8 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * Simulation of java public
      * 模拟java的public关键字，J像c++的类定义一样，将类分为private:,public:等方块。方块定义的变量和方法对应相应的类作用域
 
-       For example:
-       jpublic({
+     For example:
+     jpublic({
            i:100
        });
 
@@ -539,8 +598,8 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * Simulation of java protected
      * 模拟java的protected关键字，J像c++的类定义一样，将类分为private:,public:等方块。方块定义的变量和方法对应相应的类作用域
 
-       For example:
-       jprotected({
+     For example:
+     jprotected({
            i:100
        });
 
@@ -550,7 +609,7 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * @global
      */
     function jprotected(overrides) {
-        $.extend(jprotected.caller.$Public, overrides);
+        $.extend(jprotected.caller.$Protected, overrides);
     }
 
     window.jprotected = jprotected;
@@ -558,8 +617,8 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * Simulation of java static
      * 模拟java的static关键字，J像c++的类定义一样，将类分为private:,public:等方块。方块定义的变量和方法对应相应的类作用域
 
-       For example:
-       jstatic({
+     For example:
+     jstatic({
            I:100
        });
 
@@ -569,7 +628,10 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
      * @global
      */
     function jstatic(overrides) {
-        $.extend(jstatic.caller.$Static, overrides);
+        if (arguments.length == 0) {
+            return jstatic.caller &amp;&amp; jstatic.caller.owner;
+        }
+        return $.extend(jstatic.caller.$Static, overrides);
     }
 
     window.jstatic = jstatic;
@@ -821,7 +883,10 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         var cls = jclass.apply(this, args);
         if (arguments.length &gt; 1) {
             if ($.isFunction(arguments[1])) {
-                arguments[1].call(cls, cls.prototype);
+                var r = arguments[1].call(cls, cls.prototype);
+                if (r) {
+                    $.define(r, cls);
+                }
             } else {
                 $.define(arguments[1], cls);
             }
@@ -829,6 +894,39 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
         }
         return cls;
     };
+
+    function jsuper(jthis) {
+        var m = jsuper.caller;// current method
+        if (m.methodname &amp;&amp; m.owner) {
+            var method = m.methodname;
+            var owner = m.owner;
+            var args;
+            if (arguments.length &gt; 1) {
+                args = $.toArray(arguments, 1);
+            } else {
+                args = $.toArray(m.arguments);
+            }
+            return owner.superclass[method || &#x27;constructor&#x27;].apply(jthis, args);
+        }
+        return null;
+    }
+
+    jsuper.jsuper = function (jthis, owner) {
+        var m = jsuper.jsuper.caller;// current method
+        if (m.methodname) {
+            var method = m.methodname;
+            var args;
+            if (arguments.length &gt; 2) {
+                args = $.toArray(arguments, 2);
+            } else {
+                args = $.toArray(m.arguments);
+            }
+            return owner.superclass[method || &#x27;constructor&#x27;].apply(jthis, args);
+        }
+        return null;
+    };
+
+    window.jsuper = jsuper;
 
     function jcall(jobject, method, scope, args) {
         if (jobject == scope) return null;
@@ -844,23 +942,15 @@ src="../assets/css/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a
     window.jcall = jcall;
 
 })($);
-    </pre>
-</div>
+</pre>
 
-                    </div>
-                </div>
-            </div>
+</div>
         </div>
     </div>
 </div>
 <script src="../assets/vendor/prettify/prettify-min.js"></script>
 <script>prettyPrint();</script>
 <script src="../assets/js/yui-prettify.js"></script>
-<script src="../assets/../api.js"></script>
-<script src="../assets/js/api-filter.js"></script>
-<script src="../assets/js/api-list.js"></script>
-<script src="../assets/js/api-search.js"></script>
-<script src="../assets/js/apidocs.js"></script>
 <script src="../assets/js/tabs.js"></script>
 </body>
 </html>

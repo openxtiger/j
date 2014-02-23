@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jspp/src/j/jui/form/ComboBox.js - The Js++ Language</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="../index.html"><img src="../assets/css/logo.png">The Js++ Language: jspp/src/j/jui/form/ComboBox.js</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a>
+                
+                </li>
+            
+                <li><a href="../modules/jui.html">jui</a>
+                
+                </li>
+            
+                <li><a href="../modules/junit.html">junit</a>
+                
+                </li>
+            
+                <li><a href="../modules/OOP.html">OOP</a>
+                
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../classes/dataview.html">dataview</a></li>
+            
+                <li><a href="../classes/Jclass.html">Jclass</a></li>
+            
+                <li><a href="../classes/jde.DataProxy.html">jde.DataProxy</a></li>
+            
+                <li><a href="../classes/jde.JsonReader.html">jde.JsonReader</a></li>
+            
+                <li><a href="../classes/JDEngine.html">JDEngine</a></li>
+            
+                <li><a href="../classes/jdengine.html">jdengine</a></li>
+            
+                <li><a href="../classes/jsonreader.html">jsonreader</a></li>
+            
+                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+            
+                <li><a href="../classes/jui.DataView.html">jui.DataView</a></li>
+            
+                <li><a href="../classes/jui.form.Checkbox.html">jui.form.Checkbox</a></li>
+            
+                <li><a href="../classes/jui.form.ComboBox.html">jui.form.ComboBox</a></li>
+            
+                <li><a href="../classes/jui.form.Field.html">jui.form.Field</a></li>
+            
+                <li><a href="../classes/jui.form.Hidden.html">jui.form.Hidden</a></li>
+            
+                <li><a href="../classes/jui.form.NumberFiled.html">jui.form.NumberFiled</a></li>
+            
+                <li><a href="../classes/jui.form.Radio.html">jui.form.Radio</a></li>
+            
+                <li><a href="../classes/jui.form.TextArea.html">jui.form.TextArea</a></li>
+            
+                <li><a href="../classes/jui.form.TextField.html">jui.form.TextField</a></li>
+            
+                <li><a href="../classes/jui.form.TriggerField.html">jui.form.TriggerField</a></li>
+            
+                <li><a href="../classes/jui.form.TwinTriggerField.html">jui.form.TwinTriggerField</a></li>
+            
+                <li><a href="../classes/jui.Layer.html">jui.Layer</a></li>
+            
+                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+            
+                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+            
+                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+            
+                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+            
+                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+            
+                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+            
+                <li><a href="../classes/Opp.html">Opp</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>jspp/<ul><li>src/<ul><li>core/<ul><li><a href="../files/jspp_src_core_j.js.html">j.js</a></li><li><a href="../files/jspp_src_core_oop.js.html">oop.js</a></li></ul></li><li>j/<ul><li>jde/<ul><li><a href="../files/jspp_src_j_jde_DataProxy.js.html">DataProxy.js</a></li><li><a href="../files/jspp_src_j_jde_JDEngine.js.html">JDEngine.js</a></li><li><a href="../files/jspp_src_j_jde_JsonReader.js.html">JsonReader.js</a></li></ul></li><li>jui/<ul><li><a href="../files/jspp_src_j_jui_Component.js.html">Component.js</a></li><li><a href="../files/jspp_src_j_jui_DataView.js.html">DataView.js</a></li><li><a href="../files/jspp_src_j_jui_Layer.js.html">Layer.js</a></li><li>form/<ul><li><a href="../files/jspp_src_j_jui_form_Checkbox.js.html">Checkbox.js</a></li><li><a href="../files/jspp_src_j_jui_form_ComboBox.js.html">ComboBox.js</a></li><li><a href="../files/jspp_src_j_jui_form_Field.js.html">Field.js</a></li><li><a href="../files/jspp_src_j_jui_form_Hidden.js.html">Hidden.js</a></li><li><a href="../files/jspp_src_j_jui_form_NumberField.js.html">NumberField.js</a></li><li><a href="../files/jspp_src_j_jui_form_Radio.js.html">Radio.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextArea.js.html">TextArea.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextField.js.html">TextField.js</a></li><li><a href="../files/jspp_src_j_jui_form_TriggerField.js.html">TriggerField.js</a></li></ul></li></ul></li><li>junit/<ul><li><a href="../files/jspp_src_j_junit_MixedCollection.js.html">MixedCollection.js</a></li><li><a href="../files/jspp_src_j_junit_Observable.js.html">Observable.js</a></li><li><a href="../files/jspp_src_j_junit_Template.js.html">Template.js</a></li><li><a href="../files/jspp_src_j_junit_XTemplate.js.html">XTemplate.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>jspp/src/j/jui/form/ComboBox.js</h4>
+
+<pre class="code prettyprint linenums">
+/**
+ * @pakcage jui.form
+ */
+&#x27;package jui.form&#x27;.j(function () {
+    /**
+     * @class jui.form.ComboBox
+     * @extends jui.form.TriggerField
+     */
+    &#x27;class ComboBox extends TriggerField&#x27;.j(function () {
+
+        jprotected({
+            defaultAutoCreate: {tag: &quot;input&quot;, type: &quot;text&quot;, size: &quot;24&quot;, autocomplete: &quot;off&quot;},
+            /**
+             * @cfg {Number} listWidth The width (used as a parameter to {@link Ext.Element#setWidth}) of the dropdown
+             * list (defaults to the width of the ComboBox field).  See also &lt;tt&gt;{@link #minListWidth}
+             */
+            /**
+             * @event expand
+             * Fires when the dropdown list is expanded
+             */
+            /**
+             * @event collapse
+             * Fires when the dropdown list is collapsed
+             */
+
+            /**
+             * @event beforeselect
+             * Fires before a list item is selected. Return false to cancel the selection.
+             */
+            /**
+             * @event select
+             * Fires when a list item is selected
+             */
+            /**
+             * @event beforequery
+             * Fires before all queries are processed. Return false to cancel the query or set the queryEvent&#x27;s
+             * cancel property to true.
+             */
+            /**
+             * @cfg {String} displayField The underlying {@link Ext.data.Field#name data field name} to binding to this
+             * ComboBox (defaults to undefined if &lt;tt&gt;{@link #mode} = &#x27;remote&#x27;&lt;/tt&gt; or &lt;tt&gt;&#x27;field1&#x27;&lt;/tt&gt; if
+             * {@link #transform transforming a select} or if the {@link #store field name is autogenerated based on
+             * the store configuration}).
+             * &lt;p&gt;See also &lt;tt&gt;{@link #valueField}&lt;/tt&gt;.&lt;/p&gt;
+             * &lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: if using a ComboBox in an {@link Ext.grid.EditorGridPanel Editor Grid} a
+             * {@link Ext.grid.Column#renderer renderer} will be needed to show the displayField when the editor is not
+             * active.&lt;/p&gt;
+             */
+            /**
+             * @cfg {String} valueField The underlying {@link Ext.data.Field#name data value name} to binding to this
+             * ComboBox (defaults to undefined if &lt;tt&gt;{@link #mode} = &#x27;remote&#x27;&lt;/tt&gt; or &lt;tt&gt;&#x27;field2&#x27;&lt;/tt&gt; if
+             * {@link #transform transforming a select} or if the {@link #store field name is autogenerated based on
+             * the store configuration}).
+             * &lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: use of a &lt;tt&gt;valueField&lt;/tt&gt; requires the user to make a selection in order for a value to be
+             * mapped.  See also &lt;tt&gt;{@link #hiddenName}&lt;/tt&gt;, &lt;tt&gt;{@link #hiddenValue}&lt;/tt&gt;, and &lt;tt&gt;{@link #displayField}&lt;/tt&gt;.&lt;/p&gt;
+             */
+            /**
+             * @cfg {String} hiddenName If specified, a hidden form field with this name is dynamically generated to store the
+             * field&#x27;s data value (defaults to the underlying DOM element&#x27;s name). Required for the combo&#x27;s value to automatically
+             * post during a form submission.  See also {@link #valueField}.
+             * &lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: the hidden field&#x27;s id will also default to this name if {@link #hiddenId} is not specified.
+             * The ComboBox {@link Ext.Component#id id} and the &lt;tt&gt;{@link #hiddenId}&lt;/tt&gt; &lt;b&gt;should be different&lt;/b&gt;, since
+             * no two DOM nodes should share the same id.  So, if the ComboBox &lt;tt&gt;{@link Ext.form.Field#name name}&lt;/tt&gt; and
+             * &lt;tt&gt;hiddenName&lt;/tt&gt; are the same, you should specify a unique &lt;tt&gt;{@link #hiddenId}&lt;/tt&gt;.&lt;/p&gt;
+             */
+            /**
+             * @cfg {String} hiddenId If &lt;tt&gt;{@link #hiddenName}&lt;/tt&gt; is specified, &lt;tt&gt;hiddenId&lt;/tt&gt; can also be provided
+             * to give the hidden field a unique id (defaults to the &lt;tt&gt;{@link #hiddenName}&lt;/tt&gt;).  The &lt;tt&gt;hiddenId&lt;/tt&gt;
+             * and combo {@link Ext.Component#id id} should be different, since no two DOM
+             * nodes should share the same id.
+             */
+            /**
+             * @cfg {String} hiddenValue Sets the initial value of the hidden field if {@link #hiddenName} is
+             * specified to contain the selected {@link #valueField}, from the Store. Defaults to the configured
+             * &lt;tt&gt;{@link Ext.form.Field#value value}&lt;/tt&gt;.
+             */
+            /**
+             * @cfg {String} listClass The CSS class to add to the predefined &lt;tt&gt;&#x27;x-combo-list&#x27;&lt;/tt&gt; class
+             * applied the dropdown list element (defaults to &#x27;&#x27;).
+             */
+            listClass: &#x27;&#x27;,
+            /**
+             * @cfg {String} selectedClass CSS class to apply to the selected item in the dropdown list
+             * (defaults to &lt;tt&gt;&#x27;x-combo-selected&#x27;&lt;/tt&gt;)
+             */
+            selectedClass: &#x27;j-combo-selected&#x27;,
+            /**
+             * @cfg {String} listEmptyText The empty text to display in the data view if no items are found.
+             * (defaults to &#x27;&#x27;)
+             */
+            listEmptyText: &#x27;&#x27;,
+            /**
+             * @cfg {String} triggerClass An additional CSS class used to style the trigger button.  The trigger will always
+             * get the class &lt;tt&gt;&#x27;x-form-trigger&#x27;&lt;/tt&gt; and &lt;tt&gt;triggerClass&lt;/tt&gt; will be &lt;b&gt;appended&lt;/b&gt; if specified
+             * (defaults to &lt;tt&gt;&#x27;x-form-arrow-trigger&#x27;&lt;/tt&gt; which displays a downward arrow icon).
+             */
+            triggerClass: &#x27;j-form-arrow-trigger&#x27;,
+            /**
+             * @cfg {Boolean/String} shadow &lt;tt&gt;true&lt;/tt&gt; or &lt;tt&gt;&quot;sides&quot;&lt;/tt&gt; for the default effect, &lt;tt&gt;&quot;frame&quot;&lt;/tt&gt; for
+             * 4-way shadow, and &lt;tt&gt;&quot;drop&quot;&lt;/tt&gt; for bottom-right
+             */
+            shadow: &#x27;sides&#x27;,
+            /**
+             * @cfg {String/Array} listAlign A valid anchor position value. See &lt;tt&gt;{@link Ext.Element#alignTo}&lt;/tt&gt; for details
+             * on supported anchor positions and offsets. To specify x/y offsets as well, this value
+             * may be specified as an Array of &lt;tt&gt;{@link Ext.Element#alignTo}&lt;/tt&gt; method arguments.&lt;/p&gt;
+             * &lt;pre&gt;&lt;code&gt;[ &#x27;tl-bl?&#x27;, [6,0] ]&lt;/code&gt;&lt;/pre&gt;(defaults to &lt;tt&gt;&#x27;tl-bl?&#x27;&lt;/tt&gt;)
+             */
+            listAlign: &#x27;tl-bl?&#x27;,
+            /**
+             * @cfg {Number} maxHeight The maximum height in pixels of the dropdown list before scrollbars are shown
+             * (defaults to &lt;tt&gt;300&lt;/tt&gt;)
+             */
+            maxHeight: 300,
+            /**
+             * @cfg {Number} minHeight The minimum height in pixels of the dropdown list when the list is constrained by its
+             * distance to the viewport edges (defaults to &lt;tt&gt;90&lt;/tt&gt;)
+             */
+            minHeight: 90,
+            /**
+             * @cfg {String} triggerAction The action to execute when the trigger is clicked.
+             * &lt;div class=&quot;mdetail-params&quot;&gt;&lt;ul&gt;
+             * &lt;li&gt;&lt;b&gt;&lt;tt&gt;&#x27;query&#x27;&lt;/tt&gt;&lt;/b&gt; : &lt;b&gt;Default&lt;/b&gt;
+             * &lt;p class=&quot;sub-desc&quot;&gt;{@link #doQuery run the query} using the {@link Ext.form.Field#getRawValue raw value}.&lt;/p&gt;&lt;/li&gt;
+             * &lt;li&gt;&lt;b&gt;&lt;tt&gt;&#x27;all&#x27;&lt;/tt&gt;&lt;/b&gt; :
+             * &lt;p class=&quot;sub-desc&quot;&gt;{@link #doQuery run the query} specified by the &lt;tt&gt;{@link #allQuery}&lt;/tt&gt; config option&lt;/p&gt;&lt;/li&gt;
+             * &lt;/ul&gt;&lt;/div&gt;
+             * &lt;p&gt;See also &lt;code&gt;{@link #queryParam}&lt;/code&gt;.&lt;/p&gt;
+             */
+            triggerAction: &#x27;query&#x27;,
+            /**
+             * @cfg {Number} minChars The minimum number of characters the user must type before autocomplete and
+             * {@link #typeAhead} activate (defaults to &lt;tt&gt;4&lt;/tt&gt; if &lt;tt&gt;{@link #mode} = &#x27;remote&#x27;&lt;/tt&gt; or &lt;tt&gt;0&lt;/tt&gt; if
+             * &lt;tt&gt;{@link #mode} = &#x27;local&#x27;&lt;/tt&gt;, does not apply if
+             * &lt;tt&gt;{@link Ext.form.TriggerField#editable editable} = false&lt;/tt&gt;).
+             */
+            minChars: 4,
+            /**
+             * @cfg {Boolean} autoSelect &lt;tt&gt;true&lt;/tt&gt; to select the first result gathered by the data store (defaults
+             * to &lt;tt&gt;true&lt;/tt&gt;).  A false value would require a manual selection from the dropdown list to set the components value
+             * unless the value of ({@link #typeAheadDelay}) were true.
+             */
+            autoSelect: true,
+            /**
+             * @cfg {Boolean} typeAhead &lt;tt&gt;true&lt;/tt&gt; to populate and autoselect the remainder of the text being
+             * typed after a configurable delay ({@link #typeAheadDelay}) if it matches a known value (defaults
+             * to &lt;tt&gt;false&lt;/tt&gt;)
+             */
+            typeAhead: false,
+            /**
+             * @cfg {Number} queryDelay The length of time in milliseconds to delay between the start of typing and
+             * sending the query to filter the dropdown list (defaults to &lt;tt&gt;500&lt;/tt&gt; if &lt;tt&gt;{@link #mode} = &#x27;remote&#x27;&lt;/tt&gt;
+             * or &lt;tt&gt;10&lt;/tt&gt; if &lt;tt&gt;{@link #mode} = &#x27;local&#x27;&lt;/tt&gt;)
+             */
+            queryDelay: 500,
+            /**
+             * @cfg {Number} pageSize If greater than &lt;tt&gt;0&lt;/tt&gt;, a {@link Ext.PagingToolbar} is displayed in the
+             * footer of the dropdown list and the {@link #doQuery filter queries} will execute with page start and
+             * {@link Ext.PagingToolbar#pageSize limit} parameters. Only applies when &lt;tt&gt;{@link #mode} = &#x27;remote&#x27;&lt;/tt&gt;
+             * (defaults to &lt;tt&gt;0&lt;/tt&gt;).
+             */
+            pageSize: 0,
+            /**
+             * @cfg {Boolean} selectOnFocus &lt;tt&gt;true&lt;/tt&gt; to select any existing text in the field immediately on focus.
+             * Only applies when &lt;tt&gt;{@link Ext.form.TriggerField#editable editable} = true&lt;/tt&gt; (defaults to
+             * &lt;tt&gt;false&lt;/tt&gt;).
+             */
+            selectOnFocus: false,
+            /**
+             * @cfg {String} queryParam Name of the query ({@link Ext.data.Store#baseParam baseParam} name for the store)
+             * as it will be passed on the querystring (defaults to &lt;tt&gt;&#x27;query&#x27;&lt;/tt&gt;)
+             */
+            queryParam: &#x27;query&#x27;,
+            /**
+             * @cfg {String} loadingText The text to display in the dropdown list while data is loading.  Only applies
+             * when &lt;tt&gt;{@link #mode} = &#x27;remote&#x27;&lt;/tt&gt; (defaults to &lt;tt&gt;&#x27;Loading...&#x27;&lt;/tt&gt;)
+             */
+            loadingText: &#x27;Loading...&#x27;,
+            /**
+             * @cfg {Boolean} resizable &lt;tt&gt;true&lt;/tt&gt; to add a resize handle to the bottom of the dropdown list
+             * (creates an {@link Ext.Resizable} with &#x27;se&#x27; {@link Ext.Resizable#pinned pinned} handles).
+             * Defaults to &lt;tt&gt;false&lt;/tt&gt;.
+             */
+            resizable: false,
+            /**
+             * @cfg {Number} handleHeight The height in pixels of the dropdown list resize handle if
+             * &lt;tt&gt;{@link #resizable} = true&lt;/tt&gt; (defaults to &lt;tt&gt;8&lt;/tt&gt;)
+             */
+            handleHeight: 8,
+            /**
+             * @cfg {String} allQuery The text query to send to the server to return all records for the list
+             * with no filtering (defaults to &#x27;&#x27;)
+             */
+            allQuery: &#x27;&#x27;,
+            /**
+             * @cfg {String} mode Acceptable values are:
+             * &lt;div class=&quot;mdetail-params&quot;&gt;&lt;ul&gt;
+             * &lt;li&gt;&lt;b&gt;&lt;tt&gt;&#x27;remote&#x27;&lt;/tt&gt;&lt;/b&gt; : &lt;b&gt;Default&lt;/b&gt;
+             * &lt;p class=&quot;sub-desc&quot;&gt;Automatically loads the &lt;tt&gt;{@link #store}&lt;/tt&gt; the &lt;b&gt;first&lt;/b&gt; time the trigger
+             * is clicked. If you do not want the store to be automatically loaded the first time the trigger is
+             * clicked, set to &lt;tt&gt;&#x27;local&#x27;&lt;/tt&gt; and manually load the store.  To force a requery of the store
+             * &lt;b&gt;every&lt;/b&gt; time the trigger is clicked see &lt;tt&gt;{@link #lastQuery}&lt;/tt&gt;.&lt;/p&gt;&lt;/li&gt;
+             * &lt;li&gt;&lt;b&gt;&lt;tt&gt;&#x27;local&#x27;&lt;/tt&gt;&lt;/b&gt; :
+             * &lt;p class=&quot;sub-desc&quot;&gt;ComboBox loads local data&lt;/p&gt;
+             * &lt;pre&gt;&lt;code&gt;
+             * &lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+             * &lt;/ul&gt;&lt;/div&gt;
+             */
+            mode: &#x27;remote&#x27;,
+            /**
+             * @cfg {Number} minListWidth The minimum width of the dropdown list in pixels (defaults to &lt;tt&gt;70&lt;/tt&gt;, will
+             * be ignored if &lt;tt&gt;{@link #listWidth}&lt;/tt&gt; has a higher value)
+             */
+            minListWidth: 70,
+            /**
+             * @cfg {Boolean} forceSelection &lt;tt&gt;true&lt;/tt&gt; to restrict the selected value to one of the values in the list,
+             * &lt;tt&gt;false&lt;/tt&gt; to allow the user to set arbitrary text into the field (defaults to &lt;tt&gt;false&lt;/tt&gt;)
+             */
+            forceSelection: false,
+            /**
+             * @cfg {Number} typeAheadDelay The length of time in milliseconds to wait until the typeahead text is displayed
+             * if &lt;tt&gt;{@link #typeAhead} = true&lt;/tt&gt; (defaults to &lt;tt&gt;250&lt;/tt&gt;)
+             */
+            typeAheadDelay: 250,
+            /**
+             * @cfg {String} valueNotFoundText When using a name/value combo, if the value passed to setValue is not found in
+             * the store, valueNotFoundText will be displayed as the field text if defined (defaults to undefined). If this
+             * default text is used, it means there is no value set and no validation will occur on this field.
+             */
+
+            /**
+             * @cfg {Boolean} lazyInit &lt;tt&gt;true&lt;/tt&gt; to not initialize the list for this combo until the field is focused
+             * (defaults to &lt;tt&gt;true&lt;/tt&gt;)
+             */
+            lazyInit: false,
+
+            /**
+             * @cfg {Boolean} clearFilterOnReset &lt;tt&gt;true&lt;/tt&gt; to clear any filters on the store (when in local mode) when reset is called
+             * (defaults to &lt;tt&gt;true&lt;/tt&gt;)
+             */
+            clearFilterOnReset: true,
+
+            /**
+             * @cfg {Boolean} submitValue False to clear the name attribute on the field so that it is not submitted during a form post.
+             * If a hiddenName is specified, setting this to true will cause both the hidden field and the element to be submitted.
+             * Defaults to &lt;tt&gt;undefined&lt;/tt&gt;.
+             */
+            submitValue: undefined
+        });
+
+        jprotected({
+            initComponent: function () {
+                jsuper(this);
+
+                if (this.transform) {
+                    var s = $.dom(this.transform);
+                    if (!this.hiddenName) {
+                        this.hiddenName = s.name;
+                    }
+                    if (!this.store) {
+                        this.mode = &#x27;local&#x27;;
+                        var d = [], opts = s.options;
+                        for (var i = 0, len = opts.length; i &lt; len; i++) {
+                            var o = opts[i],
+                                value = (o.hasAttribute ? o.hasAttribute(&#x27;value&#x27;) : o.getAttributeNode(&#x27;value&#x27;).specified) ? o.value : o.text;
+                            if (o.selected &amp;&amp; $.isEmpty(this.value, true)) {
+                                this.value = value;
+                            }
+                            d.push([value, o.text]);
+                        }
+                        this.store = new Ext.data.ArrayStore({
+                            &#x27;id&#x27;: 0,
+                            fields: [&#x27;value&#x27;, &#x27;text&#x27;],
+                            data: d,
+                            autoDestroy: true
+                        });
+                        this.valueField = &#x27;value&#x27;;
+                        this.displayField = &#x27;text&#x27;;
+                    }
+                    s.name = $.id(); // wipe out the name in case somewhere else they have a reference
+                    if (!this.lazyRender) {
+                        this.target = true;
+                        this.el = $.insertBefore(s, this.autoCreate || this.defaultAutoCreate);
+                        this.render(this.el.parentNode, s);
+                    }
+                    $.remove(s);
+                }
+                //auto-configure store from local array data
+                else if (this.jde) {
+                    /*if (this.store.autoCreated) {
+                     this.displayField = this.valueField = &#x27;field1&#x27;;
+                     if (!this.store.expandData) {
+                     this.displayField = &#x27;field2&#x27;;
+                     }
+                     this.mode = &#x27;local&#x27;;
+                     }*/
+                }
+
+                this.selectedIndex = -1;
+                if (this.mode == &#x27;local&#x27;) {
+                    if (!$.isDefined(this.initialConfig.queryDelay)) {
+                        this.queryDelay = 10;
+                    }
+                    if (!$.isDefined(this.initialConfig.minChars)) {
+                        this.minChars = 0;
+                    }
+                }
+            },
+
+            // private
+            onRender: function (ct, position) {
+                if (this.hiddenName &amp;&amp; !$.isDefined(this.submitValue)) {
+                    this.submitValue = false;
+                }
+                jsuper(this);
+                if (this.hiddenName) {
+                    this.hiddenField = $.insertBefore(this.el, {tag: &#x27;input&#x27;, type: &#x27;hidden&#x27;, name: this.hiddenName,
+                        id: (this.hiddenId || this.hiddenName)}, true);
+
+                }
+                this.el.dom().setAttribute(&#x27;autocomplete&#x27;, &#x27;off&#x27;);
+
+                if (!this.lazyInit) {
+                    this.initList();
+                } else {
+                    this.el.on(&#x27;focus&#x27;, this.initList, this);
+                }
+            },
+
+            // private
+            initValue: function () {
+                jsuper(this);
+                if (this.hiddenField) {
+                    this.hiddenField.value = $.isDefined(this.hiddenValue) ? this.hiddenValue : this.value;
+                }
+            },
+
+            getParentZIndex: function () {
+                var zindex;
+                if (this.ownerCt) {
+                    this.findParentBy(function (ct) {
+                        zindex = parseInt(ct.getPositionEl().css(&#x27;z-index&#x27;), 10);
+                        return !!zindex;
+                    });
+                }
+                return zindex;
+            },
+
+            // private
+            initList: function () {
+                if (!this.list) {
+                    var cls = &#x27;j-combo-list&#x27;,
+                        listParent = $.dom(this.getListParent() || $.getBody()),
+                        zindex = parseInt($(listParent).css(&#x27;z-index&#x27;), 10);
+
+                    /*if (!zindex) {
+                     zindex = this.getParentZIndex();
+                     }*/
+
+                    this.list = new jui.Layer({
+                        parentEl: listParent,
+                        shadow: this.shadow,
+                        cls: [cls, this.listClass].join(&#x27; &#x27;),
+                        constrain: false,
+                        zindex: (zindex || 12000) + 5
+                    });
+
+                    var lw = this.listWidth || Math.max(this.wrap.width(), this.minListWidth);
+                    this.list.size(lw, 0);
+                    //this.list.swallowEvent(&#x27;mousewheel&#x27;);
+                    this.assetHeight = 0;
+                    if (this.syncFont !== false) {
+                        this.list.css(&#x27;font-size&#x27;, this.el.css(&#x27;font-size&#x27;));
+                    }
+                    if (this.title) {
+                        this.header = this.list.createChild({cls: cls + &#x27;-hd&#x27;, html: this.title});
+                        this.assetHeight += this.header.height();
+                    }
+                    this.innerList = this.list.createChild({cls: cls + &#x27;-inner&#x27;});
+                    this.innerList.on(&#x27;mouseover&#x27;, this.onViewOver, this);
+                    this.innerList.on(&#x27;mousemove&#x27;, this.onViewMove, this);
+                    this.innerList.width(lw /*- this.list.getFrameWidth(&#x27;lr&#x27;)*/);
+
+                    /*if (this.pageSize) {
+                     this.footer = this.list.createChild({cls: cls + &#x27;-ft&#x27;});
+                     this.pageTb = new Ext.PagingToolbar({
+                     store: this.store,
+                     pageSize: this.pageSize,
+                     renderTo: this.footer
+                     });
+                     this.assetHeight += this.footer.height();
+                     }*/
+
+                    if (!this.tpl) {
+                        this.tpl = &#x27;&lt;tpl for=&quot;.&quot;&gt;&lt;div class=&quot;&#x27; + cls + &#x27;-item&quot;&gt;{&#x27; + this.displayField + &#x27;}&lt;/div&gt;&lt;/tpl&gt;&#x27;;
+                    }
+
+                    /**
+                     * The {@link jui.DataView DataView} used to display the ComboBox&#x27;s options.
+                     * @type jui.DataView
+                     */
+                    this.view = $$(&#x27;dataview&#x27;, {
+                        applyTo: this.innerList,
+                        tpl: this.tpl,
+                        singleSelect: true,
+                        selectedClass: this.selectedClass,
+                        itemSelector: this.itemSelector || &#x27;.&#x27; + cls + &#x27;-item&#x27;,
+                        emptyText: this.listEmptyText,
+                        deferEmptyText: false
+                    });
+
+                    /*this.mon(this.view, {
+                     containerclick: this.onViewClick,
+                     click: this.onViewClick,
+                     scope: this
+                     });*/
+
+                    this.bindJDE(this.jde, true);
+
+                    /*if (this.resizable) {
+                     this.resizer = new Ext.Resizable(this.list, {
+                     pinned: true, handles: &#x27;se&#x27;
+                     });
+                     this.mon(this.resizer, &#x27;resize&#x27;, function (r, w, h) {
+                     this.maxHeight = h - this.handleHeight - this.list.getFrameWidth(&#x27;tb&#x27;) - this.assetHeight;
+                     this.listWidth = w;
+                     this.innerList.setWidth(w - this.list.getFrameWidth(&#x27;lr&#x27;));
+                     this.restrictHeight();
+                     }, this);
+
+                     this[this.pageSize ? &#x27;footer&#x27; : &#x27;innerList&#x27;].setStyle(&#x27;margin-bottom&#x27;, this.handleHeight + &#x27;px&#x27;);
+                     }*/
+                }
+            },
+
+            /**
+             * &lt;p&gt;Returns the element used to house this ComboBox&#x27;s pop-up list. Defaults to the document body.&lt;/p&gt;
+             * A custom implementation may be provided as a configuration option if the floating list needs to be rendered
+             * to a different Element. An example might be rendering the list inside a Menu so that clicking
+             * the list does not hide the Menu:&lt;pre&gt;&lt;code&gt;
+             */
+            getListParent: function () {
+                return document.body;
+            },
+
+            /**
+             * Returns the store associated with this combo.
+             * @return {Ext.data.Store} The store
+             */
+            getStore: function () {
+                return this.store;
+            },
+
+            // private
+            bindJDE: function (jde, initial) {
+                if (this.jde &amp;&amp; !initial) {
+                    if (this.jde !== jde &amp;&amp; this.jde.autoDestroy) {
+                        this.jde.destroy();
+                    } else {
+                        this.jde.off(&#x27;beforeload&#x27;, this.onBeforeLoad, this);
+                        this.jde.off(&#x27;load&#x27;, this.onLoad, this);
+                        this.jde.off(&#x27;exception&#x27;, this.collapse, this);
+                    }
+                    if (!jde) {
+                        this.jde = null;
+                        if (this.view) {
+                            this.view.bindJDE(null);
+                        }
+                        /*if (this.pageTb) {
+                         this.pageTb.bindStore(null);
+                         }*/
+                    }
+                }
+                if (jde) {
+                    if (!initial) {
+                        this.lastQuery = null;
+                        /*if (this.pageTb) {
+                         this.pageTb.bindStore(store);
+                         }*/
+                    }
+
+                    this.jde.on(&#x27;beforeload&#x27;, this.onBeforeLoad, this);
+                    this.jde.on(&#x27;load&#x27;, this.onLoad, this);
+                    this.jde.on(&#x27;exception&#x27;, this.collapse, this);
+
+                    if (this.view) {
+                        this.view.bindJDE(jde);
+                    }
+                }
+            },
+
+            reset: function () {
+                jsuper(this);
+                if (this.clearFilterOnReset &amp;&amp; this.mode == &#x27;local&#x27;) {
+                    this.store.clearFilter();
+                }
+            },
+
+            // private
+            initEvents: function () {
+                jsuper(this);
+
+
+                /*this.keyNav = new Ext.KeyNav(this.el, {
+                 &quot;up&quot;: function (e) {
+                 this.inKeyMode = true;
+                 this.selectPrev();
+                 },
+
+                 &quot;down&quot;: function (e) {
+                 if (!this.isExpanded()) {
+                 this.onTriggerClick();
+                 } else {
+                 this.inKeyMode = true;
+                 this.selectNext();
+                 }
+                 },
+
+                 &quot;enter&quot;: function (e) {
+                 this.onViewClick();
+                 },
+
+                 &quot;esc&quot;: function (e) {
+                 this.collapse();
+                 },
+
+                 &quot;tab&quot;: function (e) {
+                 if (this.forceSelection === true) {
+                 this.collapse();
+                 } else {
+                 this.onViewClick(false);
+                 }
+                 return true;
+                 },
+
+                 scope: this,
+
+                 doRelay: function (e, h, hname) {
+                 if (hname == &#x27;down&#x27; || this.scope.isExpanded()) {
+                 // this MUST be called before ComboBox#fireKey()
+                 var relay = Ext.KeyNav.prototype.doRelay.apply(this, arguments);
+                 if (!Ext.isIE &amp;&amp; Ext.EventManager.useKeydown) {
+                 // call Combo#fireKey() for browsers which use keydown event (except IE)
+                 this.scope.fireKey(e);
+                 }
+                 return relay;
+                 }
+                 return true;
+                 },
+
+                 forceKeyDown: true,
+                 defaultEventAction: &#x27;stopEvent&#x27;
+                 });*/
+
+                this.queryDelay = Math.max(this.queryDelay || 10,
+                    this.mode == &#x27;local&#x27; ? 10 : 250);
+                this.dqTask = $.delay(this.initQuery, this);
+                if (this.typeAhead) {
+                    this.taTask = $.delay(this.onTypeAhead, this);
+                }
+                if (!this.enableKeyEvents) {
+                    this.el.on(&#x27;keyup&#x27;, this.onKeyUp, this);
+                }
+            },
+
+
+            // private
+            onDestroy: function () {
+                if (this.dqTask) {
+                    this.dqTask.cancel();
+                    this.dqTask = null;
+                }
+                this.bindJDE(null);
+                $.destroy(
+                    /* this.resizer,*/
+                    this.view,
+                    /*this.pageTb,*/
+                    this.list
+                );
+                //Ext.destroyMembers(this, &#x27;hiddenField&#x27;);
+                jsuper(this);
+            },
+
+            // private
+            fireKey: function (e) {
+                if (!this.isExpanded()) {
+                    jsuper(this);
+                }
+            },
+
+            // private
+            onResize: function (w, h) {
+                jsuper(this);
+                if (!isNaN(w) &amp;&amp; this.isVisible() &amp;&amp; this.list) {
+                    this.doResize(w);
+                } else {
+                    this.bufferSize = w;
+                }
+            },
+
+            doResize: function (w) {
+                if (!$.isDefined(this.listWidth)) {
+                    var lw = Math.max(w, this.minListWidth);
+                    this.list.width(lw);
+                    this.innerList.width(lw /*- this.list.getFrameWidth(&#x27;lr&#x27;)*/);
+                }
+            },
+
+            // private
+            onEnable: function () {
+                jsuper(this);
+                if (this.hiddenField) {
+                    this.hiddenField.disabled = false;
+                }
+            },
+
+            // private
+            onDisable: function () {
+                jsuper(this);
+                if (this.hiddenField) {
+                    this.hiddenField.disabled = true;
+                }
+            },
+
+            // private
+            onBeforeLoad: function () {
+                if (!this.hasFocus) {
+                    return;
+                }
+                this.innerList.update(this.loadingText ?
+                    &#x27;&lt;div class=&quot;loading-indicator&quot;&gt;&#x27; + this.loadingText + &#x27;&lt;/div&gt;&#x27; : &#x27;&#x27;);
+                this.restrictHeight();
+                this.selectedIndex = -1;
+            },
+
+            // private
+            onLoad: function () {
+                if (!this.hasFocus) {
+                    return;
+                }
+                if (this.jde.getCount() &gt; 0 || this.listEmptyText) {
+                    this.expand();
+                    this.restrictHeight();
+                    if (this.lastQuery == this.allQuery) {
+                        if (this.editable) {
+                            this.el.dom().select();
+                        }
+                        /*if (this.autoSelect !== false &amp;&amp; !this.selectByValue(this.value, true)) {
+                         this.select(0, true);
+                         }*/
+                    } else {
+                        if (this.autoSelect !== false) {
+                            this.selectNext();
+                        }
+                        if (this.typeAhead &amp;&amp; this.lastKey != $.event.BACKSPACE &amp;&amp; this.lastKey != Ext.EventObject.DELETE) {
+                            this.taTask.delay(this.typeAheadDelay);
+                        }
+                    }
+                } else {
+                    this.collapse();
+                }
+
+            },
+
+            // private
+            onTypeAhead: function () {
+                if (this.jde.getCount() &gt; 0) {
+                    var r = this.store.getAt(0);
+                    var newValue = r.data[this.displayField];
+                    var len = newValue.length;
+                    var selStart = this.getRawValue().length;
+                    if (selStart != len) {
+                        this.setRawValue(newValue);
+                        this.selectText(selStart, newValue.length);
+                    }
+                }
+            },
+
+            // private
+            assertValue: function () {
+                var val = this.getRawValue(),
+                    rec = this.findRecord(this.displayField, val);
+
+                if (!rec &amp;&amp; this.forceSelection) {
+                    if (val.length &gt; 0) {
+                        this.el.dom.value = this.lastSelectionText;
+                    } else {
+                        this.clearValue();
+                    }
+                } else {
+                    if (rec) {
+                        // onSelect may have already set the value and by doing so
+                        // set the display field properly.  Let&#x27;s not wipe out the
+                        // valueField here by just sending the displayField.
+                        if (val == rec.get(this.displayField) &amp;&amp; this.value == rec.get(this.valueField)) {
+                            return;
+                        }
+                        val = rec.get(this.valueField || this.displayField);
+                    }
+                    this.setValue(val);
+                }
+            },
+
+            // private
+            onSelect: function (record, index) {
+                if (this.fireEvent(&#x27;beforeselect&#x27;, this, record, index) !== false) {
+                    this.setValue(record.data[this.valueField || this.displayField]);
+                    this.collapse();
+                    this.fireEvent(&#x27;select&#x27;, this, record, index);
+                }
+            },
+
+            // inherit docs
+            getName: function () {
+                var hf = this.hiddenField;
+                return hf &amp;&amp; hf.name ? hf.name : this.hiddenName || Ext.form.ComboBox.superclass.getName.call(this);
+            },
+
+            /**
+             * Returns the currently selected field value or empty string if no value is set.
+             * @return {String} value The selected value
+             */
+            getValue: function () {
+                if (this.valueField) {
+                    return $.isDefined(this.value) ? this.value : &#x27;&#x27;;
+                } else {
+                    return jsuper(this);
+                }
+            },
+
+            /**
+             * Clears any text/value currently set in the field
+             */
+            clearValue: function () {
+                if (this.hiddenField) {
+                    this.hiddenField.value = &#x27;&#x27;;
+                }
+                this.setRawValue(&#x27;&#x27;);
+                this.lastSelectionText = &#x27;&#x27;;
+                this.value = &#x27;&#x27;;
+            },
+
+            /**
+             * Sets the specified value into the field.  If the value finds a match, the corresponding record text
+             * will be displayed in the field.  If the value does not match the data value of an existing item,
+             * and the valueNotFoundText config option is defined, it will be displayed as the default field text.
+             * Otherwise the field will be blank (although the value will still be set).
+             * @param {String} value The value to match
+             * @return {Ext.form.Field} this
+             */
+            setValue: function (v) {
+                var text = v;
+                if (this.valueField) {
+                    var r = this.findRecord(this.valueField, v);
+                    if (r) {
+                        text = r.data[this.displayField];
+                    } else if ($.isDefined(this.valueNotFoundText)) {
+                        text = this.valueNotFoundText;
+                    }
+                }
+                this.lastSelectionText = text;
+                if (this.hiddenField) {
+                    this.hiddenField.value = Ext.value(v, &#x27;&#x27;);
+                }
+                jsuper(this);
+                this.value = v;
+                return this;
+            },
+
+            // private
+            findRecord: function (prop, value) {
+                var record;
+                if (this.store.getCount() &gt; 0) {
+                    this.store.each(function (r) {
+                        if (r.data[prop] == value) {
+                            record = r;
+                            return false;
+                        }
+                    });
+                }
+                return record;
+            },
+
+            // private
+            onViewMove: function (e, t) {
+                this.inKeyMode = false;
+            },
+
+            // private
+            onViewOver: function (e, t) {
+                if (this.inKeyMode) { // prevent key nav and mouse over conflicts
+                    return;
+                }
+                var item = this.view.findItemFromChild(t);
+                if (item) {
+                    var index = this.view.indexOf(item);
+                    this.select(index, false);
+                }
+            },
+
+            // private
+            onViewClick: function (doFocus) {
+                var index = this.view.getSelectedIndexes()[0],
+                    s = this.store,
+                    r = s.getAt(index);
+                if (r) {
+                    this.onSelect(r, index);
+                } else {
+                    this.collapse();
+                }
+                if (doFocus !== false) {
+                    this.el.focus();
+                }
+            },
+
+
+            // private
+            restrictHeight: function () {
+                this.innerList.dom().style.height = &#x27;&#x27;;
+                var inner = this.innerList.dom(),
+                    pad = /*this.list.border(&#x27;tb&#x27;) */+(this.resizable ? this.handleHeight : 0) + this.assetHeight,
+                    h = Math.max(inner.clientHeight, inner.offsetHeight, inner.scrollHeight),
+                    ha = this.list.position().top - $.getBody().scrollTop(),
+                    hb = $.height() - ha - this.list.height(),
+                    space = Math.max(ha, hb, this.minHeight || 0) - this.list.shadowOffset - pad - 5;
+
+                //h = Math.min(h, space, this.maxHeight);
+
+                this.innerList.height(h);
+                //this.list.beginUpdate();
+                this.list.height(h + pad);
+                //this.list.alignTo.apply(this.list, [this.el].concat(this.listAlign));
+                //this.list.endUpdate();
+            },
+
+            /**
+             * Returns true if the dropdown list is expanded, else false.
+             */
+            isExpanded: function () {
+                return this.list &amp;&amp; this.list.isVisible();
+            },
+
+            /**
+             * Select an item in the dropdown list by its data value. This function does NOT cause the select event to fire.
+             * The store must be loaded and the list expanded for this function to work, otherwise use setValue.
+             * @param {String} value The data value of the item to select
+             * @param {Boolean} scrollIntoView False to prevent the dropdown list from autoscrolling to display the
+             * selected item if it is not currently in view (defaults to true)
+             * @return {Boolean} True if the value matched an item in the list, else false
+             */
+            selectByValue: function (v, scrollIntoView) {
+                if (!$.isEmpty(v, true)) {
+                    var r = this.findRecord(this.valueField || this.displayField, v);
+                    if (r) {
+                        this.select(this.store.indexOf(r), scrollIntoView);
+                        return true;
+                    }
+                }
+                return false;
+            },
+
+            /**
+             * Select an item in the dropdown list by its numeric index in the list. This function does NOT cause the select event to fire.
+             * The store must be loaded and the list expanded for this function to work, otherwise use setValue.
+             * @param {Number} index The zero-based index of the list item to select
+             * @param {Boolean} scrollIntoView False to prevent the dropdown list from autoscrolling to display the
+             * selected item if it is not currently in view (defaults to true)
+             */
+            select: function (index, scrollIntoView) {
+                this.view.select(index);
+                if (scrollIntoView !== false) {
+                    var el = this.view.getNode(index);
+                    if (el) {
+                        this.innerList.scrollChildIntoView(el, false);
+                    }
+                }
+
+            },
+
+            // private
+            selectNext: function () {
+                var ct = this.jde.getCount();
+                if (ct &gt; 0) {
+                    if (this.selectedIndex == -1) {
+                        this.select(0);
+                    } else if (this.selectedIndex &lt; ct - 1) {
+                        this.select(this.selectedIndex + 1);
+                    }
+                }
+            },
+
+            // private
+            selectPrev: function () {
+                var ct = this.store.getCount();
+                if (ct &gt; 0) {
+                    if (this.selectedIndex == -1) {
+                        this.select(0);
+                    } else if (this.selectedIndex !== 0) {
+                        this.select(this.selectedIndex - 1);
+                    }
+                }
+            },
+
+            // private
+            onKeyUp: function (e) {
+                var k = e.getKey();
+                if (this.editable !== false &amp;&amp; this.readOnly !== true &amp;&amp; (k == $.event.BACKSPACE || !e.isSpecialKey())) {
+                    this.lastKey = k;
+                    this.dqTask.delay(this.queryDelay);
+                }
+                jsuper(this);
+            },
+
+            // private
+            validateBlur: function () {
+                return !this.list || !this.list.isVisible();
+            },
+
+            // private
+            initQuery: function () {
+                this.doQuery(this.getRawValue());
+            },
+
+            // private
+            beforeBlur: function () {
+                this.assertValue();
+            },
+
+            // private
+            postBlur: function () {
+                jsuper(this);
+                this.collapse();
+                this.inKeyMode = false;
+            },
+
+            /**
+             * Execute a query to filter the dropdown list.  Fires the {@link #beforequery} event prior to performing the
+             * query allowing the query action to be canceled if needed.
+             * @param {String} query The SQL query to execute
+             * @param {Boolean} forceAll &lt;tt&gt;true&lt;/tt&gt; to force the query to execute even if there are currently fewer
+             * characters in the field than the minimum specified by the &lt;tt&gt;{@link #minChars}&lt;/tt&gt; config option.  It
+             * also clears any filter previously saved in the current store (defaults to &lt;tt&gt;false&lt;/tt&gt;)
+             */
+            doQuery: function (q, forceAll) {
+                q = $.isEmpty(q) ? &#x27;&#x27; : q;
+                var qe = {
+                    query: q,
+                    forceAll: forceAll,
+                    combo: this,
+                    cancel: false
+                };
+                if (this.fireEvent(&#x27;beforequery&#x27;, qe) === false || qe.cancel) {
+                    return false;
+                }
+                q = qe.query;
+                forceAll = qe.forceAll;
+                if (forceAll === true || (q.length &gt;= this.minChars)) {
+                    if (this.lastQuery !== q) {
+                        this.lastQuery = q;
+                        if (this.mode == &#x27;local&#x27;) {
+                            this.selectedIndex = -1;
+                            if (forceAll) {
+                                this.jde.clearFilter();
+                            } else {
+                                var qf = {};
+                                qf[this.displayField] = {&quot;liken&quot;: q};
+                                this.jde.filter(qf);
+                            }
+                            this.onLoad();
+                        } else {
+                            /*this.store.baseParams[this.queryParam] = q;
+                             this.store.load({
+                             params: this.getParams(q)
+                             });
+                             this.expand();*/
+                        }
+                    } else {
+                        this.selectedIndex = -1;
+                        this.onLoad();
+                    }
+                }
+            },
+
+            // private
+            getParams: function (q) {
+                var p = {};
+                //p[this.queryParam] = q;
+                if (this.pageSize) {
+                    p.start = 0;
+                    p.limit = this.pageSize;
+                }
+                return p;
+            },
+
+            /**
+             * Hides the dropdown list if it is currently expanded. Fires the {@link #collapse} event on completion.
+             */
+            collapse: function () {
+                if (!this.isExpanded()) {
+                    return;
+                }
+                this.list.hide();
+                $.getDoc().off(&#x27;mousewheel&#x27;, this.collapseIf, this);
+                $.getDoc().off(&#x27;mousedown&#x27;, this.collapseIf, this);
+                this.fireEvent(&#x27;collapse&#x27;, this);
+            },
+
+            // private
+            collapseIf: function (e) {
+                if (!e.within(this.wrap) &amp;&amp; !e.within(this.list)) {
+                    this.collapse();
+                }
+            },
+
+            /**
+             * Expands the dropdown list if it is currently hidden. Fires the {@link #expand} event on completion.
+             */
+            expand: function () {
+                if (this.isExpanded() || !this.hasFocus) {
+                    return;
+                }
+
+                if (this.title || this.pageSize) {
+                    this.assetHeight = 0;
+                    if (this.title) {
+                        this.assetHeight += this.header.height();
+                    }
+                    if (this.pageSize) {
+                        this.assetHeight += this.footer.height();
+                    }
+                }
+
+                if (this.bufferSize) {
+                    this.doResize(this.bufferSize);
+                    delete this.bufferSize;
+                }
+
+                this.list.alignTo.apply(this.list, [this.el].concat(this.listAlign));
+
+                // zindex can change, re-check it and set it if necessary
+                var listParent = $.dom(this.getListParent() || $.getBody()),
+                    zindex = parseInt($(listParent).css(&#x27;z-index&#x27;), 10);
+                if (!zindex) {
+                    zindex = this.getParentZIndex();
+                }
+                if (zindex) {
+                    this.list.css(&#x27;z-index&#x27;, zindex + 5);
+                }
+                this.list.show();
+
+                $.getDoc().on(&quot;mousewheel mousedown&quot;, this.collapseIf, this);
+
+                this.fireEvent(&#x27;expand&#x27;, this);
+            },
+
+            /**
+             * @method onTriggerClick
+             * @hide
+             */
+            // private
+            // Implements the default empty TriggerField.onTriggerClick function
+            onTriggerClick: function (e) {
+                if (this.readOnly || this.disabled) {
+                    return;
+                }
+                if (this.isExpanded()) {
+                    this.collapse();
+                    this.el.dom().focus();
+                } else {
+                    this.onFocus({});
+                    if (this.triggerAction == &#x27;all&#x27;) {
+                        this.doQuery(this.allQuery, true);
+                    } else {
+                        this.doQuery(this.getRawValue());
+                    }
+                    this.el.dom().focus();
+                }
+            }
+        });
+    }, &#x27;combobox&#x27;);
+});
+</pre>
+
+</div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>

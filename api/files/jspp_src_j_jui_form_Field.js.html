@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>jspp/src/j/jui/form/Field.js - The Js++ Language</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0pr2/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <script src="http://yui.yahooapis.com/combo?3.8.0pr2/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            <h1><a href="../index.html"><img src="../assets/css/logo.png">The Js++ Language: jspp/src/j/jui/form/Field.js</a></h1>
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 1.0.0</em>
+        </div>
+    </div>
+    <div class="yui3-g">
+
+        <div id="sidebar" class="yui3-u">
+            <div id="modules" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Modules</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../modules/DOM_UNIT.html">DOM_UNIT</a>
+                
+                </li>
+            
+                <li><a href="../modules/jui.html">jui</a>
+                
+                </li>
+            
+                <li><a href="../modules/junit.html">junit</a>
+                
+                </li>
+            
+                <li><a href="../modules/OOP.html">OOP</a>
+                
+                </li>
+            
+        </ul>
+    </div>
+</div>
+
+<div id="classes" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Classes</h2>
+    </div>
+    <div class="bd">
+        <ul>
+            
+                <li><a href="../classes/dataview.html">dataview</a></li>
+            
+                <li><a href="../classes/Jclass.html">Jclass</a></li>
+            
+                <li><a href="../classes/jde.DataProxy.html">jde.DataProxy</a></li>
+            
+                <li><a href="../classes/jde.JsonReader.html">jde.JsonReader</a></li>
+            
+                <li><a href="../classes/JDEngine.html">JDEngine</a></li>
+            
+                <li><a href="../classes/jdengine.html">jdengine</a></li>
+            
+                <li><a href="../classes/jsonreader.html">jsonreader</a></li>
+            
+                <li><a href="../classes/jui.Component.html">jui.Component</a></li>
+            
+                <li><a href="../classes/jui.DataView.html">jui.DataView</a></li>
+            
+                <li><a href="../classes/jui.form.Checkbox.html">jui.form.Checkbox</a></li>
+            
+                <li><a href="../classes/jui.form.ComboBox.html">jui.form.ComboBox</a></li>
+            
+                <li><a href="../classes/jui.form.Field.html">jui.form.Field</a></li>
+            
+                <li><a href="../classes/jui.form.Hidden.html">jui.form.Hidden</a></li>
+            
+                <li><a href="../classes/jui.form.NumberFiled.html">jui.form.NumberFiled</a></li>
+            
+                <li><a href="../classes/jui.form.Radio.html">jui.form.Radio</a></li>
+            
+                <li><a href="../classes/jui.form.TextArea.html">jui.form.TextArea</a></li>
+            
+                <li><a href="../classes/jui.form.TextField.html">jui.form.TextField</a></li>
+            
+                <li><a href="../classes/jui.form.TriggerField.html">jui.form.TriggerField</a></li>
+            
+                <li><a href="../classes/jui.form.TwinTriggerField.html">jui.form.TwinTriggerField</a></li>
+            
+                <li><a href="../classes/jui.Layer.html">jui.Layer</a></li>
+            
+                <li><a href="../classes/junit.BaseTemplate.html">junit.BaseTemplate</a></li>
+            
+                <li><a href="../classes/junit.JTemplate.html">junit.JTemplate</a></li>
+            
+                <li><a href="../classes/junit.MixedCollection.html">junit.MixedCollection</a></li>
+            
+                <li><a href="../classes/junit.Observable.html">junit.Observable</a></li>
+            
+                <li><a href="../classes/junit.STemplate.html">junit.STemplate</a></li>
+            
+                <li><a href="../classes/junit.Template.html">junit.Template</a></li>
+            
+                <li><a href="../classes/Opp.html">Opp</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div id="fileTree" class="sidebox">
+    <div class="hd">
+        <h2 class="no-toc">Files</h2>
+    </div>
+    <div class="bd">
+        <ul><li>jspp/<ul><li>src/<ul><li>core/<ul><li><a href="../files/jspp_src_core_j.js.html">j.js</a></li><li><a href="../files/jspp_src_core_oop.js.html">oop.js</a></li></ul></li><li>j/<ul><li>jde/<ul><li><a href="../files/jspp_src_j_jde_DataProxy.js.html">DataProxy.js</a></li><li><a href="../files/jspp_src_j_jde_JDEngine.js.html">JDEngine.js</a></li><li><a href="../files/jspp_src_j_jde_JsonReader.js.html">JsonReader.js</a></li></ul></li><li>jui/<ul><li><a href="../files/jspp_src_j_jui_Component.js.html">Component.js</a></li><li><a href="../files/jspp_src_j_jui_DataView.js.html">DataView.js</a></li><li><a href="../files/jspp_src_j_jui_Layer.js.html">Layer.js</a></li><li>form/<ul><li><a href="../files/jspp_src_j_jui_form_Checkbox.js.html">Checkbox.js</a></li><li><a href="../files/jspp_src_j_jui_form_ComboBox.js.html">ComboBox.js</a></li><li><a href="../files/jspp_src_j_jui_form_Field.js.html">Field.js</a></li><li><a href="../files/jspp_src_j_jui_form_Hidden.js.html">Hidden.js</a></li><li><a href="../files/jspp_src_j_jui_form_NumberField.js.html">NumberField.js</a></li><li><a href="../files/jspp_src_j_jui_form_Radio.js.html">Radio.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextArea.js.html">TextArea.js</a></li><li><a href="../files/jspp_src_j_jui_form_TextField.js.html">TextField.js</a></li><li><a href="../files/jspp_src_j_jui_form_TriggerField.js.html">TriggerField.js</a></li></ul></li></ul></li><li>junit/<ul><li><a href="../files/jspp_src_j_junit_MixedCollection.js.html">MixedCollection.js</a></li><li><a href="../files/jspp_src_j_junit_Observable.js.html">Observable.js</a></li><li><a href="../files/jspp_src_j_junit_Template.js.html">Template.js</a></li><li><a href="../files/jspp_src_j_junit_XTemplate.js.html">XTemplate.js</a></li></ul></li></ul></li></ul></li></ul></li></ul>
+    </div>
+</div>
+
+
+
+        </div>
+
+        <div id="main" class="yui3-u">
+            <div class="content"><h4>jspp/src/j/jui/form/Field.js</h4>
+
+<pre class="code prettyprint linenums">
+/**
+ * @pakcage jui.form
+ */
+&#x27;package jui.form&#x27;.j(function () {
+    /**
+     * @class jui.form.Field
+     * @extends jui.Component
+     */
+    &#x27;class Field extends jui.Component&#x27;.j(function () {
+        jprivate({
+            /**
+             * @event focus
+             * Fires when this field receives input focus.
+             * @param {jui.form.Field} this
+             */
+            /**
+             * @event blur
+             * Fires when this field loses input focus.
+             * @param {jui.form.Field} this
+             */
+            /**
+             * @event specialkey
+             * Fires when any key related to navigation (arrows, tab, enter, esc, etc.) is pressed.
+             * To handle other keys see {@link jui.Panel#keys} or {@link jui.KeyMap}.
+             * You can check {@link jui.EventObject#getKey} to determine which key was pressed.
+             * For example: &lt;pre&gt;&lt;code&gt;
+             var form = new jui.form.FormPanel({
+                                 * &lt;/code&gt;&lt;/pre&gt;
+                                 * @param {jui.form.Field} this
+             * @param {jui.EventObject} e The event object
+             */
+            /**
+             * @event change
+             * Fires just before the field blurs if the field value has changed.
+             * @param {jui.form.Field} this
+             * @param {Mixed} newValue The new value
+             * @param {Mixed} oldValue The original value
+             */
+            /**
+             * @event invalid
+             * Fires after the field has been marked as invalid.
+             * @param {jui.form.Field} this
+             * @param {String} msg The validation message
+             */
+            /**
+             * @event valid
+             * Fires after the field has been validated with no errors.
+             * @param {jui.form.Field} this
+             */
+            invalidClass: &#x27;j-form-invalid&#x27;,
+            /**
+             * @cfg {String} invalidText The error text to use when marking a field invalid and no message is provided
+             * (defaults to &#x27;The value in this field is invalid&#x27;)
+             */
+            invalidText: &#x27;The value in this field is invalid&#x27;,
+            /**
+             * @cfg {String} focusClass The CSS class to use when the field receives focus (defaults to &#x27;x-form-focus&#x27;)
+             */
+            focusClass: &#x27;j-form-focus&#x27;,
+            /**
+             * @cfg {Boolean} preventMark
+             * &lt;tt&gt;true&lt;/tt&gt; to disable {@link #markInvalid marking the field invalid}.
+             * Defaults to &lt;tt&gt;false&lt;/tt&gt;.
+             */
+            /**
+             * @cfg {String/Boolean} validationEvent The event that should initiate field validation. Set to false to disable
+             automatic validation (defaults to &#x27;keyup&#x27;).
+             */
+            validationEvent: &#x27;keyup&#x27;,
+            /**
+             * @cfg {Boolean} validateOnBlur Whether the field should validate when it loses focus (defaults to true).
+             */
+            validateOnBlur: true,
+            /**
+             * @cfg {Number} validationDelay The length of time in milliseconds after user input begins until validation
+             * is initiated (defaults to 250)
+             */
+            validationDelay: 250,
+            /**
+             * @cfg {String/Object} autoCreate &lt;p&gt;A {@link jui.DomHelper DomHelper} element spec, or true for a default
+             * element spec. Used to create the {@link jui.Component#getEl Element} which will encapsulate this Component.
+             * See &lt;tt&gt;{@link jui.Component#autoEl autoEl}&lt;/tt&gt; for details.  Defaults to:&lt;/p&gt;
+             * &lt;pre&gt;&lt;code&gt;{tag: &#x27;input&#x27;, type: &#x27;text&#x27;, size: &#x27;20&#x27;, autocomplete: &#x27;off&#x27;}&lt;/code&gt;&lt;/pre&gt;
+             */
+            defaultAutoCreate: {tag: &#x27;input&#x27;, type: &#x27;text&#x27;, size: &#x27;20&#x27;, autocomplete: &#x27;off&#x27;},
+            /**
+             * @cfg {String} fieldClass The default CSS class for the field (defaults to &#x27;x-form-field&#x27;)
+             */
+            fieldClass: &#x27;j-form-field&#x27;,
+            /**
+             * @cfg {String} msgTarget&lt;p&gt;The location where the message text set through {@link #markInvalid} should display.
+             * Must be one of the following values:&lt;/p&gt;
+             * &lt;div class=&quot;mdetail-params&quot;&gt;&lt;ul&gt;
+             * &lt;li&gt;&lt;code&gt;qtip&lt;/code&gt; Display a quick tip containing the message when the user hovers over the field. This is the default.
+             * &lt;div class=&quot;subdesc&quot;&gt;&lt;b&gt;{@link jui.QuickTips#init jui.QuickTips.init} must have been called for this setting to work.&lt;/b&gt;&lt;/div&lt;/li&gt;
+             * &lt;li&gt;&lt;code&gt;title&lt;/code&gt; Display the message in a default browser title attribute popup.&lt;/li&gt;
+             * &lt;li&gt;&lt;code&gt;under&lt;/code&gt; Add a block div beneath the field containing the error message.&lt;/li&gt;
+             * &lt;li&gt;&lt;code&gt;side&lt;/code&gt; Add an error icon to the right of the field, displaying the message in a popup on hover.&lt;/li&gt;
+             * &lt;li&gt;&lt;code&gt;[element id]&lt;/code&gt; Add the error message directly to the innerHTML of the specified element.&lt;/li&gt;
+             * &lt;/ul&gt;&lt;/div&gt;
+             */
+            msgTarget: &#x27;qtip&#x27;,
+            /**
+             * @cfg {String} msgFx &lt;b&gt;Experimental&lt;/b&gt; The effect used when displaying a validation message under the field
+             * (defaults to &#x27;normal&#x27;).
+             */
+            msgFx: &#x27;normal&#x27;,
+            /**
+             * @cfg {Boolean} readOnly &lt;tt&gt;true&lt;/tt&gt; to mark the field as readOnly in HTML
+             * (defaults to &lt;tt&gt;false&lt;/tt&gt;).
+             * &lt;br&gt;&lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: this only sets the element&#x27;s readOnly DOM attribute.
+             * Setting &lt;code&gt;readOnly=true&lt;/code&gt;, for example, will not disable triggering a
+             * ComboBox or DateField; it gives you the option of forcing the user to choose
+             * via the trigger without typing in the text box. To hide the trigger use
+             * &lt;code&gt;{@link jui.form.TriggerField#hideTrigger hideTrigger}&lt;/code&gt;.&lt;/p&gt;
+             */
+            readOnly: false,
+            /**
+             * @cfg {Boolean} disabled True to disable the field (defaults to false).
+             * &lt;p&gt;Be aware that conformant with the &lt;a href=&quot;http://www.w3.org/TR/html401/interact/forms.html#h-17.12.1&quot;&gt;HTML specification&lt;/a&gt;,
+             * disabled Fields will not be {@link jui.form.BasicForm#submit submitted}.&lt;/p&gt;
+             */
+            disabled: false,
+            /**
+             * @cfg {Boolean} submitValue False to clear the name attribute on the field so that it is not submitted during a form post.
+             * Defaults to &lt;tt&gt;true&lt;/tt&gt;.
+             */
+            submitValue: true,
+
+            // private
+            isFormField: true,
+
+            // private
+            msgDisplay: &#x27;&#x27;,
+
+            // private
+            hasFocus: false
+        });
+        jprotected({
+            initComponent: function () {
+                jsuper(this);
+            },
+            // private
+            initValue: function () {
+                if (this.value !== undefined) {
+                    this.setValue(this.value);
+                } else if (!$.isEmpty(this.el.dom.value) &amp;&amp; this.el.dom.value != this.emptyText) {
+                    this.setValue(this.el.dom.value);
+                }
+                this.originalValue = this.getValue();
+            },
+            // private
+            afterRender: function () {
+                jsuper(this);
+                if (this.placeHolder !== undefined) {
+                    this.el.attr(&quot;placeholder&quot;, this.placeHolder);
+                }
+                this.initEvents();
+                this.initValue();
+
+            },
+
+            fireKey: function (e) {
+                if (e.isSpecialKey()) {
+                    this.fireEvent(&#x27;specialkey&#x27;, this, e);
+                }
+            },
+
+            initEvents: function () {
+                this.el.on(&#x27;keypress&#x27;, this.fireKey, this);
+                this.el.on(&#x27;focus&#x27;, this.onFocus, this);
+                this.el.on(&#x27;blur&#x27;, this.onBlur, this);
+            },
+
+            // private
+            preFocus: $.noop,
+
+            // private
+            onFocus: function () {
+                this.preFocus();
+                if (this.focusClass) {
+                    this.el.addClass(this.focusClass);
+                }
+                if (!this.hasFocus) {
+                    this.hasFocus = true;
+                    this.startValue = this.getValue();
+                    this.fireEvent(&#x27;focus&#x27;, this);
+                }
+            },
+
+            // private
+            beforeBlur: $.noop,
+
+            // private
+            onBlur: function () {
+                this.beforeBlur();
+                if (this.focusClass) {
+                    this.el.removeClass(this.focusClass);
+                }
+                this.hasFocus = false;
+                if (this.validationEvent !== false &amp;&amp; (this.validateOnBlur || this.validationEvent == &#x27;blur&#x27;)) {
+                    this.validate();
+                }
+                var v = this.getValue();
+                if (String(v) !== String(this.startValue)) {
+                    this.fireEvent(&#x27;change&#x27;, this, v, this.startValue);
+                }
+                this.fireEvent(&#x27;blur&#x27;, this);
+                this.postBlur();
+            },
+
+            // private
+            postBlur: $.noop,
+
+
+            /**
+             * Gets the active error message for this field.
+             * @return {String} Returns the active error message on the field, if there is no error, an empty string is returned.
+             */
+            getActiveError: function () {
+                return this.activeError || &#x27;&#x27;;
+            },
+
+
+            // private
+            getMessageHandler: function () {
+                return null;//jui.form.MessageTargets[this.msgTarget];
+            },
+
+            // private
+            getErrorCt: function () {
+                return this.el.findParent(&#x27;.x-form-element&#x27;, 5, true) || // use form element wrap if available
+                    this.el.findParent(&#x27;.x-form-field-wrap&#x27;, 5, true);   // else direct field wrap
+            },
+
+            // Alignment for &#x27;under&#x27; target
+            alignErrorEl: function () {
+                this.errorEl.setWidth(this.getErrorCt().getWidth(true) - 20);
+            },
+
+            // Alignment for &#x27;side&#x27; target
+            alignErrorIcon: function () {
+                this.errorIcon.alignTo(this.el, &#x27;tl-tr&#x27;, [2, 0]);
+            }
+        });
+
+        // publc method
+        jpublic({
+            getName: function () {
+                return this.rendered &amp;&amp; this.el.dom.name ?
+                    this.el.dom.name : this.name || this.id || &#x27;&#x27;;
+            },
+
+            // private
+            onRender: function (ct, position) {
+                if (!this.el) {
+                    var cfg = this.getAutoCreate();
+                    if (!cfg.name) {
+                        cfg.name = this.name || this.id;
+                    }
+                    if (this.inputType) {
+                        cfg.type = this.inputType;
+                    }
+                    this.autoEl = cfg;
+                }
+                jsuper(this);
+
+                if (this.submitValue === false) {
+                    this.el.dom().removeAttribute(&#x27;name&#x27;);
+                }
+                var type = this.el.dom().type;
+                if (type) {
+                    if (type == &#x27;password&#x27;) {
+                        type = &#x27;text&#x27;;
+                    }
+                    this.el.addClass(&#x27;j-form-&#x27; + type);
+                }
+                if (this.readOnly) {
+                    this.setReadOnly(true);
+                }
+                if (this.tabIndex !== undefined) {
+                    this.el.dom().setAttribute(&#x27;tabIndex&#x27;, this.tabIndex);
+                }
+
+                this.el.addClass(this.fieldClass);
+            },
+
+            // private
+            getItemCt: function () {
+                return this.itemCt;
+            },
+            /**
+             * &lt;p&gt;Returns true if the value of this Field has been changed from its original value.
+             * Will return false if the field is disabled or has not been rendered yet.&lt;/p&gt;
+             * &lt;p&gt;Note that if the owning {@link jui.form.BasicForm form} was configured with
+             * {@link jui.form.BasicForm}.{@link jui.form.BasicForm#trackResetOnLoad trackResetOnLoad}
+             * then the &lt;i&gt;original value&lt;/i&gt; is updated when the values are loaded by
+             * {@link jui.form.BasicForm}.{@link jui.form.BasicForm#setValues setValues}.&lt;/p&gt;
+             * @return {Boolean} True if this field has been changed from its original value (and
+             * is not disabled), false otherwise.
+             */
+            isDirty: function () {
+                if (this.disabled || !this.rendered) {
+                    return false;
+                }
+                return String(this.getValue()) !== String(this.originalValue);
+            },
+
+            /**
+             * Sets the read only state of this field.
+             * @param {Boolean} readOnly Whether the field should be read only.
+             */
+            setReadOnly: function (readOnly) {
+                if (this.rendered) {
+                    this.el.dom.readOnly = readOnly;
+                }
+                this.readOnly = readOnly;
+            },
+            reset: function () {
+                this.setValue(this.originalValue);
+                this.clearInvalid();
+            },
+            /**
+             * Returns the raw data value which may or may not be a valid, defined value.  To return a normalized value see {@link #getValue}.
+             * @return {Mixed} value The field value
+             */
+            getRawValue: function () {
+                var v = this.rendered ? this.el.val() : this.value;
+                if (v === this.emptyText) {
+                    v = &#x27;&#x27;;
+                }
+                return v;
+            },
+
+            /**
+             * Returns the normalized data value (undefined or emptyText will be returned as &#x27;&#x27;).  To return the raw value see {@link #getRawValue}.
+             * @return {Mixed} value The field value
+             */
+            getValue: function () {
+                if (!this.rendered) {
+                    return this.value;
+                }
+                var v = this.el.val();
+                if (v === this.emptyText || v === undefined) {
+                    v = &#x27;&#x27;;
+                }
+                return v;
+            },
+
+            /**
+             * Sets the underlying DOM field&#x27;s value directly, bypassing validation.  To set the value with validation see {@link #setValue}.
+             * @param {String} v The value to set
+             * @return {String} value The field value that is set
+             */
+            setRawValue: function (v) {
+                return this.rendered ? (this.el.dom().value = ($.isEmpty(v) ? &#x27;&#x27; : v)) : &#x27;&#x27;;
+            },
+
+            /**
+             * Sets a data value into the field and validates it.  To set the value directly without validation see {@link #setRawValue}.
+             */
+            setValue: function (v) {
+                this.value = v;
+                if (this.rendered) {
+                    this.el.val(($.isEmpty(v) ? &#x27;&#x27; : v));
+                    this.validate();
+                }
+                return this;
+            },
+
+            // private, does not work for all fields
+            append: function (v) {
+                this.setValue([this.getValue(), v].join(&#x27;&#x27;));
+            },
+            /**
+             * &lt;p&gt;Display an error message associated with this field, using {@link #msgTarget} to determine how to
+             * display the message and applying {@link #invalidClass} to the field&#x27;s UI element.&lt;/p&gt;
+             * &lt;p&gt;&lt;b&gt;Note&lt;/b&gt;: this method does not cause the Field&#x27;s {@link #validate} method to return &lt;code&gt;false&lt;/code&gt;
+             * if the value does &lt;i&gt;pass&lt;/i&gt; validation. So simply marking a Field as invalid will not prevent
+             * submission of forms submitted with the {@link jui.form.Action.Submit#clientValidation} option set.&lt;/p&gt;
+             * {@link #isValid invalid}.
+             * @param {String} msg (optional) The validation message (defaults to {@link #invalidText})
+             */
+            markInvalid: function (msg) {
+                if (!this.rendered || this.preventMark) { // not rendered
+                    return;
+                }
+                msg = msg || this.invalidText;
+
+                var mt = this.getMessageHandler();
+                if (mt) {
+                    mt.mark(this, msg);
+                } else if (this.msgTarget) {
+                    this.el.addClass(this.invalidClass);
+                    var t = $.dom(this.msgTarget);
+                    if (t) {
+                        t.innerHTML = msg;
+                        t.style.display = this.msgDisplay;
+                    }
+                }
+                this.activeError = msg;
+                this.fireEvent(&#x27;invalid&#x27;, this, msg);
+            },
+
+            /**
+             * Clear any invalid styles/messages for this field
+             */
+            clearInvalid: function () {
+                if (!this.rendered || this.preventMark) { // not rendered
+                    return;
+                }
+                this.el.removeClass(this.invalidClass);
+                var mt = this.getMessageHandler();
+                if (mt) {
+                    mt.clear(this);
+                } else if (this.msgTarget) {
+                    this.el.removeClass(this.invalidClass);
+                    var t = $.dom(this.msgTarget);
+                    if (t) {
+                        t.innerHTML = &#x27;&#x27;;
+                        t.style.display = &#x27;none&#x27;;
+                    }
+                }
+                delete this.activeError;
+                this.fireEvent(&#x27;valid&#x27;, this);
+            },
+
+            /**
+             * Returns whether or not the field value is currently valid by
+             * {@link #validateValue validating} the {@link #processValue processed value}
+             * of the field. &lt;b&gt;Note&lt;/b&gt;: {@link #disabled} fields are ignored.
+             * @param {Boolean} preventMark True to disable marking the field invalid
+             * @return {Boolean} True if the value is valid, else false
+             */
+            isValid: function (preventMark) {
+                if (this.disabled) {
+                    return true;
+                }
+                var restore = this.preventMark;
+                this.preventMark = preventMark === true;
+                var v = this.validateValue(this.processValue(this.getRawValue()));
+                this.preventMark = restore;
+                return v;
+            },
+
+            /**
+             * Validates the field value
+             * @return {Boolean} True if the value is valid, else false
+             */
+            validate: function () {
+                if (this.disabled || this.validateValue(this.processValue(this.getRawValue()))) {
+                    this.clearInvalid();
+                    return true;
+                }
+                return false;
+            },
+
+            /**
+             * This method should only be overridden if necessary to prepare raw values
+             * for validation (see {@link #validate} and {@link #isValid}).  This method
+             * is expected to return the processed value for the field which will
+             * be used for validation (see validateValue method).
+             * @param {Mixed} value
+             */
+            processValue: function (value) {
+                return value;
+            },
+
+            /**
+             * @private
+             * Subclasses should provide the validation implementation by overriding this
+             * @param {Mixed} value
+             */
+            validateValue: function (value) {
+                return true;
+            }
+        });
+
+    });
+});
+</pre>
+
+</div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/js/tabs.js"></script>
+</body>
+</html>
